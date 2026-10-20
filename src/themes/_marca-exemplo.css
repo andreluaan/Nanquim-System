@@ -1,0 +1,16 @@
+/* Modelo de marca de cliente: copie para themes/<cliente>.css e ajuste. Matiz/croma de um hex: https://oklch.com */
+
+[data-theme="marca-exemplo"] {
+  --ds-neutral-hue: 300;
+  --ds-neutral-chroma: 0.01;
+  --ds-accent-hue: 300;
+  --ds-accent-chroma: 0.14;
+  --ds-accent-lightness: 0.56;
+  --ds-on-accent: oklch(0.98 0.01 300);
+
+  /* Opcionais */
+  /* --ds-accent-9: #7c3aed; */
+  /* --ds-font-display: "Fonte da Marca", serif; */
+  /* --ds-font-body: "Fonte de Texto", sans-serif; */
+  /* --ds-radius-factor: 1.5; */
+}

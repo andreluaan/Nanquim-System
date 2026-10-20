@@ -1,0 +1,65 @@
+/* Camada 2: nomes por função. Componentes usam apenas estes tokens. */
+
+:root,
+[data-mode],
+[data-theme] {
+  --ds-color-bg: var(--ds-neutral-1);
+  --ds-color-surface: var(--ds-neutral-2);
+  --ds-color-surface-raised: var(--ds-neutral-3);
+  --ds-color-surface-hover: var(--ds-neutral-4);
+  --ds-color-surface-active: var(--ds-neutral-5);
+
+  --ds-color-border-subtle: var(--ds-neutral-4);
+  --ds-color-border: var(--ds-neutral-6);
+  --ds-color-border-strong: var(--ds-neutral-8);
+
+  --ds-color-text: var(--ds-neutral-12);
+  --ds-color-text-muted: var(--ds-neutral-11);
+  --ds-color-text-subtle: var(--ds-neutral-9);
+
+  --ds-color-accent: var(--ds-accent-9);
+  --ds-color-accent-hover: var(--ds-accent-10);
+  --ds-color-accent-soft: var(--ds-accent-3);
+  --ds-color-accent-border: var(--ds-accent-7);
+  --ds-color-accent-text: var(--ds-accent-11);
+  --ds-color-on-accent: var(--ds-on-accent);
+
+  --ds-color-focus: var(--ds-accent-8);
+  --ds-focus-ring: 0 0 0 2px var(--ds-color-bg), 0 0 0 4px var(--ds-color-focus);
+
+  --ds-color-success-soft: oklch(var(--ds-accent-l3) calc(var(--ds-status-chroma) * 0.35) var(--ds-success-hue));
+  --ds-color-success-border: oklch(var(--ds-accent-l6) calc(var(--ds-status-chroma) * 0.65) var(--ds-success-hue));
+  --ds-color-success: oklch(0.68 var(--ds-status-chroma) var(--ds-success-hue));
+  --ds-color-success-text: oklch(var(--ds-accent-l11) calc(var(--ds-status-chroma) * 0.8) var(--ds-success-hue));
+
+  --ds-color-warning-soft: oklch(var(--ds-accent-l3) calc(var(--ds-status-chroma) * 0.35) var(--ds-warning-hue));
+  --ds-color-warning-border: oklch(var(--ds-accent-l6) calc(var(--ds-status-chroma) * 0.65) var(--ds-warning-hue));
+  --ds-color-warning: oklch(0.8 var(--ds-status-chroma) var(--ds-warning-hue));
+  --ds-color-warning-text: oklch(var(--ds-accent-l11) calc(var(--ds-status-chroma) * 0.8) var(--ds-warning-hue));
+
+  --ds-color-danger-soft: oklch(var(--ds-accent-l3) calc(var(--ds-status-chroma) * 0.35) var(--ds-danger-hue));
+  --ds-color-danger-border: oklch(var(--ds-accent-l6) calc(var(--ds-status-chroma) * 0.65) var(--ds-danger-hue));
+  --ds-color-danger: oklch(0.62 calc(var(--ds-status-chroma) * 1.3) var(--ds-danger-hue));
+  --ds-color-danger-text: oklch(var(--ds-accent-l11) calc(var(--ds-status-chroma) * 0.8) var(--ds-danger-hue));
+
+  --ds-color-info-soft: oklch(var(--ds-accent-l3) calc(var(--ds-status-chroma) * 0.35) var(--ds-info-hue));
+  --ds-color-info-border: oklch(var(--ds-accent-l6) calc(var(--ds-status-chroma) * 0.65) var(--ds-info-hue));
+  --ds-color-info: oklch(0.66 var(--ds-status-chroma) var(--ds-info-hue));
+  --ds-color-info-text: oklch(var(--ds-accent-l11) calc(var(--ds-status-chroma) * 0.8) var(--ds-info-hue));
+
+  --ds-shadow-sm: inset 0 1px 0 var(--ds-highlight),
+    0 1px 2px hsl(var(--ds-shadow-color) / calc(var(--ds-shadow-strength) * 0.6));
+  --ds-shadow-md: inset 0 1px 0 var(--ds-highlight),
+    0 4px 12px -2px hsl(var(--ds-shadow-color) / var(--ds-shadow-strength)),
+    0 2px 4px -2px hsl(var(--ds-shadow-color) / calc(var(--ds-shadow-strength) * 0.6));
+  --ds-shadow-lg: inset 0 1px 0 var(--ds-highlight),
+    0 16px 40px -8px hsl(var(--ds-shadow-color) / calc(var(--ds-shadow-strength) * 1.2)),
+    0 4px 12px -4px hsl(var(--ds-shadow-color) / var(--ds-shadow-strength));
+}
+
+/* No claro, a lógica inverte: fundo levemente acinzentado, superfícies brancas. */
+[data-mode="light"] {
+  --ds-color-bg: var(--ds-neutral-2);
+  --ds-color-surface: var(--ds-neutral-1);
+  --ds-color-surface-raised: var(--ds-neutral-1);
+}

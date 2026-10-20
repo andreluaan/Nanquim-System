@@ -1,0 +1,73 @@
+/* Camada 3: propostas de identidade da casa, ainda em avaliação. */
+
+[data-theme="grafite"] {
+  --ds-neutral-hue: 70;
+  --ds-neutral-chroma: 0.006;
+  --ds-accent-hue: 75;
+  --ds-accent-chroma: 0.12;
+  --ds-accent-lightness: 0.78;
+  --ds-on-accent: oklch(0.2 0.03 75);
+}
+
+[data-theme="ardosia"] {
+  --ds-neutral-hue: 230;
+  --ds-neutral-chroma: 0.01;
+  --ds-accent-hue: 155;
+  --ds-accent-chroma: 0.07;
+  --ds-accent-lightness: 0.75;
+  --ds-on-accent: oklch(0.2 0.03 155);
+}
+
+[data-theme="terracota"] {
+  --ds-neutral-hue: 40;
+  --ds-neutral-chroma: 0.008;
+  --ds-accent-hue: 40;
+  --ds-accent-chroma: 0.12;
+  --ds-accent-lightness: 0.58;
+  --ds-on-accent: oklch(0.98 0.01 40);
+}
+
+[data-theme="aco"] {
+  --ds-neutral-hue: 255;
+  --ds-neutral-chroma: 0.012;
+  --ds-accent-hue: 250;
+  --ds-accent-chroma: 0.09;
+  --ds-accent-lightness: 0.75;
+  --ds-on-accent: oklch(0.18 0.03 250);
+}
+
+[data-font="editorial"] {
+  --ds-font-display: "Fraunces", Georgia, serif;
+  --ds-font-body: "Inter", system-ui, sans-serif;
+  --ds-font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+[data-font="moderno"] {
+  --ds-font-display: "Geist", system-ui, sans-serif;
+  --ds-font-body: "Geist", system-ui, sans-serif;
+  --ds-font-mono: "Geist Mono", ui-monospace, monospace;
+}
+
+[data-font="classico"] {
+  --ds-font-display: "Instrument Serif", Georgia, serif;
+  --ds-font-body: "DM Sans", system-ui, sans-serif;
+  --ds-font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+[data-font="tecnico"] {
+  --ds-font-display: "Space Grotesk", system-ui, sans-serif;
+  --ds-font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --ds-font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+[data-radius="reto"] {
+  --ds-radius-factor: 0.25;
+}
+
+[data-radius="suave"] {
+  --ds-radius-factor: 1;
+}
+
+[data-radius="arredondado"] {
+  --ds-radius-factor: 1.75;
+}
