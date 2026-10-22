@@ -9,6 +9,7 @@ export const OPTIONS = {
       { id: 'ardosia', name: 'Ardósia & Sálvia', desc: 'Frio, calmo, natural', swatch: ['oklch(0.175 0.01 230)', 'oklch(0.3 0.01 230)', 'oklch(0.75 0.07 155)'] },
       { id: 'terracota', name: 'Carvão & Terracota', desc: 'Terroso, sofisticado', swatch: ['oklch(0.175 0.008 40)', 'oklch(0.3 0.008 40)', 'oklch(0.54 0.12 40)'] },
       { id: 'aco', name: 'Noite & Aço', desc: 'Técnico, confiável', swatch: ['oklch(0.175 0.012 255)', 'oklch(0.3 0.012 255)', 'oklch(0.75 0.09 250)'] },
+      { id: 'neutro', name: 'Neutro', desc: 'Preto, branco e cinzas', swatch: ['oklch(0.175 0 0)', 'oklch(0.3 0 0)', 'oklch(0.92 0 0)'] },
       { id: 'marca-exemplo', name: 'Marca de cliente', desc: 'Exemplo de rebrand', swatch: ['oklch(0.175 0.01 300)', 'oklch(0.3 0.01 300)', 'oklch(0.56 0.14 300)'] },
     ],
   },

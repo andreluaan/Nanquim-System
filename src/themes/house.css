@@ -36,6 +36,21 @@
   --ds-on-accent: oklch(0.18 0.03 250);
 }
 
+[data-theme="neutro"] {
+  --ds-neutral-hue: 0;
+  --ds-neutral-chroma: 0;
+  --ds-accent-hue: 0;
+  --ds-accent-chroma: 0;
+  --ds-accent-lightness: 0.92;
+  --ds-on-accent: oklch(0.18 0 0);
+}
+
+/* Sem cor, o destaque precisa inverter com o modo: branco no escuro, preto no claro. */
+[data-theme="neutro"][data-mode="light"] {
+  --ds-accent-lightness: 0.38;
+  --ds-on-accent: oklch(0.98 0 0);
+}
+
 [data-font="editorial"] {
   --ds-font-display: "Fraunces", Georgia, serif;
   --ds-font-body: "Inter", system-ui, sans-serif;
