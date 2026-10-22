@@ -26,3 +26,4 @@ para posts (LinkedIn, portfólio).
 | 004 | 2026-10-22 | [Tema Nanquim e apresentação](004-tema-nanquim.md) | Identidade tinta e papel como padrão; página de conceito com ilustrações em SVG |
 | 005 | 2026-10-22 | [Profundidade e modo claro](005-profundidade-modo-claro.md) | Neutros com mais cor no claro, sidebar como camada, sombras mais presentes |
 | 006 | 2026-10-22 | [Ícones e o primeiro Web Component](006-icones.md) | 53 ícones com traço de pena, `<ds-icon>` com tamanhos e espessuras, busca em português |
+| 007 | 2026-10-22 | [Badges e cards](007-badges-cards.md) | 6 tons × 3 aparências de badge; card com anatomia, 4 variantes e 5 exemplos reais |
