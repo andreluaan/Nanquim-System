@@ -1,7 +1,8 @@
 const ITEMS = [
   { name: 'Fundações (cores, tipografia, espaço, elevação, movimento)', status: 'feito' },
-  { name: 'Escolher a identidade da casa', status: 'agora' },
-  { name: 'Ícones (set próprio em SVG)', status: 'próximo' },
+  { name: 'Identidade da casa: tema Nanquim', status: 'feito' },
+  { name: 'Página de apresentação do conceito', status: 'feito' },
+  { name: 'Ícones (set próprio em SVG)', status: 'agora' },
   { name: 'Botões e botões de ícone', status: 'feito' },
   { name: 'Badges e cards', status: 'depois' },
   { name: 'Campos de formulário', status: 'depois' },

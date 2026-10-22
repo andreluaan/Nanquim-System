@@ -41,7 +41,7 @@ function highlightNav() {
   });
 }
 
-const currentId = () => location.hash.slice(1) || 'inicio';
+const currentId = () => location.hash.slice(1) || 'apresentacao';
 
 function render() {
   const page = pages.find((p) => p.id === currentId()) ?? pages[0];
