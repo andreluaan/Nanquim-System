@@ -61,3 +61,25 @@ Grade comparativa das paletas no modo claro, depois da correção:
 > **"Meu modo claro estava legível, mas sem alma."** Todas as paletas viravam o mesmo quase-branco. A correção foi uma
 > variável: no claro, os neutros recebem 1.8× mais cor. Agora o papel parece papel, e a troca de marca aparece.
 > Print sugerido: a grade com as 6 paletas no modo claro.
+
+## Ajuste fino por paleta (mesmo dia)
+Feedback depois da primeira correção: "Ardósia muito forte e azul, sendo que a paleta não tem azul; Carvão e Noite
+com o fundo forte demais".
+
+- **Cada paleta define a própria dose:** `--ds-neutral-tint` passou a ler `--ds-neutral-tint-light` do tema (o padrão continua 1.8). Terracota usa 0.9 e Aço usa 0.7.
+- **Ardósia sem azul:** o neutro saiu da matiz 230 (cinza-azulado, a pedra ardósia) e foi para 165 (cinza-esverdeado), alinhado ao destaque sálvia. O croma caiu de 0.01 para 0.007, com dose 1.2 no claro.
+
+| Paleta | Fundo claro antes | Depois |
+|---|---|---|
+| Ardósia | `#def2fc` → `#e8f3f8` (azulado) | `#eaf0ed` (cinza-esverdeado) |
+| Terracota | `#fbeae5` | `#f3edeb` |
+| Aço | `#e1f0ff` | `#ebeff4` |
+
+Contraste depois do ajuste: texto ≥ 5.03 e botões ≥ 4.73 nas três paletas, nos dois modos.
+
+**Aprendizado:** um multiplicador único não serve para todas as matizes. Azuis e vermelhos parecem mais saturados que
+amarelos com o mesmo croma, então cada paleta precisa de uma dose própria. E o neutro deve conversar com o destaque:
+cinza-azulado com destaque verde "briga".
+
+![](prints/2026-10-22_profundidade-modo-claro/51-comparativo-paletas-claro-ajustado.png)
+![](prints/2026-10-22_profundidade-modo-claro/52-comparativo-paletas-escuro.png)
