@@ -1,0 +1,193 @@
+.ds-btn {
+  --btn-height: var(--ds-space-10);
+  --btn-padding-x: var(--ds-space-4);
+  --btn-font-size: var(--ds-text-sm);
+  --btn-bg: var(--ds-color-surface-raised);
+  --btn-bg-hover: var(--ds-color-surface-hover);
+  --btn-color: var(--ds-color-text);
+  --btn-border: var(--ds-color-border);
+  --btn-border-hover: var(--ds-color-border-strong);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-2);
+  height: var(--btn-height);
+  padding-inline: var(--btn-padding-x);
+  border: 1px solid var(--btn-border);
+  border-radius: var(--ds-radius-md);
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  font-family: var(--ds-font-body);
+  font-size: var(--btn-font-size);
+  font-weight: var(--ds-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-ease-out),
+    border-color var(--ds-duration-fast) var(--ds-ease-out),
+    color var(--ds-duration-fast) var(--ds-ease-out),
+    transform var(--ds-duration-fast) var(--ds-ease-out);
+}
+
+.ds-btn:hover {
+  background: var(--btn-bg-hover);
+  border-color: var(--btn-border-hover);
+}
+
+.ds-btn:active {
+  transform: scale(0.98);
+}
+
+.ds-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--ds-focus-ring);
+}
+
+.ds-btn svg {
+  width: 1.15em;
+  height: 1.15em;
+  flex-shrink: 0;
+}
+
+.ds-btn--primary {
+  --btn-bg: var(--ds-color-accent);
+  --btn-bg-hover: var(--ds-color-accent-hover);
+  --btn-color: var(--ds-color-on-accent);
+  --btn-border: transparent;
+  --btn-border-hover: transparent;
+}
+
+.ds-btn--secondary {
+  --btn-bg: var(--ds-color-surface-raised);
+  --btn-bg-hover: var(--ds-color-surface-hover);
+}
+
+.ds-btn--outline {
+  --btn-bg: transparent;
+  --btn-bg-hover: var(--ds-color-surface-hover);
+}
+
+.ds-btn--ghost {
+  --btn-bg: transparent;
+  --btn-bg-hover: var(--ds-color-surface-hover);
+  --btn-color: var(--ds-color-text-muted);
+  --btn-border: transparent;
+  --btn-border-hover: transparent;
+}
+
+.ds-btn--ghost:hover {
+  color: var(--ds-color-text);
+}
+
+.ds-btn--soft {
+  --btn-bg: var(--ds-color-accent-soft);
+  --btn-bg-hover: var(--ds-color-accent-soft-hover);
+  --btn-color: var(--ds-color-accent-text);
+  --btn-border: transparent;
+  --btn-border-hover: transparent;
+}
+
+.ds-btn--danger {
+  --btn-bg: var(--ds-color-danger);
+  --btn-bg-hover: var(--ds-color-danger-hover);
+  --btn-color: var(--ds-color-on-danger);
+  --btn-border: transparent;
+  --btn-border-hover: transparent;
+}
+
+.ds-btn--link {
+  --btn-height: auto;
+  --btn-padding-x: 0;
+  --btn-bg: transparent;
+  --btn-bg-hover: transparent;
+  --btn-color: var(--ds-color-accent-text);
+  --btn-border: transparent;
+  --btn-border-hover: transparent;
+  text-underline-offset: 0.25em;
+}
+
+.ds-btn--link:hover {
+  text-decoration: underline;
+}
+
+.ds-btn--link:active {
+  transform: none;
+}
+
+.ds-btn--sm {
+  --btn-height: var(--ds-space-8);
+  --btn-padding-x: var(--ds-space-3);
+  gap: var(--ds-space-1);
+  border-radius: var(--ds-radius-sm);
+}
+
+.ds-btn--lg {
+  --btn-height: var(--ds-space-12);
+  --btn-padding-x: var(--ds-space-6);
+  --btn-font-size: var(--ds-text-md);
+  border-radius: var(--ds-radius-lg);
+}
+
+.ds-btn--icon {
+  width: var(--btn-height);
+  padding-inline: 0;
+}
+
+.ds-btn--block {
+  width: 100%;
+}
+
+.ds-btn:disabled,
+.ds-btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* O texto fica transparente (e não oculto) para o botão manter a largura enquanto carrega. */
+.ds-btn[aria-busy="true"] {
+  color: transparent;
+  pointer-events: none;
+}
+
+.ds-btn[aria-busy="true"]::after {
+  content: "";
+  position: absolute;
+  width: 1.1em;
+  height: 1.1em;
+  border: 2px solid var(--btn-color);
+  border-right-color: transparent;
+  border-radius: var(--ds-radius-full);
+  animation: ds-btn-spin 700ms linear infinite;
+}
+
+@keyframes ds-btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ds-btn-group {
+  display: inline-flex;
+}
+
+.ds-btn-group > .ds-btn:not(:first-child) {
+  margin-left: -1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.ds-btn-group > .ds-btn:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.ds-btn-group > .ds-btn:hover,
+.ds-btn-group > .ds-btn:focus-visible {
+  z-index: 1;
+}

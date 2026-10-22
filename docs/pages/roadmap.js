@@ -2,7 +2,7 @@ const ITEMS = [
   { name: 'Fundações (cores, tipografia, espaço, elevação, movimento)', status: 'feito' },
   { name: 'Escolher a identidade da casa', status: 'agora' },
   { name: 'Ícones (set próprio em SVG)', status: 'próximo' },
-  { name: 'Botões e botões de ícone', status: 'próximo' },
+  { name: 'Botões e botões de ícone', status: 'feito' },
   { name: 'Badges e cards', status: 'depois' },
   { name: 'Campos de formulário', status: 'depois' },
   { name: 'Carrossel e slides', status: 'depois' },

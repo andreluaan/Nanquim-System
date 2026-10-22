@@ -262,3 +262,34 @@ body { transition: background-color var(--ds-duration-base) var(--ds-ease-out); 
 /* Modo print (?print): sem animação de entrada, para capturas limpas */
 [data-print] .doc-page { animation: none; }
 [data-print] *, [data-print] *::before, [data-print] *::after { transition: none !important; }
+
+.doc-segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-surface);
+}
+
+.doc-segmented button {
+  padding: var(--ds-space-1) var(--ds-space-3);
+  border: 0;
+  border-radius: var(--ds-radius-sm);
+  background: none;
+  color: var(--ds-color-text-muted);
+  font-size: var(--ds-text-sm);
+  font-family: inherit;
+  cursor: pointer;
+  transition: background var(--ds-duration-fast), color var(--ds-duration-fast);
+}
+
+.doc-segmented button:hover {
+  color: var(--ds-color-text);
+}
+
+.doc-segmented button[aria-checked="true"] {
+  background: var(--ds-color-surface-active);
+  color: var(--ds-color-text);
+}

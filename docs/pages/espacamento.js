@@ -35,7 +35,7 @@ export default {
       <h2>Experimente: respiro de um card</h2>
       <p>O mesmo card com espaçamentos internos diferentes. Repare como o maior parece mais "premium".</p>
       <div class="space-try">
-        <div class="space-try-controls" role="radiogroup" aria-label="Espaço interno">
+        <div class="doc-segmented" role="radiogroup" aria-label="Espaço interno">
           ${PAD_OPTIONS.map((p, i) => `<button role="radio" aria-checked="${i === 2}" data-pad="${p}">space-${p}</button>`).join('')}
         </div>
         <div class="space-try-card" data-card style="padding: var(--ds-space-6)">
@@ -69,7 +69,7 @@ export default {
 
   mount(el) {
     const card = el.querySelector('[data-card]');
-    el.querySelector('.space-try-controls').addEventListener('click', (e) => {
+    el.querySelector('.doc-segmented').addEventListener('click', (e) => {
       const btn = e.target.closest('[data-pad]');
       if (!btn) return;
       el.querySelectorAll('[data-pad]').forEach((b) => b.setAttribute('aria-checked', String(b === btn)));
