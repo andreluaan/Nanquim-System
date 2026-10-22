@@ -18,7 +18,7 @@ Processo contínuo: componentes e variantes são adicionados aos poucos, junto c
 
 ## Documentação (`docs/`)
 - `npm run dev` (Vite). Shell em `docs/main.js`; páginas em `docs/pages/<id>.js` exportando `{ id, group, title, lead, keywords, render(), mount?(el), rerenderOnThemeChange? }`; registrar em `docs/registry.js`.
-- Helpers em `docs/utils.js`: `code()`, `doDont()`, `copy()`, `contrast()`; ícones em `docs/icons.js` (`icon(nome)`); controle segmentado `.doc-segmented`. Qualquer elemento com `data-copy="..."` copia ao clicar.
+- Helpers em `docs/utils.js`: `code()`, `doDont()`, `copy()`, `contrast()`; ícones via `iconSvg(nome)` de `src/icons/icons.js` (string) ou `<ds-icon>`; controle segmentado `.doc-segmented`. Qualquer elemento com `data-copy="..."` copia ao clicar.
 - Para medir contraste via JS, ligar `data-print` no `<html>` antes (senão as transições distorcem as cores).
 - CSS: shell em `docs/docs.css` (prefixo `doc-`/`lab-`), páginas em `docs/pages.css`.
 - Ao concluir um item, atualizar `docs/pages/roadmap.js` e este arquivo.
@@ -46,8 +46,9 @@ O usuário quer a evolução documentada (memória do projeto + matéria-prima p
 - A URL aceita `?theme=&font=&radius=&mode=` (e `?lab` para abrir o Laboratório, `?print` sem animações).
 
 ## Estado atual
-- Feito: fundações (cores, tipografia, espaço & cantos, elevação, movimento), Laboratório de identidade, botões (`ds-btn`).
+- Feito: fundações (cores, tipografia, espaço & cantos, elevação, movimento), Laboratório de identidade, botões (`ds-btn`), ícones (`src/icons/icons.js` + `<ds-icon>`, 53 ícones).
+- Componentes interativos entram por `src/index.js` (importado pela documentação em `docs/main.js`). Ícones novos: adicionar em `ICONS` e em `ICON_CATEGORIES`, com palavras-chave em `docs/pages/icones.js`.
 - Documentação publicada: https://andreluaan.github.io/Nanquim-System/ (GitHub Pages, branch main).
 - Identidade da casa: **tema Nanquim** (`src/themes/nanquim.css`), padrão sem `data-theme`. Escuro = tinta (neutros matiz 265, destaque marfim); claro = papel (neutros matiz 85, destaque tinta). As outras paletas em `house.css` ficam como alternativas e exemplos de rebrand.
 - Página de abertura da documentação: `apresentacao` (conceito). Ilustrações em SVG em `docs/illustrations.js`.
-- Próximo: set de ícones próprio.
+- Próximo: badges e cards (v0.5.0).
