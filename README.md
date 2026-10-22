@@ -17,6 +17,9 @@ npm run dev
 ```html
 <link rel="stylesheet" href="caminho/design-system/src/index.css">
 <html data-theme="nanquim" data-font="editorial" data-radius="suave" data-mode="dark">
+
+<!-- componentes interativos, como <ds-icon> -->
+<script type="module" src="caminho/design-system/src/index.js"></script>
 ```
 
 ```css

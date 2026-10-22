@@ -1,5 +1,5 @@
 import { code, doDont, escapeHtml } from '../utils.js';
-import { icon } from '../icons.js';
+import { iconSvg as icon } from '../../src/icons/icons.js';
 
 const VARIANTS = [
   { id: 'primary', name: 'Principal', use: 'A ação mais importante da tela: "Comprar", "Enviar", "Começar". Uma por área.' },
@@ -36,7 +36,7 @@ function buttonHtml({ variant, size, icon: iconPosition, state, label }, { forCo
   if (state === 'loading') attrs.push('aria-busy="true"');
   if (state === 'disabled') attrs.push('disabled');
 
-  const svg = forCode ? '<svg>…</svg>' : icon(iconPosition === 'right' ? 'arrowRight' : 'plus');
+  const svg = forCode ? '<svg>…</svg>' : icon(iconPosition === 'right' ? 'arrow-right' : 'plus');
   const text = escapeHtml(label);
   const content = {
     none: text,
@@ -123,11 +123,11 @@ export default {
       <div class="doc-demo btn-row">
         <button class="ds-btn ds-btn--primary">${icon('plus')} Novo projeto</button>
         <button class="ds-btn ds-btn--secondary">${icon('download')} Baixar</button>
-        <button class="ds-btn ds-btn--ghost">Continuar ${icon('arrowRight')}</button>
+        <button class="ds-btn ds-btn--ghost">Continuar ${icon('arrow-right')}</button>
         <span class="btn-divider" aria-hidden="true"></span>
         <button class="ds-btn ds-btn--ghost ds-btn--icon" aria-label="Curtir">${icon('heart')}</button>
         <button class="ds-btn ds-btn--outline ds-btn--icon" aria-label="Compartilhar">${icon('share')}</button>
-        <button class="ds-btn ds-btn--soft ds-btn--icon" aria-label="Configurações">${icon('settings')}</button>
+        <button class="ds-btn ds-btn--soft ds-btn--icon" aria-label="Configurações">${icon('sliders')}</button>
       </div>
     </section>
 

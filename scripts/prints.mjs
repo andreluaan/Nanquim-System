@@ -32,6 +32,7 @@ const SHOTS = [
   ['06-movimento', 'movimento', {}, DESKTOP],
   ['07-roadmap', 'roadmap', {}, DESKTOP],
   ['08-botoes', 'botoes', {}, DESKTOP],
+  ['09-icones', 'icones', {}, DESKTOP],
   ['10-laboratorio', 'inicio', { lab: '' }, DESKTOP],
   ['11-paleta-grafite', 'cores', { theme: 'grafite' }, DESKTOP],
   ['12-paleta-ardosia', 'cores', { theme: 'ardosia', font: 'moderno' }, DESKTOP],
@@ -48,6 +49,7 @@ const SHOTS = [
   ['30-mobile-inicio', 'inicio', {}, MOBILE],
   ['31-mobile-cores', 'cores', {}, MOBILE],
   ['32-mobile-botoes', 'botoes', {}, MOBILE],
+  ['33-mobile-icones', 'icones', {}, MOBILE],
   ['40-apresentacao-completa', 'apresentacao', {}, FULL_PAGE],
 ];
 

@@ -300,3 +300,13 @@ body { transition: background-color var(--ds-duration-base) var(--ds-ease-out); 
   background: var(--ds-color-surface-active);
   color: var(--ds-color-text);
 }
+
+.doc-demo + .doc-dodont,
+.doc-demo + .doc-code {
+  margin-top: var(--ds-space-4);
+}
+
+.doc-content code,
+.doc-content pre {
+  font-variant-ligatures: none;
+}

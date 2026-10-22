@@ -1,3 +1,4 @@
+import '../src/index.js';
 import { pages, groups } from './registry.js';
 import { mountLab, restore, onChange } from './lab.js';
 import { copy } from './utils.js';
