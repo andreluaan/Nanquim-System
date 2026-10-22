@@ -33,6 +33,8 @@ const SHOTS = [
   ['07-roadmap', 'roadmap', {}, DESKTOP],
   ['08-botoes', 'botoes', {}, DESKTOP],
   ['09-icones', 'icones', {}, DESKTOP],
+  ['09b-badges', 'badges', {}, DESKTOP],
+  ['09c-cards', 'cards', {}, DESKTOP],
   ['10-laboratorio', 'inicio', { lab: '' }, DESKTOP],
   ['11-paleta-grafite', 'cores', { theme: 'grafite' }, DESKTOP],
   ['12-paleta-ardosia', 'cores', { theme: 'ardosia', font: 'moderno' }, DESKTOP],
@@ -50,6 +52,7 @@ const SHOTS = [
   ['31-mobile-cores', 'cores', {}, MOBILE],
   ['32-mobile-botoes', 'botoes', {}, MOBILE],
   ['33-mobile-icones', 'icones', {}, MOBILE],
+  ['34-mobile-cards', 'cards', {}, MOBILE],
   ['40-apresentacao-completa', 'apresentacao', {}, FULL_PAGE],
 ];
 

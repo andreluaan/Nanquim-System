@@ -20,7 +20,7 @@ const paper = (id) => `
 export function inkDrop() {
   const id = 'ill-drop';
   return `
-    <svg viewBox="0 0 400 300" role="img" aria-label="Gota de nanquim sobre papel">
+    <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Gota de nanquim sobre papel">
       <defs>${roughEdge(id, 10)}${paperGrain(id)}</defs>
       ${paper(id)}
       <g fill="${INK}" filter="url(#${id}-rough)">
@@ -37,7 +37,7 @@ export function inkDrop() {
 export function brushStroke() {
   const id = 'ill-brush';
   return `
-    <svg viewBox="0 0 400 300" role="img" aria-label="Pincelada de nanquim">
+    <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Pincelada de nanquim">
       <defs>${roughEdge(id, 7, '0.015 0.2')}${paperGrain(id)}</defs>
       ${paper(id)}
       <g fill="none" stroke="${INK}" stroke-linecap="round" filter="url(#${id}-rough)">
@@ -52,7 +52,7 @@ export function inkWash() {
   const dilutions = [0.08, 0.16, 0.28, 0.42, 0.6, 0.8, 1];
   const bandWidth = 400 / dilutions.length;
   return `
-    <svg viewBox="0 0 400 300" role="img" aria-label="Aguada: a mesma tinta em diluições diferentes">
+    <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Aguada: a mesma tinta em diluições diferentes">
       <defs>${roughEdge(id, 12)}${paperGrain(id)}</defs>
       ${paper(id)}
       <g fill="${INK}" filter="url(#${id}-rough)">
@@ -65,7 +65,7 @@ export function inkWash() {
 
 export function enso({ id = 'ill-enso', color = INK, withPaper = true, animated = false } = {}) {
   return `
-    <svg viewBox="0 0 400 300" role="img" aria-label="Ensō, o círculo desenhado em uma única pincelada">
+    <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ensō, o círculo desenhado em uma única pincelada">
       <defs>${roughEdge(id, 9)}${paperGrain(id)}</defs>
       ${withPaper ? paper(id) : ''}
       <circle class="${animated ? 'ill-enso-draw' : ''}" cx="200" cy="150" r="96" fill="none"

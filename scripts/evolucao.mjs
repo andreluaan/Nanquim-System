@@ -29,6 +29,8 @@ const SHOTS = [
   ['02-cores', 'cores', {}, DESKTOP],
   ['03-botoes', 'botoes', {}, DESKTOP],
   ['03b-icones', 'icones', {}, DESKTOP],
+  ['03c-badges', 'badges', {}, DESKTOP],
+  ['03d-cards', 'cards', {}, DESKTOP],
   ['04-modo-claro', '', { mode: 'light' }, DESKTOP],
   ['05-laboratorio', '', { lab: '' }, DESKTOP],
   ['06-mobile', '', {}, MOBILE],

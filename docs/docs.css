@@ -128,7 +128,7 @@ body { transition: background-color var(--ds-duration-base) var(--ds-ease-out); 
 .doc-section { margin-top: var(--ds-space-16); }
 .doc-section > h2 { font-size: var(--ds-text-2xl); font-weight: var(--ds-weight-medium); margin-bottom: var(--ds-space-2); }
 .doc-section > p { color: var(--ds-color-text-muted); max-width: 65ch; margin-bottom: var(--ds-space-6); }
-.doc-section h3 { font-family: var(--ds-font-body); font-size: var(--ds-text-sm); font-weight: var(--ds-weight-semibold); letter-spacing: 0; margin: var(--ds-space-8) 0 var(--ds-space-3); }
+.doc-section h3:not([class*="ds-"]) { font-family: var(--ds-font-body); font-size: var(--ds-text-sm); font-weight: var(--ds-weight-semibold); letter-spacing: 0; margin: var(--ds-space-8) 0 var(--ds-space-3); }
 
 .doc-content code:not(pre code) {
   padding: 1px 6px; font-size: 0.85em; border-radius: var(--ds-radius-xs);
