@@ -6,7 +6,7 @@ Processo contínuo: componentes e variantes são adicionados aos poucos, junto c
 ## Arquitetura (3 camadas de tokens, prefixo `--ds-`)
 1. **Primitivos** `src/tokens/primitives.css`: escalas OKLCH de 12 passos (`--ds-neutral-1..12`, `--ds-accent-1..12`) geradas a partir de `--ds-neutral-hue/--ds-neutral-chroma/--ds-accent-hue/--ds-accent-chroma/--ds-accent-lightness`; espaço (`--ds-space-N`, base 4px), raio (`--ds-radius-xs..xl|full` × `--ds-radius-factor`), tipo (`--ds-text-xs..6xl`, `--ds-font-display|body|mono`), movimento (`--ds-duration-*`, `--ds-ease-*`), z-index.
 2. **Semânticos** `src/tokens/semantic.css`: `--ds-color-bg|surface|surface-raised|surface-hover|surface-active`, `border-subtle|border|border-strong`, `text|text-muted|text-subtle`, `accent|accent-hover|accent-soft|accent-border|accent-text|on-accent`, `focus`, `--ds-focus-ring`, status `success|warning|danger|info` (+`-soft`, `-border`, `-text`), `--ds-shadow-sm|md|lg`.
-3. **Temas** `src/themes/`: selecionados por atributos no `<html>`: `data-theme`, `data-font` (editorial|moderno|classico|tecnico), `data-radius` (reto|suave|arredondado), `data-mode` (dark|light). Marca de cliente = copiar `_marca-exemplo.css`.
+3. **Temas** `src/themes/` (`nanquim.css` é o padrão): selecionados por atributos no `<html>`: `data-theme`, `data-font` (editorial|moderno|classico|tecnico), `data-radius` (reto|suave|arredondado), `data-mode` (dark|light). Marca de cliente = copiar `_marca-exemplo.css`.
 
 ## Regras de código
 - **Prioridade: legibilidade.** Nomes que se explicam sozinhos, código padronizado (uma propriedade por linha em CSS, 2 espaços, aspas simples em JS), comentários só quando explicam um *porquê* não óbvio. Nada de banners ou comentários que repetem o código.
@@ -43,4 +43,6 @@ O usuário quer a evolução documentada (memória do projeto + matéria-prima p
 ## Estado atual
 - Feito: fundações (cores, tipografia, espaço & cantos, elevação, movimento), Laboratório de identidade, botões (`ds-btn`).
 - Documentação publicada: https://andreluaan.github.io/Nanquim-System/ (GitHub Pages, branch main).
-- Em aberto: identidade da casa ainda **não escolhida** (5 propostas em `src/themes/house.css`: grafite, ardosia, terracota, aco, neutro).
+- Identidade da casa: **tema Nanquim** (`src/themes/nanquim.css`), padrão sem `data-theme`. Escuro = tinta (neutros matiz 265, destaque marfim); claro = papel (neutros matiz 85, destaque tinta). As outras paletas em `house.css` ficam como alternativas e exemplos de rebrand.
+- Página de abertura da documentação: `apresentacao` (conceito). Ilustrações em SVG em `docs/illustrations.js`.
+- Próximo: set de ícones próprio.

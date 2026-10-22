@@ -20,8 +20,10 @@ if (!browser) throw new Error('Nenhum Chrome/Edge encontrado. Defina BROWSER_PAT
 
 const DESKTOP = [1440, 900];
 const MOBILE = [390, 844];
+const FULL_PAGE = [1440, 4200];
 
 const SHOTS = [
+  ['00-apresentacao', 'apresentacao', {}, DESKTOP],
   ['01-inicio', 'inicio', {}, DESKTOP],
   ['02-cores', 'cores', {}, DESKTOP],
   ['03-tipografia', 'tipografia', {}, DESKTOP],
@@ -39,11 +41,14 @@ const SHOTS = [
   ['18-paleta-neutro-claro', 'botoes', { theme: 'neutro', font: 'moderno', mode: 'light' }, DESKTOP],
   ['15-marca-cliente', 'inicio', { theme: 'marca-exemplo' }, DESKTOP],
   ['16-botoes-terracota-claro', 'botoes', { theme: 'terracota', mode: 'light', radius: 'arredondado' }, DESKTOP],
+  ['19-apresentacao-papel', 'apresentacao', { mode: 'light' }, DESKTOP],
   ['20-modo-claro', 'inicio', { mode: 'light' }, DESKTOP],
   ['21-modo-claro-elevacao', 'elevacao', { mode: 'light', theme: 'aco' }, DESKTOP],
+  ['29-mobile-apresentacao', 'apresentacao', {}, MOBILE],
   ['30-mobile-inicio', 'inicio', {}, MOBILE],
   ['31-mobile-cores', 'cores', {}, MOBILE],
   ['32-mobile-botoes', 'botoes', {}, MOBILE],
+  ['40-apresentacao-completa', 'apresentacao', {}, FULL_PAGE],
 ];
 
 try {
