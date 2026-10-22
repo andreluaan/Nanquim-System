@@ -8,14 +8,21 @@
 body { transition: background-color var(--ds-duration-base) var(--ds-ease-out); }
 
 /* --- Shell ------------------------------------------------------------- */
-.doc-shell { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+.doc-shell { display: grid; grid-template-columns: 272px 1fr; min-height: 100vh; }
 
 .doc-sidebar {
-  position: sticky; top: 0; height: 100vh; overflow-y: auto;
-  display: flex; flex-direction: column; gap: var(--ds-space-4);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-5);
   padding: var(--ds-space-6) var(--ds-space-4);
   border-right: 1px solid var(--ds-color-border-subtle);
-  background: var(--ds-color-bg);
+  background: var(--ds-color-surface);
+  box-shadow: 8px 0 32px -16px hsl(var(--ds-shadow-color) / var(--ds-shadow-strength));
 }
 
 .doc-brand {
@@ -35,7 +42,7 @@ body { transition: background-color var(--ds-duration-base) var(--ds-ease-out); 
 .doc-search input {
   width: 100%;
   padding: var(--ds-space-2) var(--ds-space-3);
-  background: var(--ds-color-surface);
+  background: var(--ds-color-bg);
   border: 1px solid var(--ds-color-border-subtle);
   border-radius: var(--ds-radius-md);
   font-size: var(--ds-text-sm);
@@ -52,14 +59,14 @@ body { transition: background-color var(--ds-duration-base) var(--ds-ease-out); 
 }
 .doc-nav-link {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 6px var(--ds-space-2);
+  padding: var(--ds-space-2) var(--ds-space-3);
   border-radius: var(--ds-radius-sm);
   color: var(--ds-color-text-muted); text-decoration: none; font-size: var(--ds-text-sm);
   transition: background var(--ds-duration-fast), color var(--ds-duration-fast);
 }
-.doc-nav-link:hover { background: var(--ds-color-surface); color: var(--ds-color-text); }
+.doc-nav-link:hover { background: var(--ds-color-surface-hover); color: var(--ds-color-text); }
 .doc-nav-link[aria-current] {
-  background: var(--ds-color-surface-raised); color: var(--ds-color-text);
+  background: var(--ds-color-surface-active); color: var(--ds-color-text); font-weight: var(--ds-weight-medium);
   box-shadow: inset 2px 0 0 var(--ds-color-accent);
 }
 .doc-nav-status {
