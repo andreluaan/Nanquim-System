@@ -29,16 +29,19 @@ const SHOTS = [
   ['05-elevacao', 'elevacao', {}, DESKTOP],
   ['06-movimento', 'movimento', {}, DESKTOP],
   ['07-roadmap', 'roadmap', {}, DESKTOP],
+  ['08-botoes', 'botoes', {}, DESKTOP],
   ['10-laboratorio', 'inicio', { lab: '' }, DESKTOP],
   ['11-paleta-grafite', 'cores', { theme: 'grafite' }, DESKTOP],
   ['12-paleta-ardosia', 'cores', { theme: 'ardosia', font: 'moderno' }, DESKTOP],
   ['13-paleta-terracota', 'cores', { theme: 'terracota', font: 'classico' }, DESKTOP],
   ['14-paleta-aco', 'cores', { theme: 'aco', font: 'tecnico' }, DESKTOP],
   ['15-marca-cliente', 'inicio', { theme: 'marca-exemplo' }, DESKTOP],
+  ['16-botoes-terracota-claro', 'botoes', { theme: 'terracota', mode: 'light', radius: 'arredondado' }, DESKTOP],
   ['20-modo-claro', 'inicio', { mode: 'light' }, DESKTOP],
   ['21-modo-claro-elevacao', 'elevacao', { mode: 'light', theme: 'aco' }, DESKTOP],
   ['30-mobile-inicio', 'inicio', {}, MOBILE],
   ['31-mobile-cores', 'cores', {}, MOBILE],
+  ['32-mobile-botoes', 'botoes', {}, MOBILE],
 ];
 
 try {

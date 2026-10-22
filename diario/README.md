@@ -19,3 +19,4 @@ para posts (LinkedIn, portfólio).
 | # | Data | Etapa | Destaque |
 |---|------|-------|----------|
 | 001 | 2026-10-20 | [Fundações e Laboratório de identidade](001-fundacoes.md) | Tokens em 3 camadas, 4 propostas de paleta, documentação interativa |
+| 002 | 2026-10-22 | [Botões, o primeiro componente](002-botoes.md) | 7 estilos, playground com código ao vivo, contraste testado em 70 combinações |

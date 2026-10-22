@@ -18,7 +18,8 @@ Processo contínuo: componentes e variantes são adicionados aos poucos, junto c
 
 ## Documentação (`docs/`)
 - `npm run dev` (Vite). Shell em `docs/main.js`; páginas em `docs/pages/<id>.js` exportando `{ id, group, title, lead, keywords, render(), mount?(el), rerenderOnThemeChange? }`; registrar em `docs/registry.js`.
-- Helpers em `docs/utils.js`: `code()`, `doDont()`, `copy()`, `contrast()`. Qualquer elemento com `data-copy="..."` copia ao clicar.
+- Helpers em `docs/utils.js`: `code()`, `doDont()`, `copy()`, `contrast()`; ícones em `docs/icons.js` (`icon(nome)`); controle segmentado `.doc-segmented`. Qualquer elemento com `data-copy="..."` copia ao clicar.
+- Para medir contraste via JS, ligar `data-print` no `<html>` antes (senão as transições distorcem as cores).
 - CSS: shell em `docs/docs.css` (prefixo `doc-`/`lab-`), páginas em `docs/pages.css`.
 - Ao concluir um item, atualizar `docs/pages/roadmap.js` e este arquivo.
 
@@ -40,5 +41,6 @@ O usuário quer a evolução documentada (memória do projeto + matéria-prima p
 - A URL aceita `?theme=&font=&radius=&mode=` (e `?lab` para abrir o Laboratório, `?print` sem animações).
 
 ## Estado atual
-- Feito: fundações (cores, tipografia, espaço & cantos, elevação, movimento) + Laboratório de identidade.
+- Feito: fundações (cores, tipografia, espaço & cantos, elevação, movimento), Laboratório de identidade, botões (`ds-btn`).
+- Documentação publicada: https://andreluaan.github.io/Nanquim-System/ (GitHub Pages, branch main).
 - Em aberto: identidade da casa ainda **não escolhida** (4 propostas em `src/themes/house.css`).
