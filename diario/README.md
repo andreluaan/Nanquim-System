@@ -14,6 +14,8 @@ para posts (LinkedIn, portfólio).
 2. Crie `diario/NNN-nome-da-etapa.md` a partir de [_modelo.md](_modelo.md).
 3. Adicione a linha na linha do tempo abaixo.
 
+**Evolução em fotos, versão a versão:** [EVOLUCAO.md](EVOLUCAO.md)
+
 ## Linha do tempo
 
 | # | Data | Etapa | Destaque |

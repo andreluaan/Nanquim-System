@@ -1,0 +1,127 @@
+# Evolução do Nanquim System
+
+Como o projeto mudou, versão a versão, em fotos. Cada versão tem uma **tag no git** (`git checkout v0.2.0` volta
+exatamente àquele estado), e todas as capturas abaixo foram feitas do mesmo jeito: mesmas telas, mesmo tamanho,
+geradas a partir do próprio histórico com `npm run evolucao`.
+
+**Documentação ao vivo:** https://andreluaan.github.io/Nanquim-System/
+
+## Linha do tempo
+
+| Versão | Data | Marco | Páginas | Componentes | Paletas |
+|---|---|---|---|---|---|
+| v0.0 | 2026-10-20 | Rascunho, ainda sem nome e sem git | 7 | 0 | 4 + marca de exemplo |
+| [v0.1.0](#v010--fundações) | 2026-10-20 | Fundações | 7 | 0 | 4 + marca de exemplo |
+| [v0.2.0](#v020--botões) | 2026-10-22 | Botões | 8 | 1 | 4 + marca de exemplo |
+| [v0.2.1](#v021--paleta-neutra) | 2026-10-22 | Paleta Neutra | 8 | 1 | 5 + marca de exemplo |
+| [v0.3.0](#v030--tema-nanquim) | 2026-10-22 | Identidade Nanquim | 9 | 1 | Nanquim + 5 + marca de exemplo |
+| [v0.3.1](#v031--profundidade-e-modo-claro) | 2026-10-22 | Profundidade e modo claro | 9 | 1 | Nanquim + 5 + marca de exemplo |
+
+### A mesma tela em cada versão
+
+**Abertura:**
+![](evolucao/linha-do-tempo-abertura.png)
+
+**Cores:**
+![](evolucao/linha-do-tempo-cores.png)
+
+**Modo claro:**
+![](evolucao/linha-do-tempo-modo-claro.png)
+
+---
+
+## v0.0 — Rascunho
+
+*Antes do primeiro commit.* O projeto ainda se chamava "design.system" e não tinha identidade: o objetivo era criar a
+estrutura e as ferramentas para escolher uma junto. Detalhes em [001-fundacoes.md](001-fundacoes.md).
+
+| Abertura | Laboratório de identidade |
+|---|---|
+| ![](prints/2026-10-20_fundacoes/01-inicio.png) | ![](prints/2026-10-20_fundacoes/10-laboratorio.png) |
+
+---
+
+## v0.1.0 — Fundações
+
+*2026-10-20 · tag `v0.1.0` · diário: [001](001-fundacoes.md)*
+
+- Tokens em 3 camadas (primitivos → semânticos → temas), com cores geradas em OKLCH a partir de 4 números
+- 4 propostas de paleta, 4 pares tipográficos, 3 estilos de cantos, modos escuro e claro
+- Documentação interativa: Cores, Tipografia, Espaço & Cantos, Elevação, Movimento e Roadmap
+- Laboratório de identidade, selo de contraste ao vivo e capturas automáticas (`npm run prints`)
+- Nome definido: **Nanquim System**. Repositório criado e documentação publicada no GitHub Pages.
+
+| Abertura | Cores |
+|---|---|
+| ![](evolucao/v0.1.0/01-abertura.png) | ![](evolucao/v0.1.0/02-cores.png) |
+| **Modo claro** | **Laboratório** |
+| ![](evolucao/v0.1.0/04-modo-claro.png) | ![](evolucao/v0.1.0/05-laboratorio.png) |
+
+---
+
+## v0.2.0 — Botões
+
+*2026-10-22 · tag `v0.2.0` · diário: [002](002-botoes.md)*
+
+- Primeiro componente: `ds-btn`, com 7 estilos, 3 tamanhos, ícones, estados (carregando, desativado) e grupo
+- Playground "Monte o seu", com botão e código mudando juntos
+- Contraste verificado automaticamente em 70 combinações (5 paletas × 2 modos × 7 estilos)
+- Código mais legível: nomes de variável autoexplicativos, poucos comentários, formatação padronizada
+
+| Botões | Botões no celular |
+|---|---|
+| ![](evolucao/v0.2.0/03-botoes.png) | ![](evolucao/v0.2.0/06-mobile.png) |
+
+---
+
+## v0.2.1 — Paleta Neutra
+
+*2026-10-22 · tag `v0.2.1` · diário: [003](003-paleta-neutra.md)*
+
+- Quinta paleta: só preto, branco e cinzas, com o destaque invertendo conforme o modo
+- Logo com N e S maiúsculos: **Nanquim.System**
+
+| Abertura | Botões |
+|---|---|
+| ![](evolucao/v0.2.1/01-abertura.png) | ![](evolucao/v0.2.1/03-botoes.png) |
+
+---
+
+## v0.3.0 — Tema Nanquim
+
+*2026-10-22 · tag `v0.3.0` · diário: [004](004-tema-nanquim.md)*
+
+- **Identidade da casa:** o tema Nanquim vira o padrão. Escuro é a tinta (preto-azulado com destaque marfim), claro é o papel.
+- Página de apresentação do conceito: ensō animado, galeria com ilustrações em SVG, os 4 princípios e a aguada interativa
+- Logo em forma de gota de tinta
+
+| Abertura (tinta) | Abertura (papel) |
+|---|---|
+| ![](evolucao/v0.3.0/01-abertura.png) | ![](evolucao/v0.3.0/04-modo-claro.png) |
+
+Página de apresentação completa: [`07-pagina-completa.png`](evolucao/v0.3.0/07-pagina-completa.png)
+
+---
+
+## v0.3.1 — Profundidade e modo claro
+
+*2026-10-22 · tag `v0.3.1` · diário: [005](005-profundidade-modo-claro.md)*
+
+- O modo claro deixa de ser "branco demais": os neutros ganham cor (`--ds-neutral-tint`), com dose ajustada por paleta
+- A sidebar vira uma camada própria, com superfície, sombra e itens maiores
+- Sombras mais presentes nos dois modos
+
+| v0.3.0 · modo claro | v0.3.1 · modo claro |
+|---|---|
+| ![](evolucao/v0.3.0/04-modo-claro.png) | ![](evolucao/v0.3.1/04-modo-claro.png) |
+
+Todas as paletas no modo claro, depois do ajuste:
+![](prints/2026-10-22_profundidade-modo-claro/51-comparativo-paletas-claro-ajustado.png)
+
+---
+
+## Como atualizar este documento
+
+1. Ao fechar uma versão, suba o `version` no `package.json` e crie a tag: `git tag -a v0.4.0 -m "v0.4.0 — Título"`.
+2. Rode `npm run evolucao -- v0.4.0`, que gera `diario/evolucao/v0.4.0/`. As faixas `linha-do-tempo-*.png` são a mesma captura de cada versão lado a lado; refaça-as incluindo a versão nova.
+3. Acrescente a seção da versão aqui e uma linha na tabela da linha do tempo.

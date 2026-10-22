@@ -33,6 +33,9 @@ Processo contínuo: componentes e variantes são adicionados aos poucos, junto c
 - Commits em português, no formato `tipo(escopo): resumo` (feat, fix, docs, refactor, style, chore), com corpo explicando o que e por quê.
 - **Nunca** adicionar `Co-Authored-By` nem qualquer assinatura do Claude em commits ou PRs.
 
+## Versões
+- Semver em `package.json` + rodapé do `index.html` + tag anotada `vX.Y.Z` ao fechar uma versão. Depois: `npm run evolucao -- vX.Y.Z` e nova seção em `diario/EVOLUCAO.md`.
+
 ## Diário do processo (OBRIGATÓRIO a cada etapa concluída)
 O usuário quer a evolução documentada (memória do projeto + matéria-prima para LinkedIn).
 1. Com o dev server rodando: `npm run prints -- <etapa>` → `diario/prints/AAAA-MM-DD_<etapa>/`. Ao criar páginas novas, adicionar os prints delas em `SHOTS` (`scripts/prints.mjs`).

@@ -3,6 +3,8 @@
 Minha caixa de peças de front-end: tokens (cores, tipografia, espaço, cantos, elevação, movimento),
 temas de marca trocáveis e, aos poucos, componentes. Funciona em qualquer stack (CSS puro + Web Components).
 
+Documentação ao vivo: https://andreluaan.github.io/Nanquim-System/ · Evolução do projeto em fotos: [diario/EVOLUCAO.md](diario/EVOLUCAO.md)
+
 ## Rodar a documentação
 
 ```bash
