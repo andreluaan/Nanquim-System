@@ -23,7 +23,7 @@
   --ds-neutral-chroma: 0.008;
   --ds-accent-hue: 40;
   --ds-accent-chroma: 0.12;
-  --ds-accent-lightness: 0.58;
+  --ds-accent-lightness: 0.54;
   --ds-on-accent: oklch(0.98 0.01 40);
 }
 
