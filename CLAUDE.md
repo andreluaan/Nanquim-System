@@ -37,6 +37,7 @@ Processo contínuo: componentes e variantes são adicionados aos poucos, junto c
 - **Toda mudança significativa** (componente novo, nova página, mudança de identidade/tokens, correção visível) **fecha uma versão** e **entra no `diario/EVOLUCAO.md`**. Mudanças pequenas (texto, typo) não. Sempre pergunte-se: "isso aparece num antes/depois?" Se sim, é significativa.
 - Fechar uma versão: semver em `package.json` + rodapé do `index.html` → commit → tag anotada `vX.Y.Z` → `npm run evolucao -- vX.Y.Z` → nova seção + linha na tabela do `EVOLUCAO.md` + `npm run evolucao:faixas` → `npm run evolucao:pdf` → commit → `git push && git push --tags`.
 - Componente novo = versão minor (0.4.0); ajuste/correção = patch (0.3.2).
+- **Obsidian (segundo cérebro):** ao fechar uma versão, rodar `npm run obsidian` (gera as notas de etapa em `Segundo Cérebro/3-Recursos/Meus Projetos/Nanquim System/` e copia anexos para `3-Recursos/Anexos/Nanquim System/`) e atualizar à mão a nota principal `Nanquim System.md` (frontmatter `status`, tabela "Evolução", "Próximos passos", "Números", "Mídia" com `nanquim-vX.Y.Z-abertura.png`). Tecnologias/métodos novos: criar a nota em `3-Recursos/Tecnologias` ou `Métodos` (formato `↑ [[índice]]` + "Onde usei") e listar no índice. Imagens no cofre precisam de nome único (prefixo `nanquim-`).
 
 ## Diário do processo (OBRIGATÓRIO a cada etapa concluída)
 O usuário quer a evolução documentada (memória do projeto + matéria-prima para LinkedIn).

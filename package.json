@@ -11,7 +11,8 @@
     "prints": "node scripts/prints.mjs",
     "evolucao": "node scripts/evolucao.mjs",
     "evolucao:faixas": "python scripts/linha_do_tempo.py",
-    "evolucao:pdf": "node scripts/evolucao-pdf.mjs"
+    "evolucao:pdf": "node scripts/evolucao-pdf.mjs",
+    "obsidian": "python scripts/obsidian_sync.py"
   },
   "devDependencies": {
     "marked": "^15.0.12",
