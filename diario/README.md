@@ -22,3 +22,4 @@ para posts (LinkedIn, portfólio).
 | 002 | 2026-10-22 | [Botões, o primeiro componente](002-botoes.md) | 7 estilos, playground com código ao vivo, contraste testado em 70 combinações |
 | 003 | 2026-10-22 | [Paleta Neutra](003-paleta-neutra.md) | Opção só em preto, branco e cinzas; destaque que inverte com o modo |
 | 004 | 2026-10-22 | [Tema Nanquim e apresentação](004-tema-nanquim.md) | Identidade tinta e papel como padrão; página de conceito com ilustrações em SVG |
+| 005 | 2026-10-22 | [Profundidade e modo claro](005-profundidade-modo-claro.md) | Neutros com mais cor no claro, sidebar como camada, sombras mais presentes |
