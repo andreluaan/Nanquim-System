@@ -1,0 +1,45 @@
+ds-icon {
+  --icon-size: 1.25em;
+  --icon-stroke: 1.75;
+
+  display: inline-flex;
+  flex-shrink: 0;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: inherit;
+  vertical-align: middle;
+}
+
+ds-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: var(--icon-stroke);
+}
+
+ds-icon[size="sm"] {
+  --icon-size: var(--ds-space-4);
+}
+
+ds-icon[size="md"] {
+  --icon-size: var(--ds-space-5);
+}
+
+ds-icon[size="lg"] {
+  --icon-size: var(--ds-space-6);
+}
+
+ds-icon[size="xl"] {
+  --icon-size: var(--ds-space-8);
+}
+
+ds-icon[weight="fina"] {
+  --icon-stroke: 1.25;
+}
+
+ds-icon[weight="forte"] {
+  --icon-stroke: 2.25;
+}
+
+.ds-btn ds-icon {
+  --icon-size: 1.15em;
+}
