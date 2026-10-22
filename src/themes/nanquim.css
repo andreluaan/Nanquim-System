@@ -1,0 +1,21 @@
+/* Tema padrão. Escuro é a tinta (preto-azulado) com destaque de papel; claro é o papel com destaque de tinta. */
+
+:root,
+[data-theme="nanquim"] {
+  --ds-neutral-hue: 265;
+  --ds-neutral-chroma: 0.014;
+  --ds-accent-hue: 85;
+  --ds-accent-chroma: 0.035;
+  --ds-accent-lightness: 0.9;
+  --ds-on-accent: oklch(0.2 0.02 265);
+}
+
+:root:not([data-theme])[data-mode="light"],
+[data-theme="nanquim"][data-mode="light"] {
+  --ds-neutral-hue: 85;
+  --ds-neutral-chroma: 0.012;
+  --ds-accent-hue: 265;
+  --ds-accent-chroma: 0.05;
+  --ds-accent-lightness: 0.44;
+  --ds-on-accent: oklch(0.97 0.012 85);
+}

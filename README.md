@@ -14,7 +14,7 @@ npm run dev
 
 ```html
 <link rel="stylesheet" href="caminho/design-system/src/index.css">
-<html data-theme="grafite" data-font="editorial" data-radius="suave" data-mode="dark">
+<html data-theme="nanquim" data-font="editorial" data-radius="suave" data-mode="dark">
 ```
 
 ```css

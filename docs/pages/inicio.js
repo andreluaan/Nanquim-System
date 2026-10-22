@@ -10,9 +10,9 @@ export default {
   render: () => `
     <div class="doc-callout">
       <span aria-hidden="true">🧪</span>
-      <div><strong>A identidade ainda está sendo definida.</strong>
-      Abra o <a href="#" data-open-lab>Laboratório de identidade</a> (canto superior direito),
-      teste combinações e veja esta página inteira mudar.</div>
+      <div><strong>Você está vendo o tema Nanquim, a identidade da casa.</strong>
+      Abra o <a href="#" data-open-lab>Laboratório de identidade</a> (canto superior direito)
+      e troque a paleta para ver esta página inteira se adaptar a outra marca.</div>
     </div>
 
     <section class="doc-section">
@@ -53,7 +53,7 @@ export default {
 <link rel="stylesheet" href="design-system/src/index.css">
 
 <!-- 2. escolha a marca, as fontes, os cantos e o modo -->
-<html data-theme="grafite" data-font="editorial" data-radius="suave" data-mode="dark">
+<html data-theme="nanquim" data-font="editorial" data-radius="suave" data-mode="dark">
 
 <!-- 3. use os tokens no seu CSS -->
 <style>

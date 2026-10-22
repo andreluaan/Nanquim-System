@@ -5,6 +5,7 @@ export const OPTIONS = {
     label: 'Paleta',
     hint: 'O "humor" das cores. Muda neutros e a cor de destaque.',
     items: [
+      { id: 'nanquim', name: 'Nanquim', desc: 'Tinta e papel · padrão', swatch: ['oklch(0.175 0.014 265)', 'oklch(0.3 0.014 265)', 'oklch(0.9 0.035 85)'] },
       { id: 'grafite', name: 'Grafite & Âmbar', desc: 'Quente, editorial', swatch: ['oklch(0.175 0.006 70)', 'oklch(0.3 0.006 70)', 'oklch(0.78 0.12 75)'] },
       { id: 'ardosia', name: 'Ardósia & Sálvia', desc: 'Frio, calmo, natural', swatch: ['oklch(0.175 0.01 230)', 'oklch(0.3 0.01 230)', 'oklch(0.75 0.07 155)'] },
       { id: 'terracota', name: 'Carvão & Terracota', desc: 'Terroso, sofisticado', swatch: ['oklch(0.175 0.008 40)', 'oklch(0.3 0.008 40)', 'oklch(0.54 0.12 40)'] },
@@ -42,7 +43,7 @@ export const OPTIONS = {
   },
 };
 
-const STORAGE_KEY = 'ds-lab';
+const STORAGE_KEY = 'nanquim-lab-v2';
 const root = document.documentElement;
 const listeners = new Set();
 
