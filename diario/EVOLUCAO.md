@@ -17,6 +17,7 @@ geradas a partir do próprio histórico com `npm run evolucao`.
 | [v0.3.0](#v030--tema-nanquim) | 2026-10-22 | Identidade Nanquim | 9 | 1 | Nanquim + 5 + marca de exemplo |
 | [v0.3.1](#v031--profundidade-e-modo-claro) | 2026-10-22 | Profundidade e modo claro | 9 | 1 | Nanquim + 5 + marca de exemplo |
 | [v0.4.0](#v040--ícones) | 2026-10-22 | Ícones e primeiro Web Component | 10 | 2 | Nanquim + 5 + marca de exemplo |
+| [v0.5.0](#v050--badges-e-cards) | 2026-10-22 | Badges e cards | 12 | 4 | Nanquim + 5 + marca de exemplo |
 
 ### A mesma tela em cada versão
 
@@ -132,6 +133,20 @@ Todas as paletas no modo claro, depois do ajuste:
 | Biblioteca de ícones | Ícones nos botões |
 |---|---|
 | ![](evolucao/v0.4.0/03b-icones.png) | ![](evolucao/v0.4.0/03-botoes.png) |
+
+---
+
+## v0.5.0 — Badges e cards
+
+*2026-10-22 · tag `v0.5.0` · diário: [007](007-badges-cards.md)*
+
+- Badge com 6 tons de significado fixo × 3 aparências, ponto de status e ícones. Contraste testado em 252 combinações.
+- Card, o primeiro bloco composto (ícones, badges e botões juntos): anatomia em partes opcionais, 4 variantes, layout horizontal e compacto
+- Exemplos de sites reais: blog, produto, plano de assinatura, perfil e indicadores
+
+| Badges | Cards |
+|---|---|
+| ![](evolucao/v0.5.0/03c-badges.png) | ![](evolucao/v0.5.0/03d-cards.png) |
 
 ---
 
