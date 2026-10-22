@@ -71,7 +71,7 @@ com o fundo forte demais".
 
 | Paleta | Fundo claro antes | Depois |
 |---|---|---|
-| Ardósia | `#def2fc` → `#e8f3f8` (azulado) | `#eaf0ed` (cinza-esverdeado) |
+| Ardósia | azulado (`#def2fc` medido na dose 2.5) | `#eaf0ed` (cinza-esverdeado) |
 | Terracota | `#fbeae5` | `#f3edeb` |
 | Aço | `#e1f0ff` | `#ebeff4` |
 
