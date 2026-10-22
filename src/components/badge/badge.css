@@ -1,0 +1,100 @@
+.ds-badge {
+  --tone-soft: var(--ds-color-surface-hover);
+  --tone-border: var(--ds-color-border);
+  --tone-solid: var(--ds-color-text);
+  --tone-on-solid: var(--ds-color-bg);
+  --tone-text: var(--ds-color-text-muted);
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-1);
+  height: var(--ds-space-6);
+  padding-inline: var(--ds-space-2);
+  border: 1px solid var(--tone-border);
+  border-radius: var(--ds-radius-sm);
+  background: var(--tone-soft);
+  color: var(--tone-text);
+  font-family: var(--ds-font-body);
+  font-size: var(--ds-text-xs);
+  font-weight: var(--ds-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.ds-badge ds-icon {
+  --icon-size: 1.1em;
+}
+
+.ds-badge--accent {
+  --tone-soft: var(--ds-color-accent-soft);
+  --tone-border: var(--ds-color-accent-border);
+  --tone-solid: var(--ds-color-accent);
+  --tone-on-solid: var(--ds-color-on-accent);
+  --tone-text: var(--ds-color-accent-text);
+}
+
+.ds-badge--success {
+  --tone-soft: var(--ds-color-success-soft);
+  --tone-border: var(--ds-color-success-border);
+  --tone-solid: var(--ds-color-success);
+  --tone-on-solid: var(--ds-color-on-success);
+  --tone-text: var(--ds-color-success-text);
+}
+
+.ds-badge--warning {
+  --tone-soft: var(--ds-color-warning-soft);
+  --tone-border: var(--ds-color-warning-border);
+  --tone-solid: var(--ds-color-warning);
+  --tone-on-solid: var(--ds-color-on-warning);
+  --tone-text: var(--ds-color-warning-text);
+}
+
+.ds-badge--danger {
+  --tone-soft: var(--ds-color-danger-soft);
+  --tone-border: var(--ds-color-danger-border);
+  --tone-solid: var(--ds-color-danger);
+  --tone-on-solid: var(--ds-color-on-danger);
+  --tone-text: var(--ds-color-danger-text);
+}
+
+.ds-badge--info {
+  --tone-soft: var(--ds-color-info-soft);
+  --tone-border: var(--ds-color-info-border);
+  --tone-solid: var(--ds-color-info);
+  --tone-on-solid: var(--ds-color-on-info);
+  --tone-text: var(--ds-color-info-text);
+}
+
+.ds-badge--solid {
+  border-color: transparent;
+  background: var(--tone-solid);
+  color: var(--tone-on-solid);
+}
+
+.ds-badge--outline {
+  background: transparent;
+}
+
+.ds-badge--sm {
+  height: var(--ds-space-5);
+  padding-inline: var(--ds-space-1);
+  font-size: var(--ds-text-xs);
+}
+
+.ds-badge--pill {
+  border-radius: var(--ds-radius-full);
+  padding-inline: var(--ds-space-3);
+}
+
+.ds-badge--dot::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: var(--ds-radius-full);
+  background: currentColor;
+}
+
+.ds-badge--solid.ds-badge--dot::before {
+  background: var(--tone-on-solid);
+}

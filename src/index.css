@@ -6,3 +6,5 @@
 @import "./base.css";
 @import "./components/button/button.css";
 @import "./components/icon/icon.css";
+@import "./components/badge/badge.css";
+@import "./components/card/card.css";
