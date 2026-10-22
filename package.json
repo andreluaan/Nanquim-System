@@ -9,9 +9,11 @@
     "build": "vite build",
     "preview": "vite preview",
     "prints": "node scripts/prints.mjs",
-    "evolucao": "node scripts/evolucao.mjs"
+    "evolucao": "node scripts/evolucao.mjs",
+    "evolucao:pdf": "node scripts/evolucao-pdf.mjs"
   },
   "devDependencies": {
+    "marked": "^15.0.12",
     "vite": "^6.0.0"
   }
 }

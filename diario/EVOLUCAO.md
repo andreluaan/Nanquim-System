@@ -4,7 +4,7 @@ Como o projeto mudou, versão a versão, em fotos. Cada versão tem uma **tag no
 exatamente àquele estado), e todas as capturas abaixo foram feitas do mesmo jeito: mesmas telas, mesmo tamanho,
 geradas a partir do próprio histórico com `npm run evolucao`.
 
-**Documentação ao vivo:** https://andreluaan.github.io/Nanquim-System/
+**Documentação ao vivo:** https://andreluaan.github.io/Nanquim-System/ · **Versão em PDF:** [Nanquim-System-Evolucao.pdf](Nanquim-System-Evolucao.pdf)
 
 ## Linha do tempo
 
@@ -125,3 +125,4 @@ Todas as paletas no modo claro, depois do ajuste:
 1. Ao fechar uma versão, suba o `version` no `package.json` e crie a tag: `git tag -a v0.4.0 -m "v0.4.0 — Título"`.
 2. Rode `npm run evolucao -- v0.4.0`, que gera `diario/evolucao/v0.4.0/`. As faixas `linha-do-tempo-*.png` são a mesma captura de cada versão lado a lado; refaça-as incluindo a versão nova.
 3. Acrescente a seção da versão aqui e uma linha na tabela da linha do tempo.
+4. Gere o PDF atualizado com `npm run evolucao:pdf`, que cria `diario/Nanquim-System-Evolucao.pdf`.
