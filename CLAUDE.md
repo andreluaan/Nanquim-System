@@ -43,4 +43,4 @@ O usuário quer a evolução documentada (memória do projeto + matéria-prima p
 ## Estado atual
 - Feito: fundações (cores, tipografia, espaço & cantos, elevação, movimento), Laboratório de identidade, botões (`ds-btn`).
 - Documentação publicada: https://andreluaan.github.io/Nanquim-System/ (GitHub Pages, branch main).
-- Em aberto: identidade da casa ainda **não escolhida** (4 propostas em `src/themes/house.css`).
+- Em aberto: identidade da casa ainda **não escolhida** (5 propostas em `src/themes/house.css`: grafite, ardosia, terracota, aco, neutro).

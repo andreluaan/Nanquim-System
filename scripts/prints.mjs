@@ -35,6 +35,8 @@ const SHOTS = [
   ['12-paleta-ardosia', 'cores', { theme: 'ardosia', font: 'moderno' }, DESKTOP],
   ['13-paleta-terracota', 'cores', { theme: 'terracota', font: 'classico' }, DESKTOP],
   ['14-paleta-aco', 'cores', { theme: 'aco', font: 'tecnico' }, DESKTOP],
+  ['17-paleta-neutro', 'botoes', { theme: 'neutro', font: 'moderno' }, DESKTOP],
+  ['18-paleta-neutro-claro', 'botoes', { theme: 'neutro', font: 'moderno', mode: 'light' }, DESKTOP],
   ['15-marca-cliente', 'inicio', { theme: 'marca-exemplo' }, DESKTOP],
   ['16-botoes-terracota-claro', 'botoes', { theme: 'terracota', mode: 'light', radius: 'arredondado' }, DESKTOP],
   ['20-modo-claro', 'inicio', { mode: 'light' }, DESKTOP],
