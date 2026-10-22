@@ -7,7 +7,7 @@ export const OPTIONS = {
     items: [
       { id: 'nanquim', name: 'Nanquim', desc: 'Tinta e papel · padrão', swatch: ['oklch(0.175 0.014 265)', 'oklch(0.3 0.014 265)', 'oklch(0.9 0.035 85)'] },
       { id: 'grafite', name: 'Grafite & Âmbar', desc: 'Quente, editorial', swatch: ['oklch(0.175 0.006 70)', 'oklch(0.3 0.006 70)', 'oklch(0.78 0.12 75)'] },
-      { id: 'ardosia', name: 'Ardósia & Sálvia', desc: 'Frio, calmo, natural', swatch: ['oklch(0.175 0.01 230)', 'oklch(0.3 0.01 230)', 'oklch(0.75 0.07 155)'] },
+      { id: 'ardosia', name: 'Ardósia & Sálvia', desc: 'Frio, calmo, natural', swatch: ['oklch(0.175 0.007 165)', 'oklch(0.3 0.007 165)', 'oklch(0.75 0.07 155)'] },
       { id: 'terracota', name: 'Carvão & Terracota', desc: 'Terroso, sofisticado', swatch: ['oklch(0.175 0.008 40)', 'oklch(0.3 0.008 40)', 'oklch(0.54 0.12 40)'] },
       { id: 'aco', name: 'Noite & Aço', desc: 'Técnico, confiável', swatch: ['oklch(0.175 0.012 255)', 'oklch(0.3 0.012 255)', 'oklch(0.75 0.09 250)'] },
       { id: 'neutro', name: 'Neutro', desc: 'Preto, branco e cinzas', swatch: ['oklch(0.175 0 0)', 'oklch(0.3 0 0)', 'oklch(0.92 0 0)'] },

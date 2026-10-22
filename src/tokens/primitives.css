@@ -39,7 +39,7 @@
 [data-mode="light"] {
   color-scheme: light;
   /* Perto do branco a cor some; no claro os neutros precisam de mais croma para a paleta aparecer. */
-  --ds-neutral-tint: 1.8;
+  --ds-neutral-tint: var(--ds-neutral-tint-light, 1.8);
 
   --ds-neutral-l1: 0.985;
   --ds-neutral-l2: 0.95;

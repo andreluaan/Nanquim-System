@@ -10,8 +10,9 @@
 }
 
 [data-theme="ardosia"] {
-  --ds-neutral-hue: 230;
-  --ds-neutral-chroma: 0.01;
+  --ds-neutral-hue: 165;
+  --ds-neutral-chroma: 0.007;
+  --ds-neutral-tint-light: 1.2;
   --ds-accent-hue: 155;
   --ds-accent-chroma: 0.07;
   --ds-accent-lightness: 0.75;
@@ -21,6 +22,7 @@
 [data-theme="terracota"] {
   --ds-neutral-hue: 40;
   --ds-neutral-chroma: 0.008;
+  --ds-neutral-tint-light: 0.9;
   --ds-accent-hue: 40;
   --ds-accent-chroma: 0.12;
   --ds-accent-lightness: 0.54;
@@ -30,6 +32,7 @@
 [data-theme="aco"] {
   --ds-neutral-hue: 255;
   --ds-neutral-chroma: 0.012;
+  --ds-neutral-tint-light: 0.7;
   --ds-accent-hue: 250;
   --ds-accent-chroma: 0.09;
   --ds-accent-lightness: 0.75;
