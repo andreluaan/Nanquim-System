@@ -3,6 +3,7 @@
 :root,
 [data-mode="dark"] {
   color-scheme: dark;
+  --ds-neutral-tint: 1;
 
   --ds-neutral-l1: 0.145;
   --ds-neutral-l2: 0.175;
@@ -32,23 +33,25 @@
 
   --ds-shadow-color: 0 0% 0%;
   --ds-shadow-strength: 0.5;
-  --ds-highlight: oklch(1 0 0 / 0.04);
+  --ds-highlight: oklch(1 0 0 / 0.06);
 }
 
 [data-mode="light"] {
   color-scheme: light;
+  /* Perto do branco a cor some; no claro os neutros precisam de mais croma para a paleta aparecer. */
+  --ds-neutral-tint: 1.8;
 
-  --ds-neutral-l1: 0.99;
-  --ds-neutral-l2: 0.975;
-  --ds-neutral-l3: 0.955;
-  --ds-neutral-l4: 0.93;
-  --ds-neutral-l5: 0.905;
-  --ds-neutral-l6: 0.875;
-  --ds-neutral-l7: 0.83;
-  --ds-neutral-l8: 0.75;
-  --ds-neutral-l9: 0.53;
-  --ds-neutral-l10: 0.5;
-  --ds-neutral-l11: 0.42;
+  --ds-neutral-l1: 0.985;
+  --ds-neutral-l2: 0.95;
+  --ds-neutral-l3: 0.93;
+  --ds-neutral-l4: 0.905;
+  --ds-neutral-l5: 0.88;
+  --ds-neutral-l6: 0.85;
+  --ds-neutral-l7: 0.8;
+  --ds-neutral-l8: 0.72;
+  --ds-neutral-l9: 0.5;
+  --ds-neutral-l10: 0.46;
+  --ds-neutral-l11: 0.39;
   --ds-neutral-l12: 0.22;
 
   --ds-accent-l1: 0.985;
@@ -66,7 +69,7 @@
   --ds-accent-l12: 0.28;
 
   --ds-shadow-color: 220 20% 20%;
-  --ds-shadow-strength: 0.12;
+  --ds-shadow-strength: 0.16;
   --ds-highlight: oklch(1 0 0 / 0);
 }
 
@@ -74,18 +77,18 @@
 :root,
 [data-mode],
 [data-theme] {
-  --ds-neutral-1: oklch(var(--ds-neutral-l1) var(--ds-neutral-chroma) var(--ds-neutral-hue));
-  --ds-neutral-2: oklch(var(--ds-neutral-l2) var(--ds-neutral-chroma) var(--ds-neutral-hue));
-  --ds-neutral-3: oklch(var(--ds-neutral-l3) var(--ds-neutral-chroma) var(--ds-neutral-hue));
-  --ds-neutral-4: oklch(var(--ds-neutral-l4) var(--ds-neutral-chroma) var(--ds-neutral-hue));
-  --ds-neutral-5: oklch(var(--ds-neutral-l5) var(--ds-neutral-chroma) var(--ds-neutral-hue));
-  --ds-neutral-6: oklch(var(--ds-neutral-l6) var(--ds-neutral-chroma) var(--ds-neutral-hue));
-  --ds-neutral-7: oklch(var(--ds-neutral-l7) var(--ds-neutral-chroma) var(--ds-neutral-hue));
-  --ds-neutral-8: oklch(var(--ds-neutral-l8) var(--ds-neutral-chroma) var(--ds-neutral-hue));
-  --ds-neutral-9: oklch(var(--ds-neutral-l9) var(--ds-neutral-chroma) var(--ds-neutral-hue));
-  --ds-neutral-10: oklch(var(--ds-neutral-l10) var(--ds-neutral-chroma) var(--ds-neutral-hue));
-  --ds-neutral-11: oklch(var(--ds-neutral-l11) var(--ds-neutral-chroma) var(--ds-neutral-hue));
-  --ds-neutral-12: oklch(var(--ds-neutral-l12) var(--ds-neutral-chroma) var(--ds-neutral-hue));
+  --ds-neutral-1: oklch(var(--ds-neutral-l1) calc(var(--ds-neutral-chroma) * var(--ds-neutral-tint)) var(--ds-neutral-hue));
+  --ds-neutral-2: oklch(var(--ds-neutral-l2) calc(var(--ds-neutral-chroma) * var(--ds-neutral-tint)) var(--ds-neutral-hue));
+  --ds-neutral-3: oklch(var(--ds-neutral-l3) calc(var(--ds-neutral-chroma) * var(--ds-neutral-tint)) var(--ds-neutral-hue));
+  --ds-neutral-4: oklch(var(--ds-neutral-l4) calc(var(--ds-neutral-chroma) * var(--ds-neutral-tint)) var(--ds-neutral-hue));
+  --ds-neutral-5: oklch(var(--ds-neutral-l5) calc(var(--ds-neutral-chroma) * var(--ds-neutral-tint)) var(--ds-neutral-hue));
+  --ds-neutral-6: oklch(var(--ds-neutral-l6) calc(var(--ds-neutral-chroma) * var(--ds-neutral-tint)) var(--ds-neutral-hue));
+  --ds-neutral-7: oklch(var(--ds-neutral-l7) calc(var(--ds-neutral-chroma) * var(--ds-neutral-tint)) var(--ds-neutral-hue));
+  --ds-neutral-8: oklch(var(--ds-neutral-l8) calc(var(--ds-neutral-chroma) * var(--ds-neutral-tint)) var(--ds-neutral-hue));
+  --ds-neutral-9: oklch(var(--ds-neutral-l9) calc(var(--ds-neutral-chroma) * var(--ds-neutral-tint)) var(--ds-neutral-hue));
+  --ds-neutral-10: oklch(var(--ds-neutral-l10) calc(var(--ds-neutral-chroma) * var(--ds-neutral-tint)) var(--ds-neutral-hue));
+  --ds-neutral-11: oklch(var(--ds-neutral-l11) calc(var(--ds-neutral-chroma) * var(--ds-neutral-tint)) var(--ds-neutral-hue));
+  --ds-neutral-12: oklch(var(--ds-neutral-l12) calc(var(--ds-neutral-chroma) * var(--ds-neutral-tint)) var(--ds-neutral-hue));
 
   --ds-accent-1: oklch(var(--ds-accent-l1) calc(var(--ds-accent-chroma) * 0.15) var(--ds-accent-hue));
   --ds-accent-2: oklch(var(--ds-accent-l2) calc(var(--ds-accent-chroma) * 0.2) var(--ds-accent-hue));
