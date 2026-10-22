@@ -16,6 +16,7 @@ geradas a partir do próprio histórico com `npm run evolucao`.
 | [v0.2.1](#v021--paleta-neutra) | 2026-10-22 | Paleta Neutra | 8 | 1 | 5 + marca de exemplo |
 | [v0.3.0](#v030--tema-nanquim) | 2026-10-22 | Identidade Nanquim | 9 | 1 | Nanquim + 5 + marca de exemplo |
 | [v0.3.1](#v031--profundidade-e-modo-claro) | 2026-10-22 | Profundidade e modo claro | 9 | 1 | Nanquim + 5 + marca de exemplo |
+| [v0.4.0](#v040--ícones) | 2026-10-22 | Ícones e primeiro Web Component | 10 | 2 | Nanquim + 5 + marca de exemplo |
 
 ### A mesma tela em cada versão
 
@@ -120,9 +121,24 @@ Todas as paletas no modo claro, depois do ajuste:
 
 ---
 
+## v0.4.0 — Ícones
+
+*2026-10-22 · tag `v0.4.0` · diário: [006](006-icones.md)*
+
+- 53 ícones em 7 categorias, com o mesmo traço: grade 24×24, linha de 1.75 e pontas arredondadas, como uma pena de nanquim
+- `<ds-icon>`, o primeiro Web Component: 4 tamanhos, 3 espessuras e acessível por padrão
+- Página com busca em português, cópia do código ou do SVG puro e a anatomia do traço
+
+| Biblioteca de ícones | Ícones nos botões |
+|---|---|
+| ![](evolucao/v0.4.0/03b-icones.png) | ![](evolucao/v0.4.0/03-botoes.png) |
+
+---
+
 ## Como atualizar este documento
 
 1. Ao fechar uma versão, suba o `version` no `package.json` e crie a tag: `git tag -a v0.4.0 -m "v0.4.0 — Título"`.
-2. Rode `npm run evolucao -- v0.4.0`, que gera `diario/evolucao/v0.4.0/`. As faixas `linha-do-tempo-*.png` são a mesma captura de cada versão lado a lado; refaça-as incluindo a versão nova.
-3. Acrescente a seção da versão aqui e uma linha na tabela da linha do tempo.
-4. Gere o PDF atualizado com `npm run evolucao:pdf`, que cria `diario/Nanquim-System-Evolucao.pdf`.
+2. Rode `npm run evolucao -- v0.4.0`, que gera `diario/evolucao/v0.4.0/`.
+3. Rode `npm run evolucao:faixas` para refazer as faixas da linha do tempo.
+4. Acrescente a seção da versão aqui e uma linha na tabela da linha do tempo.
+5. Gere o PDF atualizado com `npm run evolucao:pdf`, que cria `diario/Nanquim-System-Evolucao.pdf`.

@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "prints": "node scripts/prints.mjs",
     "evolucao": "node scripts/evolucao.mjs",
+    "evolucao:faixas": "python scripts/linha_do_tempo.py",
     "evolucao:pdf": "node scripts/evolucao-pdf.mjs"
   },
   "devDependencies": {

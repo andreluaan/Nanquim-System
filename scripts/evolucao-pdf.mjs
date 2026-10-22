@@ -23,7 +23,7 @@ const { version } = JSON.parse(readFileSync('package.json', 'utf8'));
 const today = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
 
 // O título do Markdown vira a capa; o resto vira o corpo.
-const markdown = readFileSync(source, 'utf8').replace(/^# .*\n/, '');
+const markdown = readFileSync(source, 'utf8').replace(/^# .*\r?\n/, '');
 const body = marked.parse(markdown);
 
 const html = `<!doctype html>

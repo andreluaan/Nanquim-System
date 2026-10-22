@@ -35,7 +35,7 @@ Processo contínuo: componentes e variantes são adicionados aos poucos, junto c
 
 ## Versões
 - **Toda mudança significativa** (componente novo, nova página, mudança de identidade/tokens, correção visível) **fecha uma versão** e **entra no `diario/EVOLUCAO.md`**. Mudanças pequenas (texto, typo) não. Sempre pergunte-se: "isso aparece num antes/depois?" Se sim, é significativa.
-- Fechar uma versão: semver em `package.json` + rodapé do `index.html` → commit → tag anotada `vX.Y.Z` → `npm run evolucao -- vX.Y.Z` → nova seção + linha na tabela do `EVOLUCAO.md` (e refazer as faixas `linha-do-tempo-*.png`) → `npm run evolucao:pdf` → commit → `git push && git push --tags`.
+- Fechar uma versão: semver em `package.json` + rodapé do `index.html` → commit → tag anotada `vX.Y.Z` → `npm run evolucao -- vX.Y.Z` → nova seção + linha na tabela do `EVOLUCAO.md` + `npm run evolucao:faixas` → `npm run evolucao:pdf` → commit → `git push && git push --tags`.
 - Componente novo = versão minor (0.4.0); ajuste/correção = patch (0.3.2).
 
 ## Diário do processo (OBRIGATÓRIO a cada etapa concluída)
