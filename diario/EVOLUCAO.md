@@ -22,6 +22,7 @@ geradas a partir do próprio histórico com `npm run evolucao`.
 | [v0.7.0](#v070--carrossel-e-slides) | 2026-10-23 | Carrossel e slides | 14 | 6 | Nanquim + 5 + marca de exemplo |
 | [v0.8.0](#v080--modal-gaveta-e-tooltip) | 2026-10-23 | Modal, gaveta e tooltip | 15 | 8 | Nanquim + 5 + marca de exemplo |
 | [v0.9.0](#v090--seções-de-site) | 2026-10-23 | Seções de site | 16 | 16 | Nanquim + 5 + marca de exemplo |
+| [v0.10.0](#v0100--seções-separadas-e-visualizador) | 2026-10-23 | Seções separadas e visualizador | 25 | 17 | Nanquim + 5 + marca de exemplo + cor livre |
 
 ### A mesma tela em cada versão
 
@@ -207,6 +208,20 @@ Todas as paletas no modo claro, depois do ajuste:
 | Nanquim (tinta) | Terracota (papel) |
 |---|---|
 | ![](evolucao/v0.9.0/03h-secoes.png) | ![](prints/2026-10-23_secoes/49-secoes-terracota-claro.png) |
+
+---
+
+## v0.10.0 — Seções separadas e visualizador
+
+*2026-10-23 · tag `v0.10.0` · diário: [012](012-secoes-separadas-visualizador.md)*
+
+- "Seções de site" vira um grupo do menu, com uma página por elemento e perguntas frequentes como peça nova
+- Cabeças de grupo do menu com um destaque discreto: gota de tinta e fio até a borda
+- "Site completo" com visualizador: cor livre, fonte, tamanho do texto, cantos, espaçamento, modo e largura, com contraste ao vivo e "Copiar tema"
+
+| Visualizador | Mesmo site, Terracota no claro |
+|---|---|
+| ![](evolucao/v0.10.0/03i-site-completo.png) | ![](prints/2026-10-23_secoes-separadas/49-site-terracota-claro.png) |
 
 ---
 
