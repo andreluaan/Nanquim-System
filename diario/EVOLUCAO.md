@@ -25,6 +25,7 @@ geradas a partir do próprio histórico com `npm run evolucao`.
 | [v0.10.0](#v0100--seções-separadas-e-visualizador) | 2026-10-23 | Seções separadas e visualizador | 25 | 17 | Nanquim + 5 + marca de exemplo + cor livre |
 | [v0.11.0](#v0110--textos-enxutos-e-cópia-de-valores) | 2026-10-23 | Textos enxutos e cópia de valores | 25 | 17 | Nanquim + 5 + marca de exemplo + cor livre |
 | [v0.12.0](#v0120--modelo-editorial-e-tela-cheia) | 2026-10-23 | Modelo editorial e tela cheia | 29 | 21 | Nanquim + 5 + marca de exemplo + cor livre |
+| [v0.13.0](#v0130--aguada-laboratório-de-paletas-vitrine-e-grade) | 2026-10-23 | Aguada, laboratório de paletas, Vitrine e Grade | 30 | 22 | Nanquim + 3 da aguada + marca de exemplo + cor livre |
 
 ### A mesma tela em cada versão
 
@@ -248,6 +249,18 @@ Todas as paletas no modo claro, depois do ajuste:
 | Antes (v0.11.0) | Depois (v0.12.0) |
 |---|---|
 | ![](evolucao/v0.11.0/03i-site-completo.png) | ![](evolucao/v0.12.0/03i-site-completo.png) |
+
+## v0.13.0 — Aguada, laboratório de paletas, Vitrine e Grade
+
+*2026-10-23 · tag `v0.13.0` · diário: [015](015-aguada-vitrine-grade.md)*
+
+- Paletas derivadas do nanquim: pigmento, concentração e água geram tudo; as que só variavam saíram
+- Laboratório de paletas, abaixo de Cores, com contraste medido e tema copiável
+- Modelos Vitrine e Grade, extraídos de referências, com as peças novas documentadas em cada seção
+
+| Antes (v0.12.0) | Depois (v0.13.0) |
+|---|---|
+| ![](evolucao/v0.12.0/03i-site-completo.png) | ![](prints/2026-10-23_aguada-vitrine-grade/49-site-vitrine.png) |
 
 ---
 
