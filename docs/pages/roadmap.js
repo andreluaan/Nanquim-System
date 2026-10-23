@@ -9,6 +9,7 @@ const ITEMS = [
   { name: 'Carrossel e slides', status: 'feito' },
   { name: 'Modal, gaveta, tooltip', status: 'feito' },
   { name: 'Seções de site: hero, navbar, rodapé, preços, depoimentos', status: 'feito' },
+  { name: 'Seções em páginas próprias, perguntas frequentes e visualizador de marca', status: 'feito' },
   { name: 'Pacote para usar em outros projetos (npm e CDN)', status: 'próximo' },
   { name: 'Primeiro site de cliente feito só com o Nanquim', status: 'depois' },
 ];

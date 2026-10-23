@@ -48,7 +48,7 @@ function render() {
   const page = pages.find((p) => p.id === currentId()) ?? pages[0];
   cleanup?.();
   content.innerHTML = `
-    <article class="doc-page">
+    <article class="doc-page${page.wide ? ' doc-page--wide' : ''}">
       <header class="doc-page-head">
         <p class="doc-eyebrow">${page.group}</p>
         <h1>${page.title}</h1>

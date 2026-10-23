@@ -12,9 +12,24 @@ import cards from './pages/cards.js';
 import formularios from './pages/formularios.js';
 import carrossel from './pages/carrossel.js';
 import sobreposicoes from './pages/sobreposicoes.js';
-import secoes from './pages/secoes.js';
+import estrutura from './pages/estrutura.js';
+import navbar from './pages/navbar.js';
+import hero from './pages/hero.js';
+import recursos from './pages/recursos.js';
+import precos from './pages/precos.js';
+import depoimentos from './pages/depoimentos.js';
+import perguntas from './pages/perguntas.js';
+import chamada from './pages/chamada.js';
+import rodape from './pages/rodape.js';
+import siteCompleto from './pages/site-completo.js';
 import roadmap from './pages/roadmap.js';
 
-export const groups = ['Começo', 'Fundações', 'Componentes', 'Projeto'];
+export const groups = ['Começo', 'Fundações', 'Componentes', 'Seções de site', 'Projeto'];
 
-export const pages = [apresentacao, inicio, cores, tipografia, espacamento, elevacao, movimento, botoes, icones, badges, cards, formularios, carrossel, sobreposicoes, secoes, roadmap];
+export const pages = [
+  apresentacao, inicio,
+  cores, tipografia, espacamento, elevacao, movimento,
+  botoes, icones, badges, cards, formularios, carrossel, sobreposicoes,
+  estrutura, navbar, hero, recursos, precos, depoimentos, perguntas, chamada, rodape, siteCompleto,
+  roadmap,
+];
