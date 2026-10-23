@@ -47,7 +47,14 @@ const SHOTS = [
   ['09j-precos', 'precos', {}, DESKTOP],
   ['09k-perguntas', 'perguntas', {}, DESKTOP],
   ['09l-rodape', 'rodape', {}, DESKTOP],
+  ['09n-manifesto', 'manifesto', {}, DESKTOP],
+  ['09o-lista-numerada', 'lista-numerada', {}, DESKTOP],
+  ['09p-projetos', 'projetos', {}, DESKTOP],
+  ['09q-numeros', 'numeros', {}, DESKTOP],
   ['09m-site-completo', 'site-completo', {}, DESKTOP],
+  ['53-site-tela-cheia', 'site-completo', { 'tela-cheia': '' }, DESKTOP],
+  ['54-site-neutro-claro', 'site-completo', { marca: 'neutro', modo: 'light', 'tela-cheia': '' }, DESKTOP],
+  ['55-site-classico', 'site-completo', { modelo: 'classico' }, DESKTOP],
   ['49-site-terracota-claro', 'site-completo', { marca: 'terracota', modo: 'light' }, DESKTOP],
   ['50-site-ardosia', 'site-completo', { marca: 'ardosia' }, DESKTOP],
   ['51-site-aco-claro', 'site-completo', { marca: 'aco', modo: 'light' }, DESKTOP],
@@ -77,7 +84,7 @@ const SHOTS = [
   ['43-carrossel-completo', 'carrossel', {}, FULL_PAGE],
   ['44-carrossel-papel', 'carrossel', { mode: 'light' }, DESKTOP],
   ['48-sobreposicoes-completo', 'sobreposicoes', {}, FULL_PAGE],
-  ['52-landing-completa', 'site-completo', {}, [1440, 6400]],
+  ['52-landing-completa', 'site-completo', {}, [1440, 7600]],
 ];
 
 try {

@@ -1,5 +1,5 @@
 import { code, doDont } from '../utils.js';
-import { frame, hero, mountSiteDemos, navbar } from '../site-kit.js';
+import { frame, hero, heroEditorial, mountSiteDemos, navbar } from '../site-kit.js';
 
 const PARTS = [
   ['Marca', '<code>.ds-navbar__brand</code>: leva ao início.'],
@@ -22,6 +22,12 @@ export default {
       <ol class="card-anatomy-list estrutura-parts">
         ${PARTS.map(([name, text]) => `<li><strong>${name}</strong><span>${text}</span></li>`).join('')}
       </ol>
+    </section>
+
+    <section class="doc-section">
+      <h2>Editorial</h2>
+      <p><code>ds-navbar--editorial</code>: sem borda, links miúdos em caixa alta.</p>
+      ${frame({ content: navbar({ menuId: 'navbar-menu-editorial', sticky: false, editorial: true }) + heroEditorial({ id: 'ill-landscape-navbar' }), className: 'site-frame--short' })}
     </section>
 
     <section class="doc-section">

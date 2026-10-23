@@ -1,0 +1,29 @@
+/* Manifesto: uma frase grande que diz o que a marca pensa. Trechos em <span> ficam em segundo plano. */
+.ds-statement {
+  max-width: 28ch;
+  margin: 0;
+  font-family: var(--ds-font-display);
+  font-size: clamp(var(--ds-text-3xl), 5cqi, var(--ds-text-6xl));
+  font-weight: var(--ds-weight-medium);
+  line-height: var(--ds-leading-tight);
+  letter-spacing: var(--ds-tracking-tight);
+  color: var(--ds-color-text);
+  text-wrap: balance;
+}
+
+.ds-statement span {
+  color: var(--ds-color-text-subtle);
+}
+
+.ds-statement em {
+  color: var(--ds-color-accent-text);
+}
+
+.ds-statement__label {
+  margin: 0 0 var(--ds-space-6);
+  font-size: var(--ds-text-xs);
+  font-weight: var(--ds-weight-semibold);
+  letter-spacing: var(--ds-tracking-wide);
+  text-transform: uppercase;
+  color: var(--ds-color-text-muted);
+}

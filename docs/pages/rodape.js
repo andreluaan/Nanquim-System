@@ -21,6 +21,12 @@ export default {
       <ol class="card-anatomy-list estrutura-parts">
         ${PARTS.map(([name, text]) => `<li><strong>${name}</strong><span>${text}</span></li>`).join('')}
       </ol>
+    </section>
+
+    <section class="doc-section">
+      <h2>Com assinatura</h2>
+      <p><code>.ds-footer__wordmark</code>: o nome ocupa a largura e é cortado embaixo.</p>
+      ${frame({ content: footer({ wordmark: true }) })}
       ${doDont(
         ['Links por assunto', 'Contato com um toque'],
         ['Repetir o menu inteiro', 'Texto miúdo apagado'],
@@ -42,6 +48,7 @@ export default {
       <p>© 2026 Ateliê Sumi</p>
       <ul class="ds-footer__links"><li><a href="/privacidade">Privacidade</a></li></ul>
     </div>
+    <p class="ds-footer__wordmark" aria-hidden="true">sumi.</p>
   </div>
 </footer>`, 'html')}
     </section>`,

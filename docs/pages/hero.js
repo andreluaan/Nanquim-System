@@ -1,5 +1,5 @@
 import { code, doDont } from '../utils.js';
-import { frame, hero, mountSiteDemos } from '../site-kit.js';
+import { frame, hero, heroEditorial, mountSiteDemos } from '../site-kit.js';
 
 const PARTS = [
   ['Sobretítulo', '<code>.ds-hero__eyebrow</code>: o que é.'],
@@ -8,6 +8,7 @@ const PARTS = [
   ['Ações', '<code>.ds-hero__actions</code>: um principal, no máximo um secundário.'],
   ['Nota', '<code>.ds-hero__note</code>: uma prova rápida.'],
   ['Mídia', '<code>.ds-hero__media</code>: desce no celular.'],
+  ['Editorial', '<code>__meta</code>, <code>__corner</code> e <code>__vertical</code>: só no <code>--editorial</code>.'],
 ];
 
 export default {
@@ -24,6 +25,31 @@ export default {
       <ol class="card-anatomy-list estrutura-parts">
         ${PARTS.map(([name, text]) => `<li><strong>${name}</strong><span>${text}</span></li>`).join('')}
       </ol>
+    </section>
+
+    <section class="doc-section">
+      <h2>Editorial</h2>
+      <p><code>ds-hero--editorial</code>: título gigante, texto miúdo e uma imagem que sobe além do bloco.</p>
+      ${frame({ content: heroEditorial({ id: 'ill-landscape-hero-page' }) })}
+      ${code(`
+<section class="ds-section ds-hero ds-hero--editorial">
+  <div class="ds-container ds-hero__inner">
+    <div class="ds-hero__content">
+      <p class="ds-hero__eyebrow">Ateliê de nanquim · desde 2014</p>
+      <h1 class="ds-hero__title">sumi.</h1>
+      <div class="ds-hero__meta">
+        <p><strong>Identidade</strong> Marcas desenhadas à mão.</p>
+        <p><strong>Sites</strong> Feitos para durar.</p>
+      </div>
+      <div class="ds-hero__actions">…</div>
+    </div>
+    <div class="ds-hero__media">
+      <img src="recorte.png" alt="">
+      <a class="ds-hero__corner" href="/projetos" aria-label="Ver projetos"><ds-icon name="arrow-right"></ds-icon></a>
+    </div>
+    <p class="ds-hero__vertical">Coleção 2026</p>
+  </div>
+</section>`, 'html')}
     </section>
 
     <section class="doc-section">

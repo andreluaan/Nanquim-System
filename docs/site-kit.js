@@ -1,5 +1,5 @@
 // Conteúdo do site de exemplo (Ateliê Sumi) e a moldura de navegador usada nas páginas de "Seções de site".
-import { enso } from './illustrations.js';
+import { enso, inkLandscape, inkDrop, brushStroke, inkWash } from './illustrations.js';
 
 export const LINKS = ['Início', 'Projetos', 'Processo', 'Preços', 'Contato'];
 
@@ -32,12 +32,14 @@ const QUESTIONS = [
 
 const initials = (name) => name.split(' ').map((part) => part[0]).join('');
 
-const brand = () => '<a class="ds-navbar__brand" href="#"><ds-icon name="ink"></ds-icon> Ateliê Sumi</a>';
+const brand = (editorial = false) => editorial
+  ? '<a class="ds-navbar__brand" href="#">sumi.</a>'
+  : '<a class="ds-navbar__brand" href="#"><ds-icon name="ink"></ds-icon> Ateliê Sumi</a>';
 
-export const navbar = ({ menuId = 'sumi-menu', sticky = true, action = true } = {}) => `
-  <header class="ds-navbar${sticky ? ' ds-navbar--sticky' : ''}">
+export const navbar = ({ menuId = 'sumi-menu', sticky = true, action = true, editorial = false } = {}) => `
+  <header class="ds-navbar${sticky ? ' ds-navbar--sticky' : ''}${editorial ? ' ds-navbar--editorial' : ''}">
     <div class="ds-container ds-navbar__inner">
-      ${brand()}
+      ${brand(editorial)}
       <nav class="ds-navbar__links" aria-label="Principal">
         ${LINKS.map((link, i) => `<a href="#"${i === 0 ? ' aria-current="page"' : ''}>${link}</a>`).join('')}
       </nav>
@@ -175,7 +177,7 @@ export const cta = () => `
     </div>
   </section>`;
 
-export const footer = () => `
+export const footer = ({ wordmark = false } = {}) => `
   <footer class="ds-footer">
     <div class="ds-container">
       <div class="ds-footer__inner">
@@ -196,15 +198,109 @@ export const footer = () => `
         <p>© 2026 Ateliê Sumi. Feito com o Nanquim System.</p>
         <ul class="ds-footer__links"><li><a href="#">Privacidade</a></li><li><a href="#">Termos</a></li></ul>
       </div>
+      ${wordmark ? '<p class="ds-footer__wordmark" aria-hidden="true">sumi.</p>' : ''}
     </div>
   </footer>`;
 
-export const fullSite = (menuId) =>
-  navbar({ menuId }) + hero() + features() + pricing() + testimonials() + faq() + cta() + footer();
+export const heroEditorial = ({ id = 'ill-landscape-hero' } = {}) => `
+  <section class="ds-section ds-hero ds-hero--editorial">
+    <div class="ds-container ds-hero__inner">
+      <div class="ds-hero__content">
+        <p class="ds-hero__eyebrow">Ateliê de nanquim · desde 2014</p>
+        <h1 class="ds-hero__title">sumi.</h1>
+        <div class="ds-hero__meta">
+          <p><strong>Identidade</strong> Marcas desenhadas à mão, uma tinta de cada vez.</p>
+          <p><strong>Sites</strong> Feitos para durar e para todo mundo ler.</p>
+        </div>
+        <div class="ds-hero__actions">
+          <a class="ds-btn ds-btn--primary ds-btn--lg" href="#">Pedir orçamento</a>
+          <a class="ds-btn ds-btn--link" href="#">Ver projetos <ds-icon name="arrow-right"></ds-icon></a>
+        </div>
+      </div>
+      <div class="ds-hero__media">
+        ${inkLandscape({ id })}
+        <a class="ds-hero__corner" href="#" aria-label="Ver projetos"><ds-icon name="arrow-right"></ds-icon></a>
+      </div>
+      <p class="ds-hero__vertical">Materiais de criação<br>Coleção 2026</p>
+    </div>
+  </section>`;
+
+export const statement = ({ alt = false } = {}) => `
+  <section class="ds-section${alt ? ' ds-section--alt' : ''}">
+    <div class="ds-container">
+      <p class="ds-statement__label">(Manifesto)</p>
+      <p class="ds-statement">Desenhamos marcas com <em>uma tinta só</em>. <span>O resto é ritmo, silêncio e um traço que não volta atrás.</span></p>
+    </div>
+  </section>`;
+
+const SERVICES = [
+  ['Identidade visual', 'Logo, cores e letras que contam quem você é.'],
+  ['Sites sob medida', 'Rápidos, fáceis de editar e bons no celular.'],
+  ['Ilustração', 'Desenhos à mão para o que é só seu.'],
+  ['Acessibilidade', 'Contraste e teclado desde o primeiro traço.'],
+];
+
+export const services = ({ alt = false } = {}) => `
+  <section class="ds-section${alt ? ' ds-section--alt' : ''}">
+    <div class="ds-container">
+      ${sectionHeader('Serviços', 'O que fazemos')}
+      <ol class="ds-index">
+        ${SERVICES.map(([title, text], i) => `
+          <li class="ds-index__item">
+            <span class="ds-index__number">0${i + 1}</span>
+            <h3 class="ds-index__title">${title}</h3>
+            <p class="ds-index__text">${text}</p>
+            <ds-icon class="ds-index__icon" name="arrow-right"></ds-icon>
+          </li>`).join('')}
+      </ol>
+    </div>
+  </section>`;
+
+const WORKS = [
+  [inkWash, 'Café Aguada', 'Identidade · 2026'],
+  [inkDrop, 'Papelaria Traço', 'Site · 2025'],
+  [brushStroke, 'Cantina Pena', 'Cardápio · 2025'],
+  [() => enso({ id: 'ill-enso-work' }), 'Bico de Pena', 'Identidade e site · 2024'],
+];
+
+export const works = ({ alt = true } = {}) => `
+  <section class="ds-section${alt ? ' ds-section--alt' : ''}">
+    <div class="ds-container">
+      ${sectionHeader('Projetos', 'Trabalhos recentes')}
+      <div class="ds-works">
+        ${WORKS.map(([art, title, tags], i) => `
+          <a class="ds-work" href="#">
+            <div class="ds-work__media">${art()}</div>
+            <div class="ds-work__meta">
+              <span class="ds-work__number">0${i + 1}</span>
+              <h3 class="ds-work__title">${title}</h3>
+              <span class="ds-work__tags">${tags}</span>
+            </div>
+          </a>`).join('')}
+      </div>
+    </div>
+  </section>`;
+
+export const stats = ({ alt = false } = {}) => `
+  <section class="ds-section ds-section--compact${alt ? ' ds-section--alt' : ''}">
+    <div class="ds-container">
+      <dl class="ds-stats">
+        ${[['Anos de estúdio', '12'], ['Marcas desenhadas', '340'], ['Média de avaliação', '4,9<small>/5</small>'], ['Prazo de um site', '6<small> sem.</small>']].map(([label, value]) => `
+          <div class="ds-stats__item"><dt class="ds-stats__label">${label}</dt><dd class="ds-stats__value">${value}</dd></div>`).join('')}
+      </dl>
+    </div>
+  </section>`;
+
+export const TEMPLATES = [['editorial', 'Editorial'], ['classico', 'Clássico']];
+
+export const fullSite = (menuId, template = 'editorial') => template === 'classico'
+  ? navbar({ menuId }) + hero() + features() + pricing() + testimonials() + faq() + cta() + footer()
+  : navbar({ menuId, editorial: true }) + heroEditorial() + statement() + services() + works() + stats()
+    + testimonials({ alt: true, carousel: true }) + pricing() + faq({ alt: true }) + cta() + footer({ wordmark: true });
 
 export const WIDTHS = [['full', 'Computador'], ['768', 'Tablet'], ['390', 'Celular']];
 
-export const frame = ({ content, url = 'ateliesumi.com.br', className = '', attrs = '', widths = true }) => `
+export const frame = ({ content, url = 'ateliesumi.com.br', className = '', attrs = '', widths = true, tools = '' }) => `
   <div class="site-frame ${className}" data-frame>
     <div class="site-frame-bar">
       <span class="site-frame-dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -212,6 +308,7 @@ export const frame = ({ content, url = 'ateliesumi.com.br', className = '', attr
       ${widths ? `<div class="doc-segmented site-frame-widths" role="radiogroup" aria-label="Largura da prévia">
         ${WIDTHS.map(([value, label], i) => `<button role="radio" aria-checked="${i === 0}" data-frame-width="${value}">${label}</button>`).join('')}
       </div>` : ''}
+      ${tools}
     </div>
     <div class="site-frame-stage">
       <div class="site-frame-page" ${attrs}>${content}</div>

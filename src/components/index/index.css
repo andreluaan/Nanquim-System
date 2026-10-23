@@ -1,0 +1,65 @@
+/* Lista numerada editorial: cada item numa faixa separada por um fio, com número, título e texto. */
+.ds-index {
+  container-type: inline-size;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--ds-color-border);
+}
+
+.ds-index__item {
+  display: grid;
+  grid-template-columns: var(--ds-space-16) minmax(0, 1fr) minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: var(--ds-space-6);
+  padding-block: var(--ds-space-6);
+  border-top: 1px solid var(--ds-color-border);
+}
+
+.ds-index__number {
+  font-family: var(--ds-font-mono);
+  font-size: var(--ds-text-xs);
+  color: var(--ds-color-text-subtle);
+}
+
+.ds-index__title {
+  margin: 0;
+  font-family: var(--ds-font-display);
+  font-size: clamp(var(--ds-text-2xl), 4cqi, var(--ds-text-4xl));
+  font-weight: var(--ds-weight-medium);
+  line-height: var(--ds-leading-tight);
+  letter-spacing: var(--ds-tracking-tight);
+}
+
+.ds-index__text {
+  margin: 0;
+  font-size: var(--ds-text-sm);
+  color: var(--ds-color-text-muted);
+}
+
+.ds-index__icon {
+  color: var(--ds-color-text-subtle);
+  transition:
+    color var(--ds-duration-fast) var(--ds-ease-out),
+    transform var(--ds-duration-fast) var(--ds-ease-out);
+}
+
+.ds-index__item:hover .ds-index__icon {
+  color: var(--ds-color-text);
+  transform: translateX(var(--ds-space-1));
+}
+
+@container (max-width: 40rem) {
+  .ds-index__item {
+    grid-template-columns: var(--ds-space-10) minmax(0, 1fr);
+    gap: var(--ds-space-2) var(--ds-space-4);
+  }
+
+  .ds-index__text {
+    grid-column: 2;
+  }
+
+  .ds-index__icon {
+    display: none;
+  }
+}

@@ -11,6 +11,7 @@ const ITEMS = [
   { name: 'Seções de site: hero, navbar, rodapé, preços, depoimentos', status: 'feito' },
   { name: 'Seções em páginas próprias, perguntas frequentes e visualizador de marca', status: 'feito' },
   { name: 'Documentação enxuta e cópia do valor dos tokens', status: 'feito' },
+  { name: 'Modelo editorial do site, novas seções e tela cheia com gaveta de edição', status: 'feito' },
   { name: 'Pacote para usar em outros projetos (npm e CDN)', status: 'próximo' },
   { name: 'Primeiro site de cliente feito só com o Nanquim', status: 'depois' },
 ];

@@ -15,7 +15,11 @@ import sobreposicoes from './pages/sobreposicoes.js';
 import estrutura from './pages/estrutura.js';
 import navbar from './pages/navbar.js';
 import hero from './pages/hero.js';
+import manifesto from './pages/manifesto.js';
 import recursos from './pages/recursos.js';
+import listaNumerada from './pages/lista-numerada.js';
+import projetos from './pages/projetos.js';
+import numeros from './pages/numeros.js';
 import precos from './pages/precos.js';
 import depoimentos from './pages/depoimentos.js';
 import perguntas from './pages/perguntas.js';
@@ -30,6 +34,7 @@ export const pages = [
   apresentacao, inicio,
   cores, tipografia, espacamento, elevacao, movimento,
   botoes, icones, badges, cards, formularios, carrossel, sobreposicoes,
-  estrutura, navbar, hero, recursos, precos, depoimentos, perguntas, chamada, rodape, siteCompleto,
+  estrutura, navbar, hero, manifesto, recursos, listaNumerada, projetos, numeros,
+  precos, depoimentos, perguntas, chamada, rodape, siteCompleto,
   roadmap,
 ];

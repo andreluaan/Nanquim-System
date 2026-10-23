@@ -73,3 +73,32 @@ export function enso({ id = 'ill-enso', color = INK, withPaper = true, animated 
         stroke-dasharray="560 64" transform="rotate(-70 200 150)" filter="url(#${id}-rough)" />
     </svg>`;
 }
+
+// Paisagem sumi-e para heros editoriais: montanhas em aguada que seguem a cor do texto e se dissolvem
+// na base, como névoa, com o sol na cor de destaque. A mesma imagem serve a qualquer marca e aos dois modos.
+export function inkLandscape({ id = 'ill-landscape' } = {}) {
+  return `
+    <svg viewBox="0 0 400 480" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Montanhas pintadas em nanquim, com névoa e sol">
+      <defs>
+        ${roughEdge(id, 8, '0.03')}
+        <linearGradient id="${id}-fade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0.3" stop-color="white" />
+          <stop offset="0.82" stop-color="white" stop-opacity="0" />
+        </linearGradient>
+        <mask id="${id}-mist"><rect width="400" height="480" fill="url(#${id}-fade)" /></mask>
+      </defs>
+      <circle cx="292" cy="118" r="30" style="fill: var(--ds-color-accent)" filter="url(#${id}-rough)" />
+      <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <path d="M206 92 q7 -7 14 0 q7 -7 14 0" /><path d="M238 70 q5 -5 10 0 q5 -5 10 0" />
+      </g>
+      <g fill="currentColor" mask="url(#${id}-mist)">
+        <g filter="url(#${id}-rough)">
+          <path opacity="0.25" d="M0 292 C40 262 72 236 112 246 C150 256 172 198 212 190 C252 182 280 228 320 218 C350 211 380 236 400 232 L400 480 L0 480 Z" />
+          <path opacity="0.6" d="M24 480 C78 418 106 332 148 300 C172 282 186 170 230 118 C248 98 262 138 280 180 C304 238 340 300 400 324 L400 480 Z" />
+        </g>
+      </g>
+      <g fill="currentColor" filter="url(#${id}-rough)">
+        <path d="M0 420 C58 392 112 404 162 424 C212 444 262 398 322 406 C362 411 386 430 400 436 L400 480 L0 480 Z" />
+      </g>
+    </svg>`;
+}

@@ -1,19 +1,20 @@
 import { OPTIONS } from '../lab.js';
 import { contrast, contrastLabel, resolveVarColor, toast, copy } from '../utils.js';
-import { frame, fullSite, mountSiteDemos, setFrameWidth, WIDTHS } from '../site-kit.js';
+import { frame, fullSite, mountSiteDemos, setFrameWidth, TEMPLATES } from '../site-kit.js';
 
-const DEFAULTS = { theme: 'nanquim', font: 'editorial', mode: 'dark', radius: 1, text: 1, space: 1, width: 'full' };
+const MENU_ID = 'sumi-menu-completo';
+const DEFAULTS = { template: 'editorial', theme: 'nanquim', font: 'editorial', mode: 'dark', radius: 1, text: 1, space: 1 };
 
 // Cada controle deslizante escreve uma variável no site de exemplo; os tokens recalculam o resto.
 const SLIDERS = {
   accentHue: { label: 'Matiz', variable: '--ds-accent-hue', min: 0, max: 360, step: 1, custom: true },
   accentChroma: { label: 'Intensidade', variable: '--ds-accent-chroma', min: 0, max: 0.2, step: 0.005, custom: true },
   accentLightness: { label: 'Luminosidade', variable: '--ds-accent-lightness', min: 0.3, max: 0.92, step: 0.01, custom: true },
-  neutralHue: { label: 'Matiz', variable: '--ds-neutral-hue', min: 0, max: 360, step: 1, custom: true },
+  neutralHue: { label: 'Tom dos cinzas', variable: '--ds-neutral-hue', min: 0, max: 360, step: 1, custom: true },
   neutralChroma: { label: 'Cor nos cinzas', variable: '--ds-neutral-chroma', min: 0, max: 0.04, step: 0.001, custom: true },
   radius: { label: 'Cantos', variable: '--ds-radius-factor', min: 0, max: 2.5, step: 0.05, format: (v) => `${Math.round(v * 8)}px` },
-  text: { label: 'Tamanho do texto', variable: '--ds-text-scale', min: 0.85, max: 1.25, step: 0.05, format: (v) => `${Math.round(v * 100)}%` },
-  space: { label: 'Espaçamento', variable: '--ds-space-scale', min: 0.75, max: 1.3, step: 0.05, format: (v) => `${Math.round(v * 100)}%` },
+  text: { label: 'Texto', variable: '--ds-text-scale', min: 0.85, max: 1.25, step: 0.05, format: (v) => `${Math.round(v * 100)}%` },
+  space: { label: 'Espaço', variable: '--ds-space-scale', min: 0.75, max: 1.3, step: 0.05, format: (v) => `${Math.round(v * 100)}%` },
 };
 
 const CONTRASTS = [
@@ -32,73 +33,94 @@ const slider = (key) => {
     </label>`;
 };
 
-const choices = (key, items, render) => `
-  <div class="viz-choices viz-choices--${key}">
-    ${items.map((item) => `<button class="viz-option" data-choice="${key}" data-value="${item.id}" aria-pressed="false">${render(item)}</button>`).join('')}
-  </div>`;
-
 const segmented = (key, items, label) => `
   <div class="doc-segmented" role="radiogroup" aria-label="${label}">
     ${items.map(([id, name]) => `<button role="radio" aria-checked="false" data-choice="${key}" data-value="${id}">${name}</button>`).join('')}
   </div>`;
+
+const swatches = () => `
+  <div class="viz-swatches">
+    ${OPTIONS.theme.items.map((item) => `
+      <button class="viz-swatch" data-choice="theme" data-value="${item.id}" aria-pressed="false" aria-label="${item.name}" title="${item.name}"
+        style="--a: ${item.swatch[0]}; --b: ${item.swatch[2]}"></button>`).join('')}
+  </div>`;
+
+const fonts = () => `
+  <div class="viz-fonts">
+    ${OPTIONS.font.items.map((item) => `
+      <button class="viz-font" data-choice="font" data-value="${item.id}" aria-pressed="false" aria-label="${item.name}" title="${item.name}"
+        style="font-family: ${item.family}">Aa</button>`).join('')}
+  </div>`;
+
+const tool = (action, icon, label) => `
+  <button class="ds-btn ds-btn--ghost ds-btn--sm viz-tool" data-action="${action}"><ds-icon name="${icon}"></ds-icon> <span>${label}</span></button>`;
 
 export default {
   id: 'site-completo',
   group: 'Seções de site',
   title: 'Site completo',
   wide: true,
-  keywords: 'site completo landing page exemplo visualizador marca tema cores fonte cantos tamanho gerar tema',
-  lead: 'Todas as seções num site. Vista-o com outra marca e copie o tema.',
+  keywords: 'site completo landing page exemplo modelo template editorial visualizador marca tema cores fonte cantos tela cheia',
+  lead: 'Todas as seções num site. Escolha o modelo, vista-o com outra marca e copie o tema.',
   render: () => `
     <div class="viz" data-viz>
-      <aside class="viz-panel" aria-label="Ajustes da marca">
+      <aside class="viz-panel" id="viz-panel" aria-label="Ajustes da marca">
+        <header class="viz-panel-head">
+          <strong>Editar marca</strong>
+          <button class="ds-btn ds-btn--ghost ds-btn--icon ds-btn--sm" data-action="panel" aria-label="Fechar painel"><ds-icon name="x"></ds-icon></button>
+        </header>
         <section class="viz-group">
-          <h2>Paleta</h2>
-          ${choices('theme', OPTIONS.theme.items, (item) => `<span class="lab-swatch">${item.swatch.map((c) => `<i style="background:${c}"></i>`).join('')}</span><span>${item.name}</span>`)}
+          <h2>Modelo</h2>
+          ${segmented('template', TEMPLATES, 'Modelo do site')}
         </section>
         <section class="viz-group">
-          <h2>Cor de destaque <small data-custom-flag hidden>personalizada</small></h2>
-          ${slider('accentHue')}${slider('accentChroma')}${slider('accentLightness')}
+          <h2>Marca <small data-name="theme"></small></h2>
+          ${swatches()}
+          <details class="viz-more" data-custom>
+            <summary>Cor própria</summary>
+            ${slider('accentHue')}${slider('accentChroma')}${slider('accentLightness')}${slider('neutralHue')}${slider('neutralChroma')}
+          </details>
         </section>
         <section class="viz-group">
-          <h2>Neutros</h2>
-          ${slider('neutralHue')}${slider('neutralChroma')}
-        </section>
-        <section class="viz-group">
-          <h2>Tipografia</h2>
-          ${choices('font', OPTIONS.font.items, (item) => `<span class="lab-aa" style="font-family:${item.family}">Aa</span><span>${item.name}</span>`)}
-          ${slider('text')}
+          <h2>Fonte <small data-name="font"></small></h2>
+          ${fonts()}
         </section>
         <section class="viz-group">
           <h2>Forma</h2>
-          ${slider('radius')}${slider('space')}
+          ${slider('radius')}${slider('text')}${slider('space')}
         </section>
         <section class="viz-group">
-          <h2>Modo e largura</h2>
+          <h2>Modo</h2>
           ${segmented('mode', OPTIONS.mode.items.map((item) => [item.id, item.name]), 'Modo')}
-          ${segmented('width', WIDTHS, 'Largura da prévia')}
         </section>
-        <section class="viz-group">
-          <h2>Contraste</h2>
+        <details class="viz-more viz-contrast-box">
+          <summary>Contraste <span data-contrast-summary></span></summary>
           <dl class="viz-contrast" data-contrast></dl>
-        </section>
+        </details>
         <div class="viz-actions">
           <button class="ds-btn ds-btn--primary ds-btn--sm" data-action="copy"><ds-icon name="copy"></ds-icon> Copiar tema</button>
-          <button class="ds-btn ds-btn--sm" data-action="fullscreen" aria-pressed="false"><ds-icon name="external-link"></ds-icon> Tela cheia</button>
           <button class="ds-btn ds-btn--ghost ds-btn--sm" data-action="reset"><ds-icon name="refresh"></ds-icon> Restaurar</button>
         </div>
       </aside>
       <div class="viz-stage">
-        ${frame({ content: fullSite('sumi-menu-completo'), className: 'site-frame--scroll', widths: false, attrs: 'data-site data-scale' })}
+        ${frame({
+          content: fullSite(MENU_ID, DEFAULTS.template),
+          className: 'site-frame--scroll',
+          attrs: 'data-site data-scale',
+          tools: `<span class="viz-tools">${tool('panel', 'sliders', 'Editar')}${tool('fullscreen', 'external-link', 'Tela cheia')}</span>`,
+        })}
       </div>
     </div>`,
 
   mount(el) {
     const viz = el.querySelector('[data-viz]');
     const page = viz.querySelector('[data-site]');
+    const frameEl = viz.querySelector('[data-frame]');
     const state = { ...DEFAULTS };
+    let renderedTemplate = state.template;
 
     const readVar = (name) => Number.parseFloat(getComputedStyle(page).getPropertyValue(name));
+    const nameOf = (key) => OPTIONS[key].items.find((item) => item.id === state[key])?.name ?? '';
 
     function syncControls() {
       viz.querySelectorAll('[data-choice]').forEach((button) => {
@@ -110,21 +132,34 @@ export default {
         viz.querySelector(`[data-slider="${key}"]`).value = value;
         viz.querySelector(`[data-output="${key}"]`).textContent = s.format ? s.format(value) : Number(value.toFixed(3));
       });
-      viz.querySelector('[data-custom-flag]').hidden = !state.custom;
+      viz.querySelector('[data-name="theme"]').textContent = state.custom ? 'Cor própria' : nameOf('theme');
+      viz.querySelector('[data-name="font"]').textContent = nameOf('font');
     }
 
     function measureContrast() {
-      viz.querySelector('[data-contrast]').innerHTML = CONTRASTS.map(([label, fg, bg]) => {
-        const ratio = contrast(resolveVarColor(fg, page), resolveVarColor(bg, page));
+      const ratios = CONTRASTS.map(([label, fg, bg]) => [label, contrast(resolveVarColor(fg, page), resolveVarColor(bg, page))]);
+      viz.querySelector('[data-contrast]').innerHTML = ratios.map(([label, ratio]) => {
         const rating = contrastLabel(ratio);
         return `<div><dt>${label}</dt><dd class="${rating.cls}">${ratio.toFixed(1)} · ${rating.text}</dd></div>`;
       }).join('');
+      const worst = contrastLabel(Math.min(...ratios.map(([, ratio]) => ratio)));
+      const summary = viz.querySelector('[data-contrast-summary]');
+      summary.className = worst.cls;
+      summary.textContent = worst.text;
+    }
+
+    function renderTemplate() {
+      if (state.template === renderedTemplate) return;
+      page.querySelectorAll('dialog[open]').forEach((d) => d.close());
+      page.innerHTML = fullSite(MENU_ID, state.template);
+      page.scrollTop = 0;
+      renderedTemplate = state.template;
     }
 
     function apply() {
+      renderTemplate();
       Object.assign(page.dataset, { theme: state.theme, font: state.font, mode: state.mode });
       ['radius', 'text', 'space'].forEach((key) => page.style.setProperty(SLIDERS[key].variable, state[key]));
-      setFrameWidth(viz.querySelector('[data-frame]'), state.width);
       syncControls();
       measureContrast();
     }
@@ -171,6 +206,23 @@ export default {
 }`;
     }
 
+    // Fora da tela cheia o painel fica sempre ao lado; na tela cheia ele vira uma gaveta que abre e fecha.
+    const fullscreenButton = viz.querySelector('[data-action="fullscreen"]');
+    const panelButton = viz.querySelector('.viz-tools [data-action="panel"]');
+    panelButton.setAttribute('aria-controls', 'viz-panel');
+
+    function setPanel(open) {
+      viz.toggleAttribute('data-panel-open', open);
+      panelButton.setAttribute('aria-expanded', String(open));
+    }
+
+    function setFullscreen(on) {
+      viz.toggleAttribute('data-fullscreen', on);
+      fullscreenButton.querySelector('ds-icon').setAttribute('name', on ? 'x' : 'external-link');
+      fullscreenButton.querySelector('span').textContent = on ? 'Sair' : 'Tela cheia';
+      setPanel(on);
+    }
+
     viz.addEventListener('click', (e) => {
       const choice = e.target.closest('[data-choice]');
       if (choice) {
@@ -184,10 +236,12 @@ export default {
       if (action === 'reset') {
         clearCustomColor();
         Object.assign(state, DEFAULTS);
+        setFrameWidth(frameEl, 'full');
         apply();
         toast('Site de exemplo restaurado');
       }
       if (action === 'fullscreen') setFullscreen(!viz.hasAttribute('data-fullscreen'));
+      if (action === 'panel') setPanel(!viz.hasAttribute('data-panel-open'));
     });
 
     viz.addEventListener('input', (e) => {
@@ -199,24 +253,23 @@ export default {
       apply();
     });
 
-    const fullscreenButton = viz.querySelector('[data-action="fullscreen"]');
-    function setFullscreen(on) {
-      viz.toggleAttribute('data-fullscreen', on);
-      fullscreenButton.setAttribute('aria-pressed', String(on));
-      fullscreenButton.lastChild.textContent = on ? ' Sair da tela cheia' : ' Tela cheia';
-    }
+    // Esc fecha primeiro a gaveta e, depois, a tela cheia.
     const onKeydown = (e) => {
-      if (e.key === 'Escape' && viz.hasAttribute('data-fullscreen') && !document.querySelector('dialog[open]')) setFullscreen(false);
+      if (e.key !== 'Escape' || !viz.hasAttribute('data-fullscreen') || document.querySelector('dialog[open]')) return;
+      if (viz.hasAttribute('data-panel-open')) setPanel(false);
+      else setFullscreen(false);
     };
     document.addEventListener('keydown', onKeydown);
 
-    // ?marca=terracota&modo=light já abre o exemplo assim: serve para links diretos e para os prints do diário.
+    // ?marca=terracota&modo=light&modelo=classico já abre o exemplo assim: serve para links diretos e para os prints do diário.
     const params = new URLSearchParams(location.search);
     if (OPTIONS.theme.items.some((item) => item.id === params.get('marca'))) state.theme = params.get('marca');
     if (OPTIONS.mode.items.some((item) => item.id === params.get('modo'))) state.mode = params.get('modo');
+    if (TEMPLATES.some(([id]) => id === params.get('modelo'))) state.template = params.get('modelo');
     const presets = { terracota: { font: 'classico', radius: 1.75 }, ardosia: { font: 'moderno' }, aco: { font: 'tecnico', radius: 0.25 } };
     Object.assign(state, presets[state.theme] ?? {});
     apply();
+    if (params.has('tela-cheia')) setFullscreen(true);
 
     const cleanupDemos = mountSiteDemos(el);
     return () => {

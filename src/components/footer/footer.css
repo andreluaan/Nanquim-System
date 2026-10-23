@@ -85,3 +85,18 @@
     grid-column: 1 / -1;
   }
 }
+
+/* Assinatura gigante: o nome da marca ocupa a largura do rodapé e é cortado embaixo, de propósito. */
+.ds-footer__wordmark {
+  margin: var(--ds-space-8) 0 0;
+  overflow: hidden;
+  height: 0.74em;
+  font-family: var(--ds-font-display);
+  font-size: 45cqi;
+  font-weight: var(--ds-weight-bold);
+  line-height: var(--ds-leading-none);
+  letter-spacing: var(--ds-tracking-tighter);
+  white-space: nowrap;
+  color: var(--ds-color-text);
+  user-select: none;
+}

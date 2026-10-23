@@ -76,6 +76,37 @@
   display: none;
 }
 
+/* Editorial: sem borda, links miúdos em caixa alta, marca em minúsculas. */
+.ds-navbar--editorial {
+  border-bottom-color: transparent;
+}
+
+.ds-navbar--editorial .ds-navbar__brand {
+  font-weight: var(--ds-weight-bold);
+  letter-spacing: var(--ds-tracking-tighter);
+}
+
+.ds-navbar--editorial .ds-navbar__links {
+  gap: var(--ds-space-4);
+}
+
+.ds-navbar--editorial .ds-navbar__links a {
+  padding-inline: var(--ds-space-1);
+  font-size: var(--ds-text-xs);
+  font-weight: var(--ds-weight-semibold);
+  letter-spacing: var(--ds-tracking-wide);
+  text-transform: uppercase;
+}
+
+.ds-navbar--editorial .ds-navbar__links a:hover {
+  background: none;
+}
+
+.ds-navbar--editorial .ds-navbar__links a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: var(--ds-space-1);
+}
+
 @container (max-width: 48rem) {
   .ds-navbar__links,
   .ds-navbar__actions {
