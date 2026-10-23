@@ -54,6 +54,8 @@
   --ds-color-on-info: oklch(0.2 0.03 var(--ds-info-hue));
   --ds-color-info-text: oklch(var(--ds-accent-l11) calc(var(--ds-status-chroma) * 0.8) var(--ds-info-hue));
 
+  --ds-color-overlay: color-mix(in oklch, var(--ds-neutral-1) 72%, transparent);
+
   --ds-shadow-sm: inset 0 1px 0 var(--ds-highlight),
     0 1px 2px hsl(var(--ds-shadow-color) / calc(var(--ds-shadow-strength) * 0.6));
   --ds-shadow-md: inset 0 1px 0 var(--ds-highlight),
@@ -69,4 +71,5 @@
   --ds-color-bg: var(--ds-neutral-2);
   --ds-color-surface: var(--ds-neutral-1);
   --ds-color-surface-raised: var(--ds-neutral-1);
+  --ds-color-overlay: color-mix(in oklch, var(--ds-neutral-12) 32%, transparent);
 }

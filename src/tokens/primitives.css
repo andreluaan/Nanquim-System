@@ -172,6 +172,7 @@
   --ds-z-overlay: 300;
   --ds-z-modal: 400;
   --ds-z-toast: 500;
+  --ds-z-tooltip: 600;
 }
 
 @media (prefers-reduced-motion: reduce) {

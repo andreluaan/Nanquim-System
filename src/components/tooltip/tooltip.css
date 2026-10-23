@@ -1,0 +1,90 @@
+ds-tooltip {
+  --tooltip-offset: var(--ds-space-2);
+  --tooltip-enter: 0 0;
+
+  position: relative;
+  display: inline-flex;
+}
+
+.ds-tooltip__bubble {
+  position: absolute;
+  z-index: var(--ds-z-tooltip);
+  width: max-content;
+  max-width: 16rem;
+  padding: var(--ds-space-1) var(--ds-space-2);
+  border-radius: var(--ds-radius-sm);
+  background: var(--ds-color-text);
+  color: var(--ds-color-bg);
+  font-family: var(--ds-font-body);
+  font-size: var(--ds-text-xs);
+  font-weight: var(--ds-weight-medium);
+  line-height: var(--ds-leading-snug);
+  text-align: center;
+  box-shadow: var(--ds-shadow-md);
+  display: none;
+  opacity: 0;
+  translate: var(--tooltip-enter);
+  transition:
+    opacity var(--ds-duration-fast) var(--ds-ease-out),
+    translate var(--ds-duration-fast) var(--ds-ease-out),
+    display var(--ds-duration-fast) allow-discrete;
+}
+
+ds-tooltip[data-side="top"] .ds-tooltip__bubble,
+ds-tooltip[data-side="bottom"] .ds-tooltip__bubble {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+ds-tooltip[data-side="left"] .ds-tooltip__bubble,
+ds-tooltip[data-side="right"] .ds-tooltip__bubble {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+ds-tooltip[data-side="top"] {
+  --tooltip-enter: 0 var(--ds-space-1);
+}
+
+ds-tooltip[data-side="top"] .ds-tooltip__bubble {
+  bottom: calc(100% + var(--tooltip-offset));
+}
+
+ds-tooltip[data-side="bottom"] {
+  --tooltip-enter: 0 calc(-1 * var(--ds-space-1));
+}
+
+ds-tooltip[data-side="bottom"] .ds-tooltip__bubble {
+  top: calc(100% + var(--tooltip-offset));
+}
+
+ds-tooltip[data-side="left"] {
+  --tooltip-enter: var(--ds-space-1) 0;
+}
+
+ds-tooltip[data-side="left"] .ds-tooltip__bubble {
+  right: calc(100% + var(--tooltip-offset));
+}
+
+ds-tooltip[data-side="right"] {
+  --tooltip-enter: calc(-1 * var(--ds-space-1)) 0;
+}
+
+ds-tooltip[data-side="right"] .ds-tooltip__bubble {
+  left: calc(100% + var(--tooltip-offset));
+}
+
+/* Fechado, o balão sai do layout para não empurrar a página. O atraso ao abrir evita piscar quando o mouse só atravessa. */
+ds-tooltip[data-open] .ds-tooltip__bubble {
+  display: block;
+  opacity: 1;
+  translate: 0 0;
+  transition-delay: var(--ds-duration-fast);
+}
+
+@starting-style {
+  ds-tooltip[data-open] .ds-tooltip__bubble {
+    opacity: 0;
+    translate: var(--tooltip-enter);
+  }
+}

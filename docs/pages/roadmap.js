@@ -7,8 +7,8 @@ const ITEMS = [
   { name: 'Badges e cards', status: 'feito' },
   { name: 'Campos de formulário', status: 'feito' },
   { name: 'Carrossel e slides', status: 'feito' },
-  { name: 'Modal, gaveta, tooltip', status: 'próximo' },
-  { name: 'Seções de site: hero, navbar, rodapé, preços, depoimentos', status: 'depois' },
+  { name: 'Modal, gaveta, tooltip', status: 'feito' },
+  { name: 'Seções de site: hero, navbar, rodapé, preços, depoimentos', status: 'próximo' },
 ];
 
 const LABEL = { feito: 'Feito', agora: 'Em andamento', 'próximo': 'Próximo', depois: 'Planejado' };

@@ -1,0 +1,143 @@
+.ds-dialog {
+  --dialog-width: 32rem;
+  --dialog-padding: var(--ds-space-6);
+  --dialog-enter: 0 var(--ds-space-4);
+
+  flex-direction: column;
+  width: min(var(--dialog-width), 100% - 2 * var(--ds-space-4));
+  max-height: calc(100% - 2 * var(--ds-space-8));
+  padding: 0;
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-surface-raised);
+  color: var(--ds-color-text);
+  box-shadow: var(--ds-shadow-lg);
+  opacity: 0;
+  translate: var(--dialog-enter);
+  transition:
+    opacity var(--ds-duration-base) var(--ds-ease-out),
+    translate var(--ds-duration-base) var(--ds-ease-out),
+    overlay var(--ds-duration-base) allow-discrete,
+    display var(--ds-duration-base) allow-discrete;
+}
+
+.ds-dialog[open] {
+  display: flex;
+  opacity: 1;
+  translate: 0 0;
+}
+
+.ds-dialog::backdrop {
+  background: var(--ds-color-overlay);
+  opacity: 0;
+  transition:
+    opacity var(--ds-duration-base) var(--ds-ease-out),
+    overlay var(--ds-duration-base) allow-discrete,
+    display var(--ds-duration-base) allow-discrete;
+}
+
+.ds-dialog[open]::backdrop {
+  opacity: 1;
+}
+
+/* Ponto de partida da animação de entrada; navegadores sem suporte só abrem sem animar. */
+@starting-style {
+  .ds-dialog[open] {
+    opacity: 0;
+    translate: var(--dialog-enter);
+  }
+
+  .ds-dialog[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+html:has(.ds-dialog:modal) {
+  overflow: hidden;
+}
+
+.ds-dialog__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--ds-space-4);
+  padding: var(--dialog-padding) var(--dialog-padding) 0;
+}
+
+.ds-dialog__title {
+  margin: 0;
+  font-family: var(--ds-font-display);
+  font-size: var(--ds-text-xl);
+  font-weight: var(--ds-weight-medium);
+  line-height: var(--ds-leading-snug);
+  letter-spacing: var(--ds-tracking-tight);
+}
+
+.ds-dialog__header .ds-btn {
+  margin: calc(-1 * var(--ds-space-1)) calc(-1 * var(--ds-space-2)) 0 0;
+}
+
+.ds-dialog__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--ds-space-3) var(--dialog-padding) var(--dialog-padding);
+  font-size: var(--ds-text-sm);
+  line-height: var(--ds-leading-normal);
+  color: var(--ds-color-text-muted);
+}
+
+.ds-dialog__body > :first-child {
+  margin-top: 0;
+}
+
+.ds-dialog__body > :last-child {
+  margin-bottom: 0;
+}
+
+.ds-dialog__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--ds-space-2);
+  padding: var(--ds-space-4) var(--dialog-padding);
+  border-top: 1px solid var(--ds-color-border-subtle);
+}
+
+.ds-dialog--sm {
+  --dialog-width: 24rem;
+}
+
+.ds-dialog--lg {
+  --dialog-width: 48rem;
+}
+
+.ds-dialog--drawer {
+  --dialog-width: 24rem;
+  --dialog-enter: 100% 0;
+
+  height: 100%;
+  max-height: none;
+  margin: 0 0 0 auto;
+  border-width: 0 0 0 1px;
+  border-radius: var(--ds-radius-xl) 0 0 var(--ds-radius-xl);
+}
+
+.ds-dialog--drawer.ds-dialog--start {
+  --dialog-enter: -100% 0;
+
+  margin: 0 auto 0 0;
+  border-width: 0 1px 0 0;
+  border-radius: 0 var(--ds-radius-xl) var(--ds-radius-xl) 0;
+}
+
+.ds-dialog--drawer.ds-dialog--bottom {
+  --dialog-enter: 0 100%;
+
+  width: 100%;
+  max-width: none;
+  height: fit-content;
+  max-height: 85%;
+  margin: auto 0 0;
+  border-width: 1px 0 0;
+  border-radius: var(--ds-radius-xl) var(--ds-radius-xl) 0 0;
+}
