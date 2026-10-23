@@ -18,6 +18,7 @@ geradas a partir do próprio histórico com `npm run evolucao`.
 | [v0.3.1](#v031--profundidade-e-modo-claro) | 2026-10-22 | Profundidade e modo claro | 9 | 1 | Nanquim + 5 + marca de exemplo |
 | [v0.4.0](#v040--ícones) | 2026-10-22 | Ícones e primeiro Web Component | 10 | 2 | Nanquim + 5 + marca de exemplo |
 | [v0.5.0](#v050--badges-e-cards) | 2026-10-22 | Badges e cards | 12 | 4 | Nanquim + 5 + marca de exemplo |
+| [v0.6.0](#v060--formulários) | 2026-10-23 | Formulários | 13 | 5 | Nanquim + 5 + marca de exemplo |
 
 ### A mesma tela em cada versão
 
@@ -147,6 +148,20 @@ Todas as paletas no modo claro, depois do ajuste:
 | Badges | Cards |
 |---|---|
 | ![](evolucao/v0.5.0/03c-badges.png) | ![](evolucao/v0.5.0/03d-cards.png) |
+
+---
+
+## v0.6.0 — Formulários
+
+*2026-10-23 · tag `v0.6.0` · diário: [008](008-formularios.md)*
+
+- Campos sobre os elementos nativos do HTML: texto, e-mail, área de texto, seleção, checkbox, radio e interruptor
+- Erros acessíveis (`aria-invalid` + mensagem ligada ao campo) e 3 tamanhos alinhados aos botões
+- Formulário de contato funcional, com validação que não culpa quem preenche e consentimento LGPD
+
+| Formulários | Formulários (papel) |
+|---|---|
+| ![](evolucao/v0.6.0/03e-formularios.png) | ![](prints/2026-10-23_formularios/42-formularios-papel.png) |
 
 ---
 
