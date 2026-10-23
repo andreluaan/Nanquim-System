@@ -1617,7 +1617,7 @@ ds-carousel[variant="overlay"] .carousel-demo-slide figcaption {
 /* Visualizador: painel de ajustes ao lado do site. Em tela cheia, o site ocupa a janela e o painel vira gaveta. */
 .viz {
   display: grid;
-  grid-template-columns: 15rem minmax(0, 1fr);
+  grid-template-columns: 16rem minmax(0, 1fr);
   align-items: start;
   gap: var(--ds-space-5);
 }
@@ -1674,16 +1674,20 @@ ds-carousel[variant="overlay"] .carousel-demo-slide figcaption {
   color: var(--ds-color-text);
 }
 
-.viz-swatches,
-.viz-fonts {
+/* Cada grupo ocupa a largura toda, em colunas iguais: nada fica solto numa linha sozinho. */
+.viz-panel > .viz-group ~ * {
+  padding-top: var(--ds-space-4);
+  border-top: 1px solid var(--ds-color-border-subtle);
+}
+
+.viz-swatches {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--ds-space-2);
+  justify-content: space-between;
 }
 
 .viz-swatch {
-  width: var(--ds-space-5);
-  height: var(--ds-space-5);
+  width: var(--ds-space-6);
+  height: var(--ds-space-6);
   padding: 0;
   border: 1px solid var(--ds-color-border);
   border-radius: var(--ds-radius-full);
@@ -1691,15 +1695,24 @@ ds-carousel[variant="overlay"] .carousel-demo-slide figcaption {
   cursor: pointer;
 }
 
+.viz-fonts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ds-space-2);
+}
+
+/* Cada fonte escreve o próprio nome: o botão já mostra a letra. */
 .viz-font {
-  width: var(--ds-space-10);
-  height: var(--ds-space-8);
-  padding: 0;
+  min-width: 0;
+  overflow: hidden;
+  padding: var(--ds-space-2);
   border: 1px solid var(--ds-color-border-subtle);
   border-radius: var(--ds-radius-md);
   background: var(--ds-color-bg);
   color: var(--ds-color-text-muted);
-  font-size: var(--ds-text-md);
+  font-size: var(--ds-text-sm);
+  text-overflow: ellipsis;
+  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -1707,10 +1720,12 @@ ds-carousel[variant="overlay"] .carousel-demo-slide figcaption {
   color: var(--ds-color-text);
 }
 
-.viz-swatch[aria-pressed="true"],
+.viz-swatch[aria-pressed="true"] {
+  box-shadow: 0 0 0 2px var(--ds-color-surface), 0 0 0 3px var(--ds-color-text);
+}
+
 .viz-font[aria-pressed="true"] {
   border-color: var(--ds-color-text);
-  box-shadow: 0 0 0 2px var(--ds-color-surface), 0 0 0 3px var(--ds-color-text);
   color: var(--ds-color-text);
 }
 
@@ -1757,7 +1772,8 @@ ds-carousel[variant="overlay"] .carousel-demo-slide figcaption {
 }
 
 .viz-group .doc-segmented {
-  justify-self: start;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .viz-group .doc-segmented button {
@@ -1803,9 +1819,13 @@ ds-carousel[variant="overlay"] .carousel-demo-slide figcaption {
 }
 
 .viz-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--ds-space-2);
+}
+
+.viz-actions .ds-btn {
+  justify-content: center;
 }
 
 .viz-tools {
@@ -1856,7 +1876,7 @@ ds-carousel[variant="overlay"] .carousel-demo-slide figcaption {
   right: var(--ds-space-3);
   bottom: var(--ds-space-3);
   z-index: calc(var(--ds-z-sticky) + 1);
-  width: 16rem;
+  width: 17rem;
   max-height: none;
   box-shadow: var(--ds-shadow-lg);
   transform: translateX(calc(100% + var(--ds-space-4)));

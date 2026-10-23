@@ -3,7 +3,7 @@ import { contrast, contrastLabel, resolveVarColor, toast, copy } from '../utils.
 import { frame, fullSite, mountSiteDemos, setFrameWidth, TEMPLATES, TEMPLATE_BRANDS } from '../site-kit.js';
 
 const MENU_ID = 'sumi-menu-completo';
-const DEFAULTS = { template: 'editorial', theme: 'nanquim', font: 'editorial', mode: 'dark', radius: 1, text: 1, space: 1 };
+const DEFAULTS = { template: 'vitrine', ...TEMPLATE_BRANDS.vitrine, text: 1, space: 1 };
 
 // Cada controle deslizante escreve uma variável no site de exemplo; os tokens recalculam o resto.
 const SLIDERS = {
@@ -46,8 +46,9 @@ const swatches = () => `
 const fonts = () => `
   <div class="viz-fonts">
     ${OPTIONS.font.items.map((item) => `
-      <button class="viz-font" data-choice="font" data-value="${item.id}" aria-pressed="false" aria-label="${item.name}" title="${item.name}"
-        style="font-family: ${item.family}">Aa</button>`).join('')}
+      <button class="viz-font" data-choice="font" data-value="${item.id}" aria-pressed="false" style="font-family: ${item.family}">
+        ${item.name}
+      </button>`).join('')}
   </div>`;
 
 const tool = (action, icon, label) => `
@@ -80,7 +81,7 @@ export default {
           </details>
         </section>
         <section class="viz-group">
-          <h2>Fonte <small data-name="font"></small></h2>
+          <h2>Fonte</h2>
           ${fonts()}
         </section>
         <section class="viz-group">
@@ -97,7 +98,7 @@ export default {
         </details>
         <div class="viz-actions">
           <button class="ds-btn ds-btn--primary ds-btn--sm" data-action="copy"><ds-icon name="copy"></ds-icon> Copiar tema</button>
-          <button class="ds-btn ds-btn--ghost ds-btn--sm" data-action="reset"><ds-icon name="refresh"></ds-icon> Restaurar</button>
+          <button class="ds-btn ds-btn--secondary ds-btn--sm" data-action="reset"><ds-icon name="refresh"></ds-icon> Restaurar</button>
         </div>
       </aside>
       <div class="viz-stage">
@@ -134,7 +135,6 @@ export default {
         viz.querySelector(`[data-output="${key}"]`).textContent = s.format ? s.format(value) : Number(value.toFixed(3));
       });
       viz.querySelector('[data-name="theme"]').textContent = state.custom ? 'Cor própria' : nameOf('theme');
-      viz.querySelector('[data-name="font"]').textContent = nameOf('font');
     }
 
     function measureContrast() {

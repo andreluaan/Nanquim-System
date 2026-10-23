@@ -22,12 +22,12 @@ export const OPTIONS = {
     label: 'Tipografia',
     hint: 'A voz do texto.',
     items: [
-      { id: 'editorial', name: 'Editorial', desc: 'Fraunces + Inter', family: '"Fraunces", serif' },
-      { id: 'moderno', name: 'Moderno', desc: 'Geist', family: '"Geist", sans-serif' },
-      { id: 'classico', name: 'Clássico', desc: 'Instrument Serif + DM Sans', family: '"Instrument Serif", serif' },
-      { id: 'tecnico', name: 'Técnico', desc: 'Space Grotesk + Plex', family: '"Space Grotesk", sans-serif' },
-      { id: 'geometrico', name: 'Geométrico', desc: 'Jost, títulos em caixa alta', family: '"Jost", sans-serif' },
-      { id: 'condensado', name: 'Condensado', desc: 'Oswald + Inter, caixa alta', family: '"Oswald", sans-serif' },
+      { id: 'editorial', name: 'Editorial', desc: 'Fraunces + Inter', family: "'Fraunces', serif" },
+      { id: 'moderno', name: 'Moderno', desc: 'Geist', family: "'Geist', sans-serif" },
+      { id: 'classico', name: 'Clássico', desc: 'Instrument Serif + DM Sans', family: "'Instrument Serif', serif" },
+      { id: 'tecnico', name: 'Técnico', desc: 'Space Grotesk + Plex', family: "'Space Grotesk', sans-serif" },
+      { id: 'geometrico', name: 'Geométrico', desc: 'Jost, títulos em caixa alta', family: "'Jost', sans-serif" },
+      { id: 'condensado', name: 'Condensado', desc: 'Oswald + Inter, caixa alta', family: "'Oswald', sans-serif" },
     ],
   },
   radius: {

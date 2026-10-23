@@ -56,7 +56,7 @@ const SHOTS = [
   ['53-site-tela-cheia', 'site-completo', { 'tela-cheia': '' }, DESKTOP],
   ['54-site-neutro-claro', 'site-completo', { marca: 'neutro', modo: 'light', 'tela-cheia': '' }, DESKTOP],
   ['55-site-classico', 'site-completo', { modelo: 'classico' }, DESKTOP],
-  ['49-site-vitrine', 'site-completo', { modelo: 'vitrine' }, DESKTOP],
+  ['49-site-editorial', 'site-completo', { modelo: 'editorial' }, DESKTOP],
   ['50-site-grade', 'site-completo', { modelo: 'grade' }, DESKTOP],
   ['51-site-carvao-claro', 'site-completo', { marca: 'neutro', modo: 'light' }, DESKTOP],
   ['10-laboratorio', 'inicio', { lab: '' }, DESKTOP],
