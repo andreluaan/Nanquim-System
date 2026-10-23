@@ -33,3 +33,4 @@ para posts (LinkedIn, portfólio).
 | 011 | 2026-10-23 | [Seções de site](011-secoes-de-site.md) | Navbar, hero, recursos, preços, depoimentos, chamada e rodapé; landing de exemplo que troca de marca; container queries |
 | 012 | 2026-10-23 | [Seções separadas e visualizador](012-secoes-separadas-visualizador.md) | Grupo próprio no menu com uma página por seção, perguntas frequentes e visualizador que gera o tema da marca |
 | 013 | 2026-10-23 | [Textos enxutos e cópia de valores](013-textos-enxutos.md) | Documentação com metade do texto e letra menor; tokens copiados como nome ou como valor pronto |
+| 014 | 2026-10-23 | [Modelo editorial e tela cheia](014-modelo-editorial.md) | Landing editorial com peças novas (manifesto, lista numerada, projetos, números), painel simplificado e gaveta de edição na tela cheia |
