@@ -27,6 +27,7 @@
 
   --ds-color-focus: var(--ds-accent-8);
   --ds-focus-ring: 0 0 0 2px var(--ds-color-bg), 0 0 0 4px var(--ds-color-focus);
+  --ds-focus-ring-danger: 0 0 0 2px var(--ds-color-bg), 0 0 0 4px var(--ds-color-danger);
 
   --ds-color-success-soft: oklch(var(--ds-accent-l3) calc(var(--ds-status-chroma) * 0.35) var(--ds-success-hue));
   --ds-color-success-border: oklch(var(--ds-accent-l6) calc(var(--ds-status-chroma) * 0.65) var(--ds-success-hue));

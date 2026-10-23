@@ -1,0 +1,297 @@
+.ds-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-2);
+}
+
+.ds-field__label {
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-medium);
+  color: var(--ds-color-text);
+}
+
+.ds-field__required {
+  margin-left: var(--ds-space-1);
+  color: var(--ds-color-danger-text);
+}
+
+.ds-field__hint {
+  margin: 0;
+  font-size: var(--ds-text-xs);
+  color: var(--ds-color-text-subtle);
+}
+
+.ds-field__error {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-1);
+  margin: 0;
+  font-size: var(--ds-text-xs);
+  font-weight: var(--ds-weight-medium);
+  color: var(--ds-color-danger-text);
+}
+
+.ds-field__error:empty {
+  display: none;
+}
+
+.ds-input {
+  --input-height: var(--ds-space-10);
+  --input-padding-x: var(--ds-space-3);
+
+  width: 100%;
+  height: var(--input-height);
+  padding: 0 var(--input-padding-x);
+  border: 1px solid var(--ds-color-border);
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-bg);
+  color: var(--ds-color-text);
+  font-family: var(--ds-font-body);
+  font-size: var(--ds-text-sm);
+  transition:
+    border-color var(--ds-duration-fast) var(--ds-ease-out),
+    box-shadow var(--ds-duration-fast) var(--ds-ease-out);
+}
+
+.ds-input::placeholder {
+  color: var(--ds-color-text-subtle);
+}
+
+.ds-input:hover {
+  border-color: var(--ds-color-border-strong);
+}
+
+.ds-input:focus-visible,
+.ds-input:focus {
+  outline: none;
+  border-color: var(--ds-color-focus);
+  box-shadow: var(--ds-focus-ring);
+}
+
+.ds-input[aria-invalid="true"] {
+  border-color: var(--ds-color-danger);
+}
+
+.ds-input[aria-invalid="true"]:focus {
+  box-shadow: var(--ds-focus-ring-danger);
+}
+
+.ds-input:disabled {
+  border-color: var(--ds-color-border-subtle);
+  background: var(--ds-color-surface-hover);
+  color: var(--ds-color-text-subtle);
+  cursor: not-allowed;
+}
+
+.ds-input:read-only:not(select) {
+  background: var(--ds-color-surface);
+}
+
+.ds-input--sm {
+  --input-height: var(--ds-space-8);
+  --input-padding-x: var(--ds-space-2);
+  border-radius: var(--ds-radius-sm);
+}
+
+.ds-input--lg {
+  --input-height: var(--ds-space-12);
+  --input-padding-x: var(--ds-space-4);
+  font-size: var(--ds-text-md);
+  border-radius: var(--ds-radius-lg);
+}
+
+textarea.ds-input {
+  height: auto;
+  min-height: calc(var(--ds-space-24) + var(--ds-space-4));
+  padding-block: var(--ds-space-3);
+  line-height: var(--ds-leading-normal);
+  resize: vertical;
+}
+
+/* Ícone dentro do campo: o wrapper posiciona, o input só ganha espaço à esquerda. */
+.ds-input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ds-input-icon > ds-icon {
+  position: absolute;
+  left: var(--ds-space-3);
+  color: var(--ds-color-text-subtle);
+  pointer-events: none;
+}
+
+.ds-input-icon > .ds-input {
+  padding-left: var(--ds-space-10);
+}
+
+.ds-select {
+  position: relative;
+  display: flex;
+}
+
+.ds-select > select.ds-input {
+  padding-right: var(--ds-space-10);
+  appearance: none;
+  cursor: pointer;
+}
+
+.ds-select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: var(--ds-space-3);
+  width: var(--ds-space-4);
+  height: var(--ds-space-4);
+  background: var(--ds-color-text-muted);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.ds-check,
+.ds-switch {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--ds-space-3);
+  font-size: var(--ds-text-sm);
+  line-height: var(--ds-leading-snug);
+  color: var(--ds-color-text);
+  cursor: pointer;
+}
+
+.ds-check input,
+.ds-switch input {
+  flex-shrink: 0;
+  margin: 0;
+  appearance: none;
+  cursor: pointer;
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-ease-out),
+    border-color var(--ds-duration-fast) var(--ds-ease-out);
+}
+
+.ds-check input {
+  display: grid;
+  place-content: center;
+  width: var(--ds-space-5);
+  height: var(--ds-space-5);
+  border: 1px solid var(--ds-color-border-strong);
+  border-radius: var(--ds-radius-sm);
+  background: var(--ds-color-bg);
+}
+
+.ds-check input[type="radio"] {
+  border-radius: var(--ds-radius-full);
+}
+
+.ds-check input::before {
+  content: "";
+  width: var(--ds-space-3);
+  height: var(--ds-space-3);
+  background: var(--ds-color-on-accent);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
+  transform: scale(0);
+  transition: transform var(--ds-duration-fast) var(--ds-ease-spring);
+}
+
+.ds-check input[type="radio"]::before {
+  width: var(--ds-space-2);
+  height: var(--ds-space-2);
+  border-radius: var(--ds-radius-full);
+  mask: none;
+}
+
+.ds-check input:checked {
+  border-color: var(--ds-color-accent);
+  background: var(--ds-color-accent);
+}
+
+.ds-check input:checked::before {
+  transform: scale(1);
+}
+
+.ds-switch input {
+  position: relative;
+  width: var(--ds-space-10);
+  height: var(--ds-space-6);
+  border: 1px solid var(--ds-color-border-strong);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-surface-active);
+}
+
+.ds-switch input::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  /* Desconta a borda de 1px do trilho para o círculo ficar centralizado. */
+  left: calc(var(--ds-space-1) - 1px);
+  margin-block: auto;
+  width: var(--ds-space-4);
+  height: var(--ds-space-4);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-text-muted);
+  transition:
+    transform var(--ds-duration-base) var(--ds-ease-spring),
+    background-color var(--ds-duration-fast) var(--ds-ease-out);
+}
+
+.ds-switch input:checked {
+  border-color: var(--ds-color-accent);
+  background: var(--ds-color-accent);
+}
+
+.ds-switch input:checked::before {
+  background: var(--ds-color-on-accent);
+  transform: translateX(var(--ds-space-4));
+}
+
+.ds-check input:focus-visible,
+.ds-switch input:focus-visible {
+  outline: none;
+  box-shadow: var(--ds-focus-ring);
+}
+
+.ds-check input[aria-invalid="true"] {
+  border-color: var(--ds-color-danger);
+}
+
+.ds-check:has(input:disabled),
+.ds-switch:has(input:disabled) {
+  color: var(--ds-color-text-subtle);
+  cursor: not-allowed;
+}
+
+.ds-check input:disabled,
+.ds-switch input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ds-check__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-1);
+}
+
+.ds-check__text small {
+  font-size: var(--ds-text-xs);
+  color: var(--ds-color-text-muted);
+}
+
+.ds-fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-3);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.ds-fieldset legend {
+  margin-bottom: var(--ds-space-1);
+  padding: 0;
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-medium);
+}

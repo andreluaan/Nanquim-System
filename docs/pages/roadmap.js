@@ -5,8 +5,8 @@ const ITEMS = [
   { name: 'Ícones: set próprio e componente <ds-icon>', status: 'feito' },
   { name: 'Botões e botões de ícone', status: 'feito' },
   { name: 'Badges e cards', status: 'feito' },
-  { name: 'Campos de formulário', status: 'próximo' },
-  { name: 'Carrossel e slides', status: 'depois' },
+  { name: 'Campos de formulário', status: 'feito' },
+  { name: 'Carrossel e slides', status: 'próximo' },
   { name: 'Modal, gaveta, tooltip', status: 'depois' },
   { name: 'Seções de site: hero, navbar, rodapé, preços, depoimentos', status: 'depois' },
 ];
