@@ -35,3 +35,4 @@ para posts (LinkedIn, portfólio).
 | 013 | 2026-10-23 | [Textos enxutos e cópia de valores](013-textos-enxutos.md) | Documentação com metade do texto e letra menor; tokens copiados como nome ou como valor pronto |
 | 014 | 2026-10-23 | [Modelo editorial e tela cheia](014-modelo-editorial.md) | Landing editorial com peças novas (manifesto, lista numerada, projetos, números), painel simplificado e gaveta de edição na tela cheia |
 | 015 | 2026-10-23 | [Aguada, laboratório de paletas, Vitrine e Grade](015-aguada-vitrine-grade.md) | Paletas derivadas do nanquim por pigmento e água, laboratório de paletas e dois modelos extraídos de referências |
+| 016 | 2026-10-23 | [Vitrine padrão e painel em grade](016-painel-vitrine.md) | Vitrine como modelo padrão, painel sem elemento solto e fontes escritas na própria letra |
