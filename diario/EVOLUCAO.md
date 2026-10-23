@@ -24,6 +24,7 @@ geradas a partir do próprio histórico com `npm run evolucao`.
 | [v0.9.0](#v090--seções-de-site) | 2026-10-23 | Seções de site | 16 | 16 | Nanquim + 5 + marca de exemplo |
 | [v0.10.0](#v0100--seções-separadas-e-visualizador) | 2026-10-23 | Seções separadas e visualizador | 25 | 17 | Nanquim + 5 + marca de exemplo + cor livre |
 | [v0.11.0](#v0110--textos-enxutos-e-cópia-de-valores) | 2026-10-23 | Textos enxutos e cópia de valores | 25 | 17 | Nanquim + 5 + marca de exemplo + cor livre |
+| [v0.12.0](#v0120--modelo-editorial-e-tela-cheia) | 2026-10-23 | Modelo editorial e tela cheia | 29 | 21 | Nanquim + 5 + marca de exemplo + cor livre |
 
 ### A mesma tela em cada versão
 
@@ -235,6 +236,18 @@ Todas as paletas no modo claro, depois do ajuste:
 | Antes (v0.10.0) | Depois (v0.11.0) |
 |---|---|
 | ![](evolucao/v0.10.0/02-cores.png) | ![](evolucao/v0.11.0/02-cores.png) |
+
+## v0.12.0 — Modelo editorial e tela cheia
+
+*2026-10-23 · tag `v0.12.0` · diário: [014](014-modelo-editorial.md)*
+
+- Site completo com modelo Editorial (o anterior vira Clássico): título gigante, paisagem sumi-e, lista numerada, projetos assimétricos, números e assinatura no rodapé
+- Peças novas: manifesto, lista numerada, projetos e números; variantes editoriais de hero, barra e rodapé
+- Painel de edição mais simples; na tela cheia, ele vira uma gaveta que abre e fecha
+
+| Antes (v0.11.0) | Depois (v0.12.0) |
+|---|---|
+| ![](evolucao/v0.11.0/03i-site-completo.png) | ![](evolucao/v0.12.0/03i-site-completo.png) |
 
 ---
 
