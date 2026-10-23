@@ -26,6 +26,7 @@ geradas a partir do próprio histórico com `npm run evolucao`.
 | [v0.11.0](#v0110--textos-enxutos-e-cópia-de-valores) | 2026-10-23 | Textos enxutos e cópia de valores | 25 | 17 | Nanquim + 5 + marca de exemplo + cor livre |
 | [v0.12.0](#v0120--modelo-editorial-e-tela-cheia) | 2026-10-23 | Modelo editorial e tela cheia | 29 | 21 | Nanquim + 5 + marca de exemplo + cor livre |
 | [v0.13.0](#v0130--aguada-laboratório-de-paletas-vitrine-e-grade) | 2026-10-23 | Aguada, laboratório de paletas, Vitrine e Grade | 30 | 22 | Nanquim + 3 da aguada + marca de exemplo + cor livre |
+| [v0.13.1](#v0131--vitrine-padrão-e-painel-em-grade) | 2026-10-23 | Vitrine padrão e painel em grade | 30 | 22 | Nanquim + 3 da aguada + marca de exemplo + cor livre |
 
 ### A mesma tela em cada versão
 
@@ -261,6 +262,18 @@ Todas as paletas no modo claro, depois do ajuste:
 | Antes (v0.12.0) | Depois (v0.13.0) |
 |---|---|
 | ![](evolucao/v0.12.0/03i-site-completo.png) | ![](prints/2026-10-23_aguada-vitrine-grade/49-site-vitrine.png) |
+
+## v0.13.1 — Vitrine padrão e painel em grade
+
+*2026-10-23 · tag `v0.13.1` · diário: [016](016-painel-vitrine.md)*
+
+- O site completo abre no modelo Vitrine
+- Painel de edição em grade, sem item solto, com as fontes escritas na própria letra
+- Correção: os botões de fonte mostravam todos a mesma letra
+
+| Antes (v0.13.0) | Depois (v0.13.1) |
+|---|---|
+| ![](evolucao/v0.13.0/03i-site-completo.png) | ![](evolucao/v0.13.1/03i-site-completo.png) |
 
 ---
 
