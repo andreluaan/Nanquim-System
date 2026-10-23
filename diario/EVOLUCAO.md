@@ -19,6 +19,7 @@ geradas a partir do próprio histórico com `npm run evolucao`.
 | [v0.4.0](#v040--ícones) | 2026-10-22 | Ícones e primeiro Web Component | 10 | 2 | Nanquim + 5 + marca de exemplo |
 | [v0.5.0](#v050--badges-e-cards) | 2026-10-22 | Badges e cards | 12 | 4 | Nanquim + 5 + marca de exemplo |
 | [v0.6.0](#v060--formulários) | 2026-10-23 | Formulários | 13 | 5 | Nanquim + 5 + marca de exemplo |
+| [v0.7.0](#v070--carrossel-e-slides) | 2026-10-23 | Carrossel e slides | 14 | 6 | Nanquim + 5 + marca de exemplo |
 
 ### A mesma tela em cada versão
 
@@ -162,6 +163,20 @@ Todas as paletas no modo claro, depois do ajuste:
 | Formulários | Formulários (papel) |
 |---|---|
 | ![](evolucao/v0.6.0/03e-formularios.png) | ![](prints/2026-10-23_formularios/42-formularios-papel.png) |
+
+---
+
+## v0.7.0 — Carrossel e slides
+
+*2026-10-23 · tag `v0.7.0` · diário: [009](009-carrossel.md)*
+
+- `<ds-carousel>`, o primeiro componente com comportamento: arrasta com o dedo ou o mouse, tem setas, indicadores e teclado
+- Vários slides por vez (`per-view`), loop e controles sobre a imagem para galerias e banners
+- Autoplay que pausa no mouse, no foco do teclado, no botão e para quem pediu movimento reduzido; o indicador ativo mostra o tempo até a próxima troca
+
+| Carrossel | Carrossel (papel) |
+|---|---|
+| ![](evolucao/v0.7.0/03f-carrossel.png) | ![](prints/2026-10-23_carrossel/44-carrossel-papel.png) |
 
 ---
 
