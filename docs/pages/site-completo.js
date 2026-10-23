@@ -48,7 +48,7 @@ export default {
   title: 'Site completo',
   wide: true,
   keywords: 'site completo landing page exemplo visualizador marca tema cores fonte cantos tamanho gerar tema',
-  lead: 'Todas as seções juntas num site de verdade. Use o painel para vestir o site com outra marca: cores, fonte, cantos, tamanho do texto e espaçamento. Quando gostar, copie o tema pronto.',
+  lead: 'Todas as seções num site. Vista-o com outra marca e copie o tema.',
   render: () => `
     <div class="viz" data-viz>
       <aside class="viz-panel" aria-label="Ajustes da marca">

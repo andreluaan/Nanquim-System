@@ -8,7 +8,7 @@
 body { transition: background-color var(--ds-duration-base) var(--ds-ease-out); }
 
 /* --- Shell ------------------------------------------------------------- */
-.doc-shell { display: grid; grid-template-columns: 272px 1fr; min-height: 100vh; }
+.doc-shell { display: grid; grid-template-columns: 248px 1fr; min-height: 100vh; }
 
 .doc-sidebar {
   position: sticky;
@@ -122,23 +122,23 @@ body { transition: background-color var(--ds-duration-base) var(--ds-ease-out); 
 .doc-btn--primary:hover { background: var(--ds-color-accent-hover); border-color: transparent; }
 
 /* --- Página ------------------------------------------------------------ */
-.doc-content { padding: var(--ds-space-12) var(--ds-space-8) var(--ds-space-24); outline: none; }
-.doc-page { max-width: 920px; margin: 0 auto; animation: doc-in var(--ds-duration-slow) var(--ds-ease-out); }
+.doc-content { padding: var(--ds-space-10) var(--ds-space-8) var(--ds-space-20); outline: none; font-size: var(--ds-text-sm); }
+.doc-page { max-width: 860px; margin: 0 auto; animation: doc-in var(--ds-duration-slow) var(--ds-ease-out); }
 .doc-page--wide { max-width: 1320px; }
 @keyframes doc-in { from { opacity: 0; transform: translateY(6px); } }
 
-.doc-page-head { margin-bottom: var(--ds-space-12); }
+.doc-page-head { margin-bottom: var(--ds-space-8); }
 .doc-eyebrow {
   margin-bottom: var(--ds-space-3); font-size: var(--ds-text-xs); text-transform: uppercase;
   letter-spacing: var(--ds-tracking-wide); color: var(--ds-color-accent-text);
 }
-.doc-page-head h1 { font-size: clamp(var(--ds-text-4xl), 5vw, var(--ds-text-6xl)); font-weight: var(--ds-weight-medium); }
-.doc-lead { margin-top: var(--ds-space-4); max-width: 62ch; font-size: var(--ds-text-lg); color: var(--ds-color-text-muted); }
+.doc-page-head h1 { font-size: clamp(var(--ds-text-3xl), 3.5vw, var(--ds-text-4xl)); font-weight: var(--ds-weight-medium); }
+.doc-lead { margin-top: var(--ds-space-3); max-width: 60ch; font-size: var(--ds-text-md); color: var(--ds-color-text-muted); }
 
-.doc-section { margin-top: var(--ds-space-16); }
-.doc-section > h2 { font-size: var(--ds-text-2xl); font-weight: var(--ds-weight-medium); margin-bottom: var(--ds-space-2); }
-.doc-section > p { color: var(--ds-color-text-muted); max-width: 65ch; margin-bottom: var(--ds-space-6); }
-.doc-section h3:not([class*="ds-"]) { font-family: var(--ds-font-body); font-size: var(--ds-text-sm); font-weight: var(--ds-weight-semibold); letter-spacing: 0; margin: var(--ds-space-8) 0 var(--ds-space-3); }
+.doc-section { margin-top: var(--ds-space-12); }
+.doc-section > h2 { font-size: var(--ds-text-xl); font-weight: var(--ds-weight-medium); margin-bottom: var(--ds-space-2); }
+.doc-section > p { color: var(--ds-color-text-muted); max-width: 60ch; margin-bottom: var(--ds-space-5); }
+.doc-section h3:not([class*="ds-"]) { font-family: var(--ds-font-body); font-size: var(--ds-text-sm); font-weight: var(--ds-weight-semibold); letter-spacing: 0; margin: var(--ds-space-6) 0 var(--ds-space-3); }
 
 .doc-content code:not(pre code) {
   padding: 1px 6px; font-size: 0.85em; border-radius: var(--ds-radius-xs);
@@ -154,7 +154,7 @@ body { transition: background-color var(--ds-duration-base) var(--ds-ease-out); 
 .doc-callout strong { color: var(--ds-color-text); }
 
 .doc-demo {
-  padding: var(--ds-space-8); border: 1px solid var(--ds-color-border-subtle);
+  padding: var(--ds-space-6); border: 1px solid var(--ds-color-border-subtle);
   border-radius: var(--ds-radius-lg); background: var(--ds-color-surface);
 }
 
@@ -173,7 +173,7 @@ body { transition: background-color var(--ds-duration-base) var(--ds-ease-out); 
   font-size: var(--ds-text-xs); padding: 2px 6px; border-radius: var(--ds-radius-sm);
 }
 .doc-code-copy:hover { background: var(--ds-color-surface-hover); color: var(--ds-color-text); }
-.doc-code pre { margin: 0; padding: var(--ds-space-4); overflow-x: auto; font-size: var(--ds-text-sm); line-height: 1.7; color: var(--ds-color-text-muted); }
+.doc-code pre { margin: 0; padding: var(--ds-space-4); overflow-x: auto; font-size: var(--ds-text-xs); line-height: 1.7; color: var(--ds-color-text-muted); }
 
 /* Faça / Evite */
 .doc-dodont { display: grid; grid-template-columns: 1fr 1fr; gap: var(--ds-space-4); }
@@ -319,4 +319,17 @@ body { transition: background-color var(--ds-duration-base) var(--ds-ease-out); 
 .doc-content code,
 .doc-content pre {
   font-variant-ligatures: none;
+}
+
+.doc-copy-mode {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-space-3);
+  color: var(--ds-color-text-subtle);
+  font-size: var(--ds-text-xs);
+}
+
+.doc-copy-mode .doc-segmented button {
+  font-size: var(--ds-text-xs);
 }

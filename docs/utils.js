@@ -19,7 +19,73 @@ export async function copy(text, label = 'Copiado') {
     document.execCommand('copy');
     ta.remove();
   }
-  toast(`${label}: ${text.length > 40 ? text.slice(0, 40) + '…' : text}`);
+  toast(`${label}: ${text.length > 64 ? text.slice(0, 64) + '…' : text}`);
+}
+
+// "token" copia var(--nome), para usar dentro do sistema; "valor" copia a declaração resolvida, para recriar fora dele.
+let copyMode = 'token';
+try {
+  copyMode = localStorage.getItem('ds-copy-mode') || copyMode;
+} catch {}
+
+export const getCopyMode = () => copyMode;
+
+export function setCopyMode(mode) {
+  copyMode = mode;
+  try {
+    localStorage.setItem('ds-copy-mode', mode);
+  } catch {}
+}
+
+function resolveVarLength(name) {
+  const probe = document.createElement('span');
+  probe.style.cssText = `position: absolute; visibility: hidden; width: var(${name})`;
+  document.body.append(probe);
+  const value = getComputedStyle(probe).width;
+  probe.remove();
+  return value;
+}
+
+export function tokenDeclaration(name) {
+  const raw = getComputedStyle(document.body).getPropertyValue(name).trim().replace(/\s+/g, ' ');
+  if (CSS.supports('color', raw)) {
+    const color = resolveVarColor(name);
+    return `${name}: ${color};${color.includes('/') ? '' : ` /* ${toHex(color)} */`}`;
+  }
+  if (/^calc\(|^-?[\d.]+(rem|px|em)$/.test(raw)) return `${name}: ${resolveVarLength(name)};`;
+  return `${name}: ${raw};`;
+}
+
+export function copyToken(name) {
+  if (copyMode === 'valor') copy(tokenDeclaration(name), 'Valor copiado');
+  else copy(`var(${name})`, 'Token copiado');
+}
+
+export function copyModeSwitch() {
+  const options = [['token', 'Token'], ['valor', 'Valor']];
+  return `
+    <div class="doc-copy-mode">
+      <span>Ao clicar, copiar</span>
+      <div class="doc-segmented" role="radiogroup" aria-label="Formato da cópia">
+        ${options.map(([id, name]) => `<button role="radio" aria-checked="${id === copyMode}" data-copy-mode="${id}">${name}</button>`).join('')}
+      </div>
+      <code data-copy-mode-example></code>
+    </div>`;
+}
+
+export function mountCopyModeSwitch(el, sampleToken) {
+  const example = el.querySelector('[data-copy-mode-example]');
+  const sync = () => {
+    el.querySelectorAll('[data-copy-mode]').forEach((b) => b.setAttribute('aria-checked', b.dataset.copyMode === copyMode));
+    example.textContent = copyMode === 'valor' ? tokenDeclaration(sampleToken) : `var(${sampleToken})`;
+  };
+  el.addEventListener('click', (e) => {
+    const button = e.target.closest('[data-copy-mode]');
+    if (!button) return;
+    setCopyMode(button.dataset.copyMode);
+    sync();
+  });
+  sync();
 }
 
 export const escapeHtml = (s) =>

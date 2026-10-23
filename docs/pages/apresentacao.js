@@ -1,33 +1,17 @@
 import { inkDrop, brushStroke, inkWash, enso } from '../illustrations.js';
 
 const GALLERY = [
-  { art: inkDrop, title: 'A gota', text: 'Nanquim é pigmento de carbono, a fuligem, preso num aglutinante. Uma gota basta para um traço inteiro.' },
-  { art: brushStroke, title: 'O traço', text: 'Feito com pena ou pincel, o traço é firme e não volta atrás. Por isso o nanquim é a tinta da arte-final.' },
-  { art: inkWash, title: 'A aguada', text: 'Com água, a mesma tinta vira uma escala de cinzas. Uma única cor gera todos os tons do desenho.' },
-  { art: () => enso({ id: 'ill-enso-card' }), title: 'O ensō', text: 'O círculo zen pintado numa única pincelada: o máximo de expressão com o mínimo de gestos.' },
+  { art: inkDrop, title: 'A gota', text: 'Fuligem e cola. Uma gota faz um traço inteiro.' },
+  { art: brushStroke, title: 'O traço', text: 'Firme e sem volta: a tinta da arte-final.' },
+  { art: inkWash, title: 'A aguada', text: 'Com água, uma cor vira todos os cinzas.' },
+  { art: () => enso({ id: 'ill-enso-card' }), title: 'O ensō', text: 'Um círculo, uma pincelada.' },
 ];
 
 const PRINCIPLES = [
-  {
-    name: 'Precisão',
-    ink: 'A pena de nanquim desenha linhas finas e exatas, sem borrão.',
-    system: 'Tudo segue uma escala: espaços múltiplos de 4px e tamanhos de texto fixos. Nada é "mais ou menos".',
-  },
-  {
-    name: 'Contraste',
-    ink: 'Preto sobre papel é a combinação mais legível que existe.',
-    system: 'Todo texto passa no teste de contraste (mínimo de 4.5:1), medido automaticamente em todas as paletas.',
-  },
-  {
-    name: 'Aguada',
-    ink: 'Uma tinta, várias diluições, toda uma gama de tons.',
-    system: 'Cada paleta nasce de poucos números: o sistema "dilui" uma cor em 12 tons equilibrados.',
-  },
-  {
-    name: 'Permanência',
-    ink: 'Depois de seco, o nanquim não sai. Por isso é usado em documentos e arte-final.',
-    system: 'Cada peça é desenhada uma vez, documentada e reaproveitada em todos os projetos.',
-  },
+  { name: 'Precisão', ink: 'Linha fina, sem borrão.', system: 'Tudo em escala: espaços de 4 em 4px.' },
+  { name: 'Contraste', ink: 'Preto no papel se lê de longe.', system: 'Todo texto passa de 4.5:1, em toda paleta.' },
+  { name: 'Aguada', ink: 'Uma tinta, muitos tons.', system: 'Uma cor vira 12 tons equilibrados.' },
+  { name: 'Permanência', ink: 'Seco, não sai mais.', system: 'Cada peça é feita uma vez e reaproveitada.' },
 ];
 
 const STEP_NAMES = {
@@ -53,21 +37,19 @@ export default {
   group: 'Começo',
   title: 'Nanquim',
   keywords: 'conceito marca identidade tinta apresentação sobre',
-  lead: 'A tinta com que desenho meus sites. Um design system escuro, preciso e sóbrio, inspirado na tinta mais antiga da arte-final.',
+  lead: 'A tinta com que desenho meus sites: escura, precisa e sóbria.',
   render: () => `
     <div class="pres-hero">
       <div class="pres-hero-art">${enso({ id: 'ill-enso-hero', color: 'currentColor', withPaper: false, animated: true })}</div>
       <div class="pres-hero-text">
-        <p class="doc-eyebrow">Nanquim System · v0.10</p>
-        <p class="pres-quote">"Desenhar cada peça uma vez, com precisão, e usar em tudo."</p>
+        <p class="doc-eyebrow">Nanquim System · v0.11</p>
+        <p class="pres-quote">"Desenhar uma vez, usar em tudo."</p>
       </div>
     </div>
 
     <section class="doc-section">
       <h2>O que é nanquim</h2>
-      <p>É a tinta preta de desenhistas, calígrafos e quadrinistas. O nome vem de <strong>Nanquim</strong>, como os portugueses chamavam
-      a cidade chinesa de Nanjing, porque a tinta chegava de lá. Ela é usada há mais de dois mil anos, da caligrafia oriental
-      às plantas de arquitetura e aos gibis.</p>
+      <p>A tinta preta de calígrafos e quadrinistas. O nome vem de Nanjing, na China, de onde ela chegava aos portugueses.</p>
       <div class="pres-gallery">
         ${GALLERY.map((item) => `
           <figure class="pres-figure">
@@ -79,7 +61,7 @@ export default {
 
     <section class="doc-section">
       <h2>Por que esse nome</h2>
-      <p>Cada qualidade da tinta virou uma regra do sistema.</p>
+      <p>Cada qualidade da tinta virou uma regra.</p>
       <div class="pres-principles">
         ${PRINCIPLES.map((p, i) => `
           <article class="pres-principle">
@@ -95,17 +77,16 @@ export default {
 
     <section class="doc-section">
       <h2>Tinta e papel</h2>
-      <p>O tema tem dois lados. No modo escuro, a tela é a tinta e o destaque tem cor de papel. No modo claro, inverte:
-      a tela é o papel e o destaque é a tinta.</p>
+      <p>No escuro, a tela é tinta e o destaque é papel. No claro, o inverso.</p>
       <div class="pres-modes">
-        ${modePreview('dark', 'Modo escuro · tinta', 'Fundo preto-azulado, como o nanquim de verdade, com destaques em marfim.')}
-        ${modePreview('light', 'Modo claro · papel', 'Fundo marfim quente, como papel de desenho, com destaques em tinta.')}
+        ${modePreview('dark', 'Escuro · tinta', 'Preto-azulado com destaque marfim.')}
+        ${modePreview('light', 'Claro · papel', 'Marfim quente com destaque em tinta.')}
       </div>
     </section>
 
     <section class="doc-section">
       <h2>Aguada: uma tinta, doze tons</h2>
-      <p>Arraste para "diluir" a tinta. Cada tom tem uma função na interface, do fundo da página ao texto principal.</p>
+      <p>Arraste para diluir. Cada tom tem uma função, do fundo ao texto.</p>
       <div class="pres-wash">
         <div class="pres-wash-strip">
           ${Array.from({ length: 12 }, (_, i) => `<span style="background: var(--ds-neutral-${i + 1})" data-step="${i + 1}"></span>`).join('')}
@@ -126,12 +107,12 @@ export default {
 
     <section class="doc-section">
       <h2>Do conceito ao código</h2>
-      <p>Por baixo da metáfora, é um sistema de tokens que funciona em qualquer projeto e troca de marca com poucas linhas.</p>
+      <p>Por baixo da metáfora, tokens que trocam de marca em poucas linhas.</p>
       <div class="pres-cta">
         <a class="ds-btn ds-btn--primary ds-btn--lg" href="#inicio">Como o sistema funciona</a>
         <a class="ds-btn ds-btn--outline ds-btn--lg" href="#botoes">Ver os componentes</a>
       </div>
-      <p class="pres-note">As imagens desta página são ilustrações geradas em código (SVG), com textura de papel e borda de tinta simuladas.</p>
+      <p class="pres-note">Ilustrações feitas em código (SVG).</p>
     </section>`,
 
   mount(el) {

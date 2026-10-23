@@ -68,17 +68,17 @@ const QUOTES = [
 ];
 
 const ATTRIBUTES = [
-  ['label', '"Depoimentos"', 'Nome do carrossel, lido por leitores de tela.'],
-  ['per-view', '"3"', 'Quantos slides aparecem de uma vez. No celular, vira um slide com a ponta do próximo à mostra.'],
-  ['loop', '', 'No último slide, a seta "próximo" volta ao primeiro.'],
-  ['autoplay', '"6000"', 'Troca sozinho, no intervalo em milissegundos (padrão: 6000). Já inclui o <code>loop</code>.'],
-  ['variant', '"overlay"', 'Setas e indicadores por cima da imagem, para galerias e banners.'],
+  ['label', '"Depoimentos"', 'Nome para leitores de tela.'],
+  ['per-view', '"3"', 'Slides visíveis. No celular, um.'],
+  ['loop', '', 'Do último volta ao primeiro.'],
+  ['autoplay', '"6000"', 'Troca sozinho, em milissegundos.'],
+  ['variant', '"overlay"', 'Controles sobre a imagem.'],
 ];
 
 const KEYS = [
-  ['←', '→', 'Slide anterior e próximo (com o foco no carrossel)'],
+  ['←', '→', 'Anterior e próximo'],
   ['Home', 'End', 'Primeiro e último slide'],
-  ['Tab', '', 'Passa pelos links do slide visível, depois pelos controles'],
+  ['Tab', '', 'Só o slide visível, depois os controles'],
 ];
 
 export default {
@@ -86,11 +86,11 @@ export default {
   group: 'Componentes',
   title: 'Carrossel e slides',
   keywords: 'carrossel carousel slider slides banner galeria hero depoimentos autoplay',
-  lead: 'Um carrossel mostra vários conteúdos no mesmo espaço, um de cada vez ou em fileira. Arrasta com o dedo ou o mouse, responde ao teclado e para de girar quando você quer ler.',
+  lead: 'Vários conteúdos no mesmo espaço. Arrasta, responde ao teclado e para quando você lê.',
   render: () => `
     <section class="doc-section">
       <h2>Monte o seu</h2>
-      <p>Troque as opções, arraste os slides e veja o código mudar junto.</p>
+      <p>Escolha, arraste e copie.</p>
       <div class="btn-play">
         <div class="btn-play-controls">
           ${Object.keys(PLAYGROUND).map((key) => segmented(key, initialState[key])).join('')}
@@ -106,8 +106,8 @@ export default {
     </section>
 
     <section class="doc-section">
-      <h2>Slides de destaque</h2>
-      <p>O banner do topo do site: um recado por vez, trocando sozinho. A barrinha do indicador mostra quanto falta para o próximo; passar o mouse ou o foco do teclado pausa a troca.</p>
+      <h2>Destaques</h2>
+      <p>Um recado por vez. A barrinha mostra o tempo; o mouse pausa.</p>
       <ds-carousel class="carousel-hero" label="Destaques" autoplay="7000">
         <div class="ds-carousel__track">
           ${HERO_SLIDES.map(([eyebrow, title, text, art]) => `
@@ -128,8 +128,8 @@ export default {
     </section>
 
     <section class="doc-section">
-      <h2>Carrossel de cards</h2>
-      <p>Uma fileira de cards que não cabem na tela: posts, produtos, projetos. As setas avançam um card por vez e param no fim.</p>
+      <h2>Cards</h2>
+      <p>Uma fileira maior que a tela.</p>
       <ds-carousel class="carousel-cards" label="Posts do blog" per-view="3">
         <div class="ds-carousel__track">
           ${POSTS.map(([eyebrow, title, art]) => `
@@ -146,7 +146,7 @@ export default {
 
     <section class="doc-section">
       <h2>Depoimentos</h2>
-      <p>Dois por vez e voltando ao início no fim: quem lê decide o ritmo.</p>
+      <p>Dois por vez. Quem lê dita o ritmo.</p>
       <ds-carousel label="Depoimentos" per-view="2" loop>
         <div class="ds-carousel__track">
           ${QUOTES.map(([quote, name, company]) => `
@@ -165,7 +165,7 @@ export default {
 
     <section class="doc-section">
       <h2>Galeria</h2>
-      <p>Com <code>variant="overlay"</code>, setas e indicadores ficam por cima da imagem. Eles têm fundo próprio, então continuam legíveis em qualquer foto.</p>
+      <p><code>variant="overlay"</code>: controles legíveis sobre qualquer foto.</p>
       <ds-carousel class="carousel-gallery" label="Galeria de ilustrações" variant="overlay" loop>
         <div class="ds-carousel__track">
           ${ILLUSTRATIONS.map((art) => `<figure>${art()}</figure>`).join('')}
@@ -175,7 +175,7 @@ export default {
 
     <section class="doc-section">
       <h2>Atributos</h2>
-      <p>Tudo se configura no próprio HTML, sem escrever JavaScript.</p>
+      <p>Tudo no HTML.</p>
       <div class="doc-demo">
         <table class="badge-table">
           <thead><tr><th>Atributo</th><th>Exemplo</th><th>O que faz</th></tr></thead>
@@ -184,17 +184,16 @@ export default {
           </tbody>
         </table>
       </div>
-      <p>A cada troca, o carrossel avisa a página com o evento <code>ds-slide-change</code>, útil para contar visualizações ou sincronizar uma legenda.</p>
+      <p>Cada troca dispara o evento <code>ds-slide-change</code>.</p>
     </section>
 
     <section class="doc-section">
       <h2>Acessibilidade</h2>
-      <p>Carrossel que gira sozinho é um dos padrões mais criticados da web: o texto some antes de terminar de ler. Por isso este:</p>
       <ul class="carousel-a11y">
-        <li><ds-icon name="pause"></ds-icon> pausa ao passar o mouse, ao receber o foco do teclado e no botão de pausa;</li>
-        <li><ds-icon name="eye"></ds-icon> não gira sozinho para quem pediu <strong>movimento reduzido</strong> no sistema;</li>
-        <li><ds-icon name="lock"></ds-icon> tira da ordem do <kbd>Tab</kbd> os slides que estão fora da tela;</li>
-        <li><ds-icon name="bell"></ds-icon> anuncia o slide novo ao leitor de tela só quando a troca foi pedida pela pessoa.</li>
+        <li><ds-icon name="pause"></ds-icon> pausa com mouse, foco ou botão;</li>
+        <li><ds-icon name="eye"></ds-icon> parado para quem pede menos movimento;</li>
+        <li><ds-icon name="lock"></ds-icon> o <kbd>Tab</kbd> pula slides fora da tela;</li>
+        <li><ds-icon name="bell"></ds-icon> o leitor de tela só anuncia trocas pedidas.</li>
       </ul>
       <div class="doc-demo">
         <table class="badge-table">
@@ -205,8 +204,8 @@ export default {
         </table>
       </div>
       ${doDont(
-        ['Poucos slides (até 5) com um recado claro cada', 'O conteúdo mais importante no primeiro slide', 'Intervalo longo no automático (6 segundos ou mais)'],
-        ['Esconder informação essencial nos slides seguintes', 'Trocar sozinho sem botão de pausa', 'Carrossel dentro de carrossel'],
+        ['Até 5 slides', 'O mais importante primeiro'],
+        ['Essencial escondido no fim', 'Girar sem pausa'],
       )}
       ${code(`
 <ds-carousel label="Posts do blog" per-view="3">

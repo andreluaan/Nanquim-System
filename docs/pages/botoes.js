@@ -2,13 +2,13 @@ import { code, doDont, escapeHtml } from '../utils.js';
 import { iconSvg as icon } from '../../src/icons/icons.js';
 
 const VARIANTS = [
-  { id: 'primary', name: 'Principal', use: 'A ação mais importante da tela: "Comprar", "Enviar", "Começar". Uma por área.' },
-  { id: 'secondary', name: 'Secundário', use: 'Ações importantes, mas que não são o foco: "Ver detalhes", "Salvar rascunho".' },
-  { id: 'outline', name: 'Contorno', use: 'Alternativa mais leve ao secundário, boa sobre fundos com imagem ou cor.' },
-  { id: 'ghost', name: 'Fantasma', use: 'Ações discretas e repetidas: "Cancelar", itens de barra de ferramentas.' },
-  { id: 'soft', name: 'Suave', use: 'Destaque gentil, com a cor da marca sem gritar: filtros, "Seguir".' },
-  { id: 'danger', name: 'Perigo', use: 'Ações destrutivas ou sem volta: "Excluir conta". Peça confirmação.' },
-  { id: 'link', name: 'Link', use: 'Ação dentro de um texto ou que leva a outra página: "Saiba mais".' },
+  { id: 'primary', name: 'Principal', use: 'A ação da tela. Uma por área.' },
+  { id: 'secondary', name: 'Secundário', use: 'Importante, mas não o foco.' },
+  { id: 'outline', name: 'Contorno', use: 'Mais leve. Bom sobre imagem.' },
+  { id: 'ghost', name: 'Fantasma', use: 'Discreto: "Cancelar", ferramentas.' },
+  { id: 'soft', name: 'Suave', use: 'A marca sem gritar: filtros.' },
+  { id: 'danger', name: 'Perigo', use: 'Sem volta. Peça confirmação.' },
+  { id: 'link', name: 'Link', use: 'Dentro do texto: "Saiba mais".' },
 ];
 
 const SIZES = [
@@ -67,11 +67,11 @@ export default {
   group: 'Componentes',
   title: 'Botões',
   keywords: 'botão button cta ação clique',
-  lead: 'Botões convidam a pessoa a agir. O estilo diz o quanto aquela ação é importante: quanto mais "cheio" o botão, mais ele chama atenção.',
+  lead: 'Convidam a agir. Quanto mais cheio, mais importante.',
   render: () => `
     <section class="doc-section">
       <h2>Monte o seu</h2>
-      <p>Escolha as opções e veja o botão e o código mudarem juntos. Depois é só copiar.</p>
+      <p>Escolha e copie.</p>
       <div class="btn-play">
         <div class="btn-play-controls">
           ${Object.keys(PLAYGROUND_OPTIONS).map((key) => segmented(key, initialState[key])).join('')}
@@ -92,7 +92,7 @@ export default {
 
     <section class="doc-section">
       <h2>Estilos</h2>
-      <p>Do mais chamativo ao mais discreto. Passe o mouse e use a tecla <kbd>Tab</kbd> para ver como cada um reage.</p>
+      <p>Do mais forte ao mais discreto. Teste com o mouse e com <kbd>Tab</kbd>.</p>
       <div class="btn-variants">
         ${VARIANTS.map((v) => `
           <div class="btn-variant">
@@ -110,7 +110,7 @@ export default {
 
     <section class="doc-section">
       <h2>Tamanhos</h2>
-      <p>Médio é o padrão. Pequeno serve para tabelas e barras de ferramentas; grande, para a chamada principal de uma página.</p>
+      <p>Médio é o padrão. Pequeno em tabelas, grande na chamada principal.</p>
       <div class="doc-demo btn-row">
         ${SIZES.map((s) => `<button class="ds-btn ds-btn--primary${s.id === 'md' ? '' : ` ds-btn--${s.id}`}">${s.name} · ${s.px}px</button>`).join('')}
       </div>
@@ -118,8 +118,7 @@ export default {
 
     <section class="doc-section">
       <h2>Com ícones</h2>
-      <p>O ícone reforça a mensagem. À esquerda ele descreve a ação; à direita ele indica direção ("ir para").
-      Botão só com ícone precisa de <code>aria-label</code>, para leitores de tela saberem o que ele faz.</p>
+      <p>À esquerda descreve, à direita aponta. Só ícone pede <code>aria-label</code>.</p>
       <div class="doc-demo btn-row">
         <button class="ds-btn ds-btn--primary">${icon('plus')} Novo projeto</button>
         <button class="ds-btn ds-btn--secondary">${icon('download')} Baixar</button>
@@ -133,7 +132,7 @@ export default {
 
     <section class="doc-section">
       <h2>Estados</h2>
-      <p>Clique em "Salvar" para ver o estado de carregamento: o botão mantém o tamanho, para nada na tela pular.</p>
+      <p>Clique em "Salvar": carrega sem mudar de tamanho.</p>
       <div class="doc-demo btn-row">
         <button class="ds-btn ds-btn--primary" data-fake-save>${icon('check')} Salvar</button>
         <button class="ds-btn ds-btn--secondary" aria-busy="true">Carregando</button>
@@ -143,7 +142,7 @@ export default {
 
     <section class="doc-section">
       <h2>Grupo</h2>
-      <p>Botões relacionados lado a lado, como um seletor de visualização.</p>
+      <p>Opções lado a lado.</p>
       <div class="doc-demo btn-row">
         <div class="ds-btn-group" role="group" aria-label="Período">
           <button class="ds-btn ds-btn--outline">Dia</button>
@@ -159,8 +158,8 @@ export default {
     </section>
 
     <section class="doc-section">
-      <h2>Na prática: hierarquia</h2>
-      <p>Numa mesma área, um botão principal e o resto mais discreto. Assim a pessoa sabe na hora o que fazer.</p>
+      <h2>Hierarquia</h2>
+      <p>Um principal, o resto discreto.</p>
       <div class="btn-example">
         <div>
           <strong>Excluir este projeto?</strong>
@@ -172,8 +171,8 @@ export default {
         </div>
       </div>
       ${doDont(
-        ['Use verbos claros: "Salvar alterações", e não "OK"', 'Só um botão principal por área', 'Mostre o carregamento em ações demoradas'],
-        ['Vários botões principais competindo lado a lado', 'Botão só com ícone sem <code>aria-label</code>', 'Usar o estilo de perigo para ações comuns'],
+        ['Verbos claros: "Salvar", não "OK"', 'Um principal por área'],
+        ['Principais competindo', 'Só ícone sem <code>aria-label</code>'],
       )}
       ${code(`
 <button class="ds-btn ds-btn--primary">Começar agora</button>

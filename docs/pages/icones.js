@@ -68,11 +68,11 @@ export default {
   group: 'Componentes',
   title: 'Ícones',
   keywords: 'ícone icon svg símbolo pictograma',
-  lead: 'Pequenos desenhos que explicam uma ação num relance. Todos seguem o mesmo traço, arredondado como o fim de uma linha de pena, para parecerem da mesma família.',
+  lead: 'Uma ação num relance. Mesmo traço, ponta redonda como a de uma pena.',
   render: () => `
     <section class="doc-section">
       <h2>Biblioteca</h2>
-      <p>${Object.keys(ICONS).length} ícones. Clique em um para ver os detalhes e copiar o código.</p>
+      <p>${Object.keys(ICONS).length} ícones. Clique para copiar.</p>
 
       <div class="icon-toolbar">
         <input class="icon-search" type="search" placeholder="Buscar: lixeira, seta, fechar…" data-icon-search aria-label="Buscar ícone" />
@@ -104,28 +104,27 @@ export default {
                 </button>`).join('')}
             </div>
           </div>`).join('')}
-        <p class="icon-empty" data-icon-empty hidden>Nenhum ícone encontrado. Que tal pedir um novo?</p>
+        <p class="icon-empty" data-icon-empty hidden>Nenhum ícone encontrado.</p>
       </div>
     </section>
 
     <section class="doc-section">
       <h2>Anatomia do traço</h2>
-      <p>Todo ícone é desenhado numa grade de 24×24, com uma margem de respiro de 2 unidades (área tracejada).
-      O traço tem 1.75 de espessura e pontas arredondadas. Essa regra comum faz ícones diferentes parecerem um conjunto.</p>
+      <p>Uma regra comum faz ícones diferentes parecerem família.</p>
       <div class="icon-anatomy">
         ${anatomy()}
         <ul class="icon-anatomy-rules">
-          <li><strong>Grade 24×24</strong><span>Todos do mesmo tamanho, alinhados ao centro.</span></li>
-          <li><strong>Margem de 2</strong><span>Nada encosta na borda; o ícone respira.</span></li>
-          <li><strong>Traço de 1.75</strong><span>Fino o bastante para ser elegante, forte o bastante para ser lido em 16px.</span></li>
-          <li><strong>Pontas redondas</strong><span>Como o fim de uma linha de pena de nanquim.</span></li>
+          <li><strong>Grade 24×24</strong><span>Mesmo tamanho, centralizados.</span></li>
+          <li><strong>Margem de 2</strong><span>Nada encosta na borda.</span></li>
+          <li><strong>Traço de 1.75</strong><span>Elegante e legível em 16px.</span></li>
+          <li><strong>Pontas redondas</strong><span>Como a ponta da pena.</span></li>
         </ul>
       </div>
     </section>
 
     <section class="doc-section">
       <h2>Tamanhos e espessuras</h2>
-      <p>O ícone herda a cor do texto ao redor. Use a espessura forte em tamanhos pequenos e a fina em tamanhos grandes, para o traço parecer igual.</p>
+      <p>Herdam a cor do texto. Forte no pequeno, fina no grande.</p>
       <div class="doc-demo icon-scale">
         <span></span>
         ${SIZES.map(([, label]) => `<small>${label}</small>`).join('')}
@@ -137,7 +136,7 @@ export default {
 
     <section class="doc-section">
       <h2>Na prática</h2>
-      <p>Dentro de botões, o ícone se ajusta sozinho ao tamanho do texto.</p>
+      <p>No botão, acompanham o texto sozinhos.</p>
       <div class="doc-demo btn-row">
         <button class="ds-btn ds-btn--primary"><ds-icon name="plus"></ds-icon> Novo projeto</button>
         <button class="ds-btn ds-btn--secondary"><ds-icon name="download"></ds-icon> Baixar PDF</button>
@@ -146,8 +145,8 @@ export default {
         <span class="icon-inline"><ds-icon name="map-pin" label="Endereço"></ds-icon> Rua do Nanquim, 24</span>
       </div>
       ${doDont(
-        ['Acompanhe o ícone de texto sempre que possível', 'Use <code>label</code> quando o ícone sozinho carrega significado', 'Mantenha o mesmo tamanho dentro de um grupo'],
-        ['Misturar ícones de outros conjuntos (traços diferentes)', 'Usar o mesmo ícone para ações diferentes', 'Ícone decorativo com <code>label</code> (polui leitores de tela)'],
+        ['Ícone com texto', '<code>label</code> quando ele fala sozinho'],
+        ['Misturar conjuntos', 'Um ícone para duas ações'],
       )}
       ${code(`
 <!-- 1. uma vez por página -->
@@ -157,7 +156,7 @@ export default {
 <ds-icon name="heart"></ds-icon>
 <ds-icon name="search" size="lg" weight="forte"></ds-icon>
 <ds-icon name="map-pin" label="Endereço"></ds-icon>  <!-- com significado -->`, 'html')}
-      <p class="icon-note">Sem JavaScript? Copie o SVG puro de qualquer ícone na biblioteca acima e cole direto no HTML.</p>
+      <p class="icon-note">Sem JavaScript? Copie o SVG puro na biblioteca.</p>
     </section>`,
 
   mount(el) {

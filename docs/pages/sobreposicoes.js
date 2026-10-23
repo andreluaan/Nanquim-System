@@ -16,16 +16,16 @@ function dialog({ id, classes = '', isStatic = false, title, body, footer = '' }
 }
 
 const MODALS = [
-  ['modal-confirmar', 'Confirmação', 'Pergunta simples, duas saídas.', 'ds-btn--secondary'],
-  ['modal-newsletter', 'Com formulário', 'Captura de e-mail sem sair da página.', 'ds-btn--secondary'],
-  ['modal-excluir', 'Ação perigosa', 'Fundo travado: só fecha pelos botões ou Esc.', 'ds-btn--danger'],
-  ['modal-termos', 'Conteúdo longo', 'O corpo rola; cabeçalho e rodapé ficam.', 'ds-btn--secondary'],
+  ['modal-confirmar', 'Confirmação', 'Duas saídas.', 'ds-btn--secondary'],
+  ['modal-newsletter', 'Com formulário', 'Um dado rápido.', 'ds-btn--secondary'],
+  ['modal-excluir', 'Ação perigosa', 'Só fecha pelos botões.', 'ds-btn--danger'],
+  ['modal-termos', 'Conteúdo longo', 'O meio rola.', 'ds-btn--secondary'],
 ];
 
 const DRAWERS = [
-  ['gaveta-menu', 'Menu', 'Navegação do site no celular, pela esquerda.', 'menu'],
-  ['gaveta-carrinho', 'Carrinho', 'Resumo da compra, pela direita.', 'cart'],
-  ['gaveta-filtros', 'Filtros', 'Painel que sobe de baixo, como nos apps.', 'filter'],
+  ['gaveta-menu', 'Menu', 'Pela esquerda.', 'menu'],
+  ['gaveta-carrinho', 'Carrinho', 'Pela direita.', 'cart'],
+  ['gaveta-filtros', 'Filtros', 'Sobe de baixo.', 'filter'],
 ];
 
 const PLACEMENTS = [['top', 'Em cima'], ['right', 'À direita'], ['bottom', 'Embaixo'], ['left', 'À esquerda']];
@@ -38,18 +38,18 @@ const CART = [['Nanquim preto, 30 ml', 'R$ 24,90'], ['Pena caligráfica nº 3', 
 
 const TERMS = Array.from({ length: 8 }, (_, i) => `
   <h3>${i + 1}. ${['Quem somos', 'Dados que coletamos', 'Para que usamos', 'Com quem compartilhamos', 'Por quanto tempo guardamos', 'Seus direitos', 'Cookies', 'Contato'][i]}</h3>
-  <p>Explicamos aqui, em linguagem simples, como o site trata as suas informações. Nada é vendido, e você pode pedir a exclusão dos seus dados a qualquer momento pelo e-mail de contato.</p>`).join('');
+  <p>Como o site trata os seus dados, em linguagem simples. Nada é vendido e você pode pedir a exclusão quando quiser.</p>`).join('');
 
 export default {
   id: 'sobreposicoes',
   group: 'Componentes',
   title: 'Modal, gaveta e tooltip',
   keywords: 'modal dialog diálogo janela popup gaveta drawer menu lateral carrinho tooltip dica balão sobreposição overlay',
-  lead: 'Peças que aparecem por cima da página. O modal pede uma decisão, a gaveta abre um painel ao lado sem tirar você do lugar e o tooltip explica um botão em poucas palavras.',
+  lead: 'O que aparece por cima: o modal pede decisão, a gaveta abre ao lado, o tooltip dá nome.',
   render: () => `
     <section class="doc-section">
       <h2>Modal</h2>
-      <p>Uma janela que escurece o resto e pede atenção total. Use para confirmar, coletar um dado rápido ou avisar algo que não pode passar despercebido. Abra cada um e experimente o <kbd>Tab</kbd> e o <kbd>Esc</kbd>.</p>
+      <p>Escurece o resto e pede atenção. Teste <kbd>Tab</kbd> e <kbd>Esc</kbd>.</p>
       <div class="overlay-grid">
         ${MODALS.map(([id, name, text, button]) => `
           <div class="overlay-tile">
@@ -76,7 +76,7 @@ export default {
 
     <section class="doc-section">
       <h2>Gaveta</h2>
-      <p>O mesmo componente, preso a um lado da tela. Bom para o que é consultado e fechado: menu, carrinho, filtros.</p>
+      <p>O modal preso a um lado. Para consultar e fechar.</p>
       <div class="overlay-grid overlay-grid--three">
         ${DRAWERS.map(([id, name, text, icon]) => `
           <div class="overlay-tile">
@@ -93,7 +93,7 @@ export default {
 
     <section class="doc-section">
       <h2>Tooltip</h2>
-      <p>Um balão curto que aparece ao passar o mouse ou chegar com o teclado. Serve para dar nome a botões de ícone, nunca para esconder informação importante.</p>
+      <p>Dá nome a botões de ícone. Nunca esconde o essencial.</p>
       <div class="doc-demo overlay-tooltips">
         ${PLACEMENTS.map(([side, name]) => `
           <ds-tooltip text="Balão ${name.toLowerCase()}" placement="${side}">
@@ -125,15 +125,14 @@ export default {
     <section class="doc-section">
       <h2>Acessibilidade</h2>
       <ul class="carousel-a11y">
-        <li><ds-icon name="lock"></ds-icon> com o modal aberto, o <kbd>Tab</kbd> circula só dentro dele e a página atrás não rola;</li>
-        <li><ds-icon name="x"></ds-icon> <kbd>Esc</kbd> fecha o modal, a gaveta e o tooltip;</li>
-        <li><ds-icon name="arrow-right"></ds-icon> ao abrir, o foco vai para o primeiro botão ou campo, ou para o que tiver <code>autofocus</code>;</li>
-        <li><ds-icon name="arrow-left"></ds-icon> ao fechar, o foco volta para o botão que abriu;</li>
-        <li><ds-icon name="eye"></ds-icon> o tooltip aparece também pelo teclado, não some quando o mouse passa para cima dele e é lido pelo leitor de tela.</li>
+        <li><ds-icon name="lock"></ds-icon> o <kbd>Tab</kbd> fica preso no modal;</li>
+        <li><ds-icon name="x"></ds-icon> <kbd>Esc</kbd> fecha tudo;</li>
+        <li><ds-icon name="arrow-left"></ds-icon> ao fechar, o foco volta a quem abriu;</li>
+        <li><ds-icon name="eye"></ds-icon> o tooltip abre também pelo teclado.</li>
       </ul>
       ${doDont(
-        ['Modal só para o que exige decisão agora', 'Título que diz o que vai acontecer ("Excluir projeto?")', 'Tooltip de uma linha em botões de ícone'],
-        ['Abrir modal sozinho ao carregar a página', 'Modal em cima de modal', 'Botão ou link dentro do tooltip: ele some quando o mouse sai'],
+        ['Modal só para decidir agora', 'Título que diz o que acontece'],
+        ['Modal ao abrir a página', 'Modal sobre modal'],
       )}
     </section>
 

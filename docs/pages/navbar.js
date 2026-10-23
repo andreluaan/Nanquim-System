@@ -2,10 +2,10 @@ import { code, doDont } from '../utils.js';
 import { frame, hero, mountSiteDemos, navbar } from '../site-kit.js';
 
 const PARTS = [
-  ['Marca', '<code>.ds-navbar__brand</code>: logo ou nome, sempre levando ao início.'],
-  ['Links', '<code>.ds-navbar__links</code>: de 3 a 6 destinos; a página atual leva <code>aria-current="page"</code>.'],
-  ['Ação', '<code>.ds-navbar__actions</code>: o botão mais importante do site, como "Pedir orçamento".'],
-  ['Menu', '<code>.ds-navbar__toggle</code>: aparece sozinho em telas estreitas e abre a gaveta com os links.'],
+  ['Marca', '<code>.ds-navbar__brand</code>: leva ao início.'],
+  ['Links', '<code>.ds-navbar__links</code>: de 3 a 6, com <code>aria-current</code> na atual.'],
+  ['Ação', '<code>.ds-navbar__actions</code>: o botão principal.'],
+  ['Menu', '<code>.ds-navbar__toggle</code>: surge no celular e abre a gaveta.'],
 ];
 
 export default {
@@ -13,11 +13,11 @@ export default {
   group: 'Seções de site',
   title: 'Barra de navegação',
   keywords: 'navbar menu navegação cabeçalho header topo links logo hambúrguer',
-  lead: 'A barra do topo: diz de quem é o site, para onde dá para ir e qual é a ação principal. É a primeira coisa que a pessoa procura quando se perde.',
+  lead: 'De quem é, para onde ir e o que fazer. O que se procura ao se perder.',
   render: () => `
     <section class="doc-section">
       <h2>Na prática</h2>
-      <p>Mude a largura para <strong>Celular</strong>: os links viram um botão de menu, que abre uma gaveta. Role a prévia: com <code>ds-navbar--sticky</code>, a barra acompanha.</p>
+      <p>No <strong>Celular</strong>, os links viram menu. Role: com <code>--sticky</code>, a barra acompanha.</p>
       ${frame({ content: navbar({ menuId: 'navbar-menu' }) + hero({ id: 'ill-enso-navbar' }), className: 'site-frame--scroll site-frame--short' })}
       <ol class="card-anatomy-list estrutura-parts">
         ${PARTS.map(([name, text]) => `<li><strong>${name}</strong><span>${text}</span></li>`).join('')}
@@ -26,11 +26,11 @@ export default {
 
     <section class="doc-section">
       <h2>Sem botão de ação</h2>
-      <p>Em sites institucionais, a barra pode ter só links. O menu de celular continua funcionando igual.</p>
+      <p>Só links, para sites institucionais.</p>
       ${frame({ content: navbar({ menuId: 'navbar-menu-simples', sticky: false, action: false }), widths: false })}
       ${doDont(
-        ['Nomes curtos e conhecidos ("Preços", não "Investimento")', 'Uma única ação de destaque', 'Marcar a página atual'],
-        ['Mais de 6 links', 'Menu de celular escondendo a ação principal', 'Links que mudam de lugar entre páginas'],
+        ['Nomes curtos ("Preços")', 'Marcar a página atual'],
+        ['Mais de 6 links', 'Esconder a ação no celular'],
       )}
       ${code(`
 <header class="ds-navbar ds-navbar--sticky">

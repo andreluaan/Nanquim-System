@@ -6,15 +6,15 @@ export default {
   group: 'Seções de site',
   title: 'Recursos',
   keywords: 'recursos serviços benefícios features vantagens ícones grade o que fazemos',
-  lead: 'A seção que responde "o que você faz por mim?": serviços, benefícios ou diferenciais, cada um com ícone, título e uma frase.',
+  lead: 'O que você faz por mim: ícone, título e uma frase.',
   render: () => `
     <section class="doc-section">
       <h2>Na prática</h2>
-      <p>Cada item é um <code>ds-feature</code> dentro de uma <code>ds-grid</code>. Com <code>--grid-min: 12rem</code>, cabem 4 por linha no computador, 2 no tablet e 1 no celular.</p>
+      <p><code>ds-feature</code> numa <code>ds-grid</code>: 4, 2 ou 1 por linha.</p>
       ${frame({ content: features() })}
       ${doDont(
-        ['De 3 a 6 itens', 'Títulos curtos, com o benefício', 'Ícones do mesmo conjunto e do mesmo peso'],
-        ['Parágrafos longos em cada item', 'Ícones de estilos misturados', 'Itens que repetem a mesma ideia com outras palavras'],
+        ['De 3 a 6 itens', 'Títulos com o benefício'],
+        ['Parágrafos longos', 'A mesma ideia duas vezes'],
       )}
       ${code(`
 <div class="ds-grid" style="--grid-min: 12rem">

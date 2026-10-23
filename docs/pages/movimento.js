@@ -1,15 +1,15 @@
-import { code, doDont } from '../utils.js';
+import { code, doDont, copyModeSwitch, mountCopyModeSwitch } from '../utils.js';
 
 const EASINGS = [
-  { t: 'ease-out', name: 'Saída suave', use: 'Coisas que entram na tela. O padrão.' },
-  { t: 'ease-in-out', name: 'Ida e volta', use: 'Coisas que mudam de lugar.' },
-  { t: 'ease-spring', name: 'Mola', use: 'Feedback divertido: toasts, curtidas. Com moderação.' },
+  { t: 'ease-out', name: 'Saída suave', use: 'O que entra. O padrão.' },
+  { t: 'ease-in-out', name: 'Ida e volta', use: 'O que muda de lugar.' },
+  { t: 'ease-spring', name: 'Mola', use: 'Feedback. Com moderação.' },
 ];
 const DURATIONS = [
   { t: 'instant', ms: 80, use: 'Hover de cor' },
-  { t: 'fast', ms: 140, use: 'Botões, toggles' },
-  { t: 'base', ms: 220, use: 'Dropdowns, abas' },
-  { t: 'slow', ms: 380, use: 'Modais, gavetas' },
+  { t: 'fast', ms: 140, use: 'Botões' },
+  { t: 'base', ms: 220, use: 'Menus' },
+  { t: 'slow', ms: 380, use: 'Modais' },
 ];
 
 export default {
@@ -17,18 +17,20 @@ export default {
   group: 'Fundações',
   title: 'Movimento',
   keywords: 'animação animation transição easing duração motion',
-  lead: 'Animação boa é a que você quase não percebe: ela só explica de onde algo veio e para onde foi. Quem prefere menos movimento no sistema operacional recebe tudo instantâneo.',
+  lead: 'Animação boa quase não se nota: só mostra de onde algo veio. Quem pede menos movimento recebe tudo instantâneo.',
   render: () => `
+    ${copyModeSwitch()}
+
     <section class="doc-section">
       <h2>Curvas</h2>
-      <p>Clique em "Tocar" e compare como cada curva acelera e freia.</p>
+      <p>Toque e compare.</p>
       <div class="motion-list">
         ${EASINGS.map((e) => `
           <div class="motion-row">
             <div class="motion-info">
               <strong>${e.name}</strong>
               <small>${e.use}</small>
-              <code data-copy="var(--ds-${e.t})" data-copy-label="Token copiado">${e.t}</code>
+              <code data-copy-token="--ds-${e.t}">${e.t}</code>
             </div>
             <div class="motion-track"><span class="motion-ball" style="transition-timing-function: var(--ds-${e.t})"></span></div>
           </div>`).join('')}
@@ -38,17 +40,17 @@ export default {
 
     <section class="doc-section">
       <h2>Durações</h2>
-      <p>Passe o mouse em cada quadrado: a mudança acontece na velocidade indicada.</p>
+      <p>Passe o mouse em cada quadrado.</p>
       <div class="motion-durations">
         ${DURATIONS.map((d) => `
-          <button class="motion-dur" style="transition-duration: var(--ds-duration-${d.t})" data-copy="var(--ds-duration-${d.t})" data-copy-label="Token copiado">
+          <button class="motion-dur" style="transition-duration: var(--ds-duration-${d.t})" data-copy-token="--ds-duration-${d.t}">
             <span class="motion-dur-box"></span>
             <code>${d.t}</code><small>${d.ms}ms · ${d.use}</small>
           </button>`).join('')}
       </div>
       ${doDont(
-        ['Animar só opacidade e posição (é mais leve)', 'Entradas um pouco mais lentas que saídas'],
-        ['Animações acima de ~400ms em interface', 'Animar algo só "porque fica bonito"'],
+        ['Animar opacidade e posição', 'Entrar mais devagar que sair'],
+        ['Passar de ~400ms', 'Animar só por enfeite'],
       )}
       ${code(`
 .dropdown {
@@ -59,6 +61,7 @@ export default {
     </section>`,
 
   mount(el) {
+    mountCopyModeSwitch(el, '--ds-duration-base');
     const btn = el.querySelector('[data-play]');
     btn.addEventListener('click', () => el.querySelectorAll('.motion-track').forEach((t) => t.classList.toggle('is-end')));
   },

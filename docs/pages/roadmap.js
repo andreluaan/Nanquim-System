@@ -10,6 +10,7 @@ const ITEMS = [
   { name: 'Modal, gaveta, tooltip', status: 'feito' },
   { name: 'Seções de site: hero, navbar, rodapé, preços, depoimentos', status: 'feito' },
   { name: 'Seções em páginas próprias, perguntas frequentes e visualizador de marca', status: 'feito' },
+  { name: 'Documentação enxuta e cópia do valor dos tokens', status: 'feito' },
   { name: 'Pacote para usar em outros projetos (npm e CDN)', status: 'próximo' },
   { name: 'Primeiro site de cliente feito só com o Nanquim', status: 'depois' },
 ];
@@ -21,7 +22,7 @@ export default {
   group: 'Projeto',
   title: 'Roadmap',
   keywords: 'planejamento próximos futuro',
-  lead: 'Este sistema cresce aos poucos: cada peça nova entra com variantes, documentação e exemplos. O que já existe e o que vem por aí:',
+  lead: 'Cresce aos poucos, uma peça de cada vez.',
   render: () => `
     <ol class="roadmap">
       ${ITEMS.map((i) => `

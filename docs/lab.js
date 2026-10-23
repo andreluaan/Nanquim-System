@@ -3,7 +3,7 @@ import { copy } from './utils.js';
 export const OPTIONS = {
   theme: {
     label: 'Paleta',
-    hint: 'O "humor" das cores. Muda neutros e a cor de destaque.',
+    hint: 'O humor das cores.',
     items: [
       { id: 'nanquim', name: 'Nanquim', desc: 'Tinta e papel · padrão', swatch: ['oklch(0.175 0.014 265)', 'oklch(0.3 0.014 265)', 'oklch(0.9 0.035 85)'] },
       { id: 'grafite', name: 'Grafite & Âmbar', desc: 'Quente, editorial', swatch: ['oklch(0.175 0.006 70)', 'oklch(0.3 0.006 70)', 'oklch(0.78 0.12 75)'] },
@@ -16,7 +16,7 @@ export const OPTIONS = {
   },
   font: {
     label: 'Tipografia',
-    hint: 'A "voz" do texto. Títulos + texto corrido.',
+    hint: 'A voz do texto.',
     items: [
       { id: 'editorial', name: 'Editorial', desc: 'Fraunces + Inter', family: '"Fraunces", serif' },
       { id: 'moderno', name: 'Moderno', desc: 'Geist', family: '"Geist", sans-serif' },
@@ -26,7 +26,7 @@ export const OPTIONS = {
   },
   radius: {
     label: 'Cantos',
-    hint: 'Retos parecem sérios; arredondados, amigáveis.',
+    hint: 'Reto é sério; redondo, amigável.',
     items: [
       { id: 'reto', name: 'Retos', r: '2px' },
       { id: 'suave', name: 'Suaves', r: '8px' },
@@ -35,7 +35,7 @@ export const OPTIONS = {
   },
   mode: {
     label: 'Modo',
-    hint: 'Escuro é o padrão da casa; claro existe para sites de clientes.',
+    hint: 'Escuro é o padrão da casa.',
     items: [
       { id: 'dark', name: 'Escuro' },
       { id: 'light', name: 'Claro' },
@@ -123,7 +123,7 @@ export function mountLab() {
     <header class="lab-head">
       <div>
         <h2>Laboratório de identidade</h2>
-        <p>Combine opções e veja o site inteiro mudar. Quando gostar, copie a escolha e me mande.</p>
+        <p>Combine e veja tudo mudar.</p>
       </div>
       <button class="doc-icon-btn" data-close aria-label="Fechar">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>

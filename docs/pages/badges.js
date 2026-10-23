@@ -1,12 +1,12 @@
 import { code, doDont, escapeHtml } from '../utils.js';
 
 const TONES = [
-  ['neutral', 'Neutro', 'Informação sem peso: categorias, tags.'],
-  ['accent', 'Destaque', 'Algo da marca ou em evidência: "Novo", "Recomendado".'],
-  ['success', 'Sucesso', 'Deu certo ou está ativo: "Pago", "Online".'],
-  ['warning', 'Atenção', 'Pede cuidado: "Pendente", "Expira em breve".'],
-  ['danger', 'Perigo', 'Algo errado ou bloqueado: "Atrasado", "Erro".'],
-  ['info', 'Info', 'Contexto neutro, mas digno de nota: "Beta", "Atualizado".'],
+  ['neutral', 'Neutro', 'Categorias e tags.'],
+  ['accent', 'Destaque', '"Novo", "Recomendado".'],
+  ['success', 'Sucesso', '"Pago", "Online".'],
+  ['warning', 'Atenção', '"Pendente", "Expira logo".'],
+  ['danger', 'Perigo', '"Atrasado", "Erro".'],
+  ['info', 'Info', '"Beta", "Atualizado".'],
 ];
 
 const APPEARANCES = [['soft', 'Suave'], ['solid', 'Sólida'], ['outline', 'Contorno']];
@@ -52,11 +52,11 @@ export default {
   group: 'Componentes',
   title: 'Badges',
   keywords: 'badge etiqueta tag selo status chip rótulo',
-  lead: 'Etiquetas curtas que marcam um estado ou uma categoria. A cor reforça o significado, mas o texto é que conta: nunca use só a cor.',
+  lead: 'Etiquetas de estado ou categoria. A cor reforça; quem fala é o texto.',
   render: () => `
     <section class="doc-section">
       <h2>Monte o seu</h2>
-      <p>Combine as opções e copie o código.</p>
+      <p>Combine e copie.</p>
       <div class="btn-play">
         <div class="btn-play-controls">
           ${Object.keys(PLAYGROUND).map((key) => segmented(key, initialState[key])).join('')}
@@ -77,7 +77,7 @@ export default {
 
     <section class="doc-section">
       <h2>Tons e aparências</h2>
-      <p>Seis tons, cada um com um significado, em três aparências. A suave é o padrão; a sólida chama mais atenção; a de contorno é a mais discreta.</p>
+      <p>Seis tons, três aparências. Suave é o padrão.</p>
       <div class="badge-matrix">
         <span></span>
         ${APPEARANCES.map(([, name]) => `<small>${name}</small>`).join('')}
@@ -92,7 +92,7 @@ export default {
 
     <section class="doc-section">
       <h2>Na prática</h2>
-      <p>Badges aparecem em listas, cards e cabeçalhos, sempre ao lado do conteúdo que descrevem.</p>
+      <p>Sempre ao lado do que descrevem.</p>
       <div class="doc-demo badge-examples">
         <table class="badge-table">
           <thead><tr><th>Pedido</th><th>Cliente</th><th>Status</th></tr></thead>
@@ -111,8 +111,8 @@ export default {
         </div>
       </div>
       ${doDont(
-        ['Textos de uma ou duas palavras', 'Um significado fixo por tom em todo o site', 'Ponto ou ícone para reforçar o estado'],
-        ['Frases inteiras dentro de um badge', 'Usar badge como botão (não é clicável)', 'Depender só da cor para diferenciar estados'],
+        ['Uma ou duas palavras', 'Um significado por tom'],
+        ['Frases inteiras', 'Usar como botão'],
       )}
       ${code(`
 <span class="ds-badge">Design</span>

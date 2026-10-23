@@ -6,15 +6,15 @@ export default {
   group: 'Seções de site',
   title: 'Perguntas frequentes',
   keywords: 'perguntas frequentes faq dúvidas acordeão sanfona details summary',
-  lead: 'As dúvidas que todo cliente faz antes de comprar, respondidas na própria página. Cada pergunta abre e fecha, então a lista não ocupa a tela toda.',
+  lead: 'As dúvidas de antes da compra, que abrem e fecham.',
   render: () => `
     <section class="doc-section">
       <h2>Na prática</h2>
-      <p>Feito com <code>&lt;details&gt;</code> e <code>&lt;summary&gt;</code>, elementos do próprio HTML: abre com clique, toque ou <kbd>Enter</kbd>, e o leitor de tela anuncia se está aberto ou fechado. Sem JavaScript.</p>
+      <p><code>&lt;details&gt;</code> do HTML: teclado e leitor de tela sem JavaScript.</p>
       ${frame({ content: faq() })}
       ${doDont(
-        ['Perguntas reais, do jeito que os clientes perguntam', 'Respostas curtas, com o próximo passo', 'A primeira pergunta já aberta'],
-        ['Mais de 8 perguntas na mesma lista', 'Esconder informação importante (preço, prazo) só aqui', 'Respostas que mandam "entrar em contato" para tudo'],
+        ['Perguntas reais', 'Respostas curtas'],
+        ['Mais de 8 perguntas', 'Preço só escondido aqui'],
       )}
       ${code(`
 <div class="ds-faq">

@@ -2,9 +2,9 @@ import { code, doDont } from '../utils.js';
 import { footer, frame, mountSiteDemos } from '../site-kit.js';
 
 const PARTS = [
-  ['Marca', '<code>.ds-footer__brand</code>: logo, uma frase sobre o negócio e os contatos.'],
-  ['Colunas', 'Cada coluna é um <code>nav</code> com <code>.ds-footer__heading</code> e uma lista <code>.ds-footer__links</code>.'],
-  ['Linha final', '<code>.ds-footer__bottom</code>: direitos, privacidade e termos.'],
+  ['Marca', '<code>.ds-footer__brand</code>: logo, frase e contatos.'],
+  ['Colunas', '<code>nav</code> com <code>__heading</code> e <code>__links</code>.'],
+  ['Linha final', '<code>.ds-footer__bottom</code>: direitos e privacidade.'],
 ];
 
 export default {
@@ -12,18 +12,18 @@ export default {
   group: 'Seções de site',
   title: 'Rodapé',
   keywords: 'rodapé footer final links contato redes sociais direitos privacidade',
-  lead: 'Onde quem chegou ao fim procura o resto: contato, links organizados por assunto e os textos legais.',
+  lead: 'Contato, links por assunto e o texto legal.',
   render: () => `
     <section class="doc-section">
       <h2>Na prática</h2>
-      <p>Quatro colunas no computador; no celular, a marca ocupa a linha toda e as colunas de links ficam duas a duas.</p>
+      <p>No celular, os links ficam dois a dois.</p>
       ${frame({ content: footer() })}
       <ol class="card-anatomy-list estrutura-parts">
         ${PARTS.map(([name, text]) => `<li><strong>${name}</strong><span>${text}</span></li>`).join('')}
       </ol>
       ${doDont(
-        ['Links agrupados por assunto', 'Contatos que funcionam com um toque (telefone, e-mail)', 'Link para a política de privacidade (LGPD)'],
-        ['Repetir o menu inteiro sem organizar', 'Texto miúdo com pouco contraste', 'Ícones de rede social sem nome acessível'],
+        ['Links por assunto', 'Contato com um toque'],
+        ['Repetir o menu inteiro', 'Texto miúdo apagado'],
       )}
       ${code(`
 <footer class="ds-footer">

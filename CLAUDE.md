@@ -14,12 +14,12 @@ Processo contínuo: componentes e variantes são adicionados aos poucos, junto c
 - Sem framework: CSS puro + Web Components (custom elements) para o que for interativo. Classes de componente com prefixo `ds-`.
 - Estilo da casa: escuro, minimalista, sóbrio. **Sem glow/neon**; profundidade vem de superfícies em camadas + `--ds-shadow-*` + bordas sutis.
 - Acessibilidade: foco visível (`--ds-focus-ring`), contraste ≥ 4.5 em texto, respeitar `prefers-reduced-motion` (já zera as durações).
-- Textos da documentação em português, para leigos: "o que é", "quando usar", demo interativa, faça/evite, código copiável.
+- Textos da documentação curtos (uma frase por parágrafo, faça/evite com 2 itens), em português, para leigos: "o que é", "quando usar", demo interativa, faça/evite, código copiável.
 
 ## Documentação (`docs/`)
 - `npm run dev` (Vite). Shell em `docs/main.js`; páginas em `docs/pages/<id>.js` exportando `{ id, group, title, lead, keywords, render(), mount?(el), rerenderOnThemeChange?, wide? }`; registrar em `docs/registry.js`.
 - Grupos do menu: Começo, Fundações, Componentes, Seções de site, Projeto. As páginas de "Seções de site" usam `docs/site-kit.js` (conteúdo do Ateliê Sumi, `frame()` com seletor de largura e `mountSiteDemos()`); "Site completo" é sempre a última do grupo e tem o visualizador de marca.
-- Helpers em `docs/utils.js`: `code()`, `doDont()`, `copy()`, `contrast()`; ícones via `iconSvg(nome)` de `src/icons/icons.js` (string) ou `<ds-icon>`; controle segmentado `.doc-segmented`. Qualquer elemento com `data-copy="..."` copia ao clicar.
+- Helpers em `docs/utils.js`: `code()`, `doDont()`, `copy()`, `contrast()`; tokens copiáveis usam `data-copy-token="--ds-..."` (copia `var()` ou a declaração com o valor resolvido, conforme o seletor `copyModeSwitch()` + `mountCopyModeSwitch(el, tokenExemplo)` das páginas de Fundações); ícones via `iconSvg(nome)` de `src/icons/icons.js` (string) ou `<ds-icon>`; controle segmentado `.doc-segmented`. Qualquer elemento com `data-copy="..."` copia ao clicar.
 - Para medir contraste via JS, ligar `data-print` no `<html>` antes (senão as transições distorcem as cores).
 - CSS: shell em `docs/docs.css` (prefixo `doc-`/`lab-`), páginas em `docs/pages.css`. Estilos de documentação nunca podem atingir classes `ds-` (ex.: `.doc-section h3:not([class*="ds-"])`).
 - Ao concluir um item, atualizar `docs/pages/roadmap.js` e este arquivo.

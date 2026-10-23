@@ -2,10 +2,10 @@ import { code, doDont } from '../utils.js';
 import { frame, mountSiteDemos } from '../site-kit.js';
 
 const PARTS = [
-  ['Contêiner', '<code>.ds-container</code>: limita a largura do conteúdo e garante respiro nas laterais. <code>--narrow</code> para textos longos.'],
-  ['Seção', '<code>.ds-section</code>: uma faixa da página com espaço em cima e embaixo. <code>--alt</code> troca o fundo para separar uma da outra.'],
-  ['Cabeçalho', '<code>.ds-section__header</code>: sobretítulo, título e texto de apoio. <code>--center</code> centraliza.'],
-  ['Grade', '<code>.ds-grid</code>: quantas colunas couberem, cada uma com pelo menos <code>--grid-min</code> de largura.'],
+  ['Contêiner', '<code>.ds-container</code>: limita a largura. <code>--narrow</code> para textos.'],
+  ['Seção', '<code>.ds-section</code>: uma faixa com respiro. <code>--alt</code> troca o fundo.'],
+  ['Cabeçalho', '<code>.ds-section__header</code>: sobretítulo, título e apoio.'],
+  ['Grade', '<code>.ds-grid</code>: quantas colunas couberem, com <code>--grid-min</code>.'],
 ];
 
 const blocks = (n) => Array.from({ length: n }, (_, i) => `<div class="estrutura-block">Coluna ${i + 1}</div>`).join('');
@@ -36,11 +36,11 @@ export default {
   group: 'Seções de site',
   title: 'Estrutura da página',
   keywords: 'estrutura layout contêiner container seção grade grid colunas largura responsivo container queries',
-  lead: 'Toda seção de site é montada sobre as mesmas três peças: um contêiner que segura a largura, uma seção que dá o respiro e uma grade que arruma as colunas.',
+  lead: 'Três peças por trás de toda seção: contêiner, seção e grade.',
   render: () => `
     <section class="doc-section">
       <h2>As três peças</h2>
-      <p>Troque a largura da prévia: a grade passa de 3 colunas para 1 sozinha, sem nenhuma regra extra.</p>
+      <p>Mude a largura: a grade se ajeita sozinha.</p>
       ${frame({ content: demo() })}
       <ol class="card-anatomy-list estrutura-parts">
         ${PARTS.map(([name, text]) => `<li><strong>${name}</strong><span>${text}</span></li>`).join('')}
@@ -48,11 +48,11 @@ export default {
     </section>
 
     <section class="doc-section">
-      <h2>Responde ao espaço, não à tela</h2>
-      <p>As seções usam <strong>container queries</strong>: em vez de perguntar "qual é o tamanho da tela?", cada uma pergunta "quanto espaço eu tenho?". Por isso a mesma seção funciona numa página inteira, numa coluna lateral ou dentro de uma prévia como as desta documentação.</p>
+      <h2>Responde ao espaço</h2>
+      <p>Com <strong>container queries</strong>, cada seção olha o espaço que tem, não a tela. Funciona igual numa página ou numa coluna.</p>
       ${doDont(
-        ['Uma <code>ds-section</code> por assunto', 'Alternar <code>--alt</code> para dar ritmo à página', 'Ajustar <code>--grid-min</code> em vez de fixar o número de colunas'],
-        ['Seção sem contêiner (o texto encosta na borda)', 'Duas seções seguidas com o mesmo fundo e sem título', 'Grade com colunas de largura fixa em px'],
+        ['Uma seção por assunto', 'Alternar <code>--alt</code> para dar ritmo'],
+        ['Texto encostado na borda', 'Colunas fixas em px'],
       )}
       ${code(`
 <section class="ds-section ds-section--alt">

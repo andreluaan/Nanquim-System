@@ -2,10 +2,10 @@ import { inkDrop, brushStroke, inkWash, enso } from '../illustrations.js';
 import { code, doDont } from '../utils.js';
 
 const VARIANTS = [
-  ['default', 'Padrão', 'O card de todo dia: superfície com borda sutil.'],
-  ['elevated', 'Elevado', 'Ganha sombra para se destacar, como um plano recomendado.'],
-  ['outline', 'Contorno', 'Só a borda, para listas densas ou fundos com cor.'],
-  ['interactive', 'Interativo', 'O card inteiro é um link: levanta ao passar o mouse.'],
+  ['default', 'Padrão', 'O de todo dia.'],
+  ['elevated', 'Elevado', 'Com sombra, para destacar.'],
+  ['outline', 'Contorno', 'Só a borda. Para listas densas.'],
+  ['interactive', 'Interativo', 'O card todo é um link.'],
 ];
 
 const PLAYGROUND = {
@@ -47,11 +47,11 @@ function segmented(key, current) {
 }
 
 const ANATOMY = [
-  ['Mídia', '<code>.ds-card__media</code>: imagem ou ilustração no topo, sempre 16:9.'],
-  ['Sobretítulo', '<code>.ds-card__eyebrow</code>: categoria ou contexto, em caixa alta.'],
-  ['Título', '<code>.ds-card__title</code>: a informação principal, na fonte de títulos.'],
-  ['Texto', '<code>.ds-card__body</code>: um resumo curto, de uma a três linhas.'],
-  ['Rodapé', '<code>.ds-card__footer</code>: ações, metadados ou preço, separado por uma linha.'],
+  ['Mídia', '<code>.ds-card__media</code>: imagem no topo, 16:9.'],
+  ['Sobretítulo', '<code>.ds-card__eyebrow</code>: categoria.'],
+  ['Título', '<code>.ds-card__title</code>: o principal.'],
+  ['Texto', '<code>.ds-card__body</code>: resumo de até três linhas.'],
+  ['Rodapé', '<code>.ds-card__footer</code>: ações, dados ou preço.'],
 ];
 
 export default {
@@ -59,11 +59,11 @@ export default {
   group: 'Componentes',
   title: 'Cards',
   keywords: 'card cartão bloco caixa post produto plano perfil',
-  lead: 'Cards agrupam informações sobre um mesmo assunto, como um post, um produto ou uma pessoa, num bloco que se lê de uma vez.',
+  lead: 'Um assunto num bloco que se lê de uma vez.',
   render: () => `
     <section class="doc-section">
       <h2>Anatomia</h2>
-      <p>Todas as partes são opcionais: use só as que o conteúdo pede.</p>
+      <p>Toda parte é opcional.</p>
       <div class="card-anatomy">
         <article class="ds-card card-anatomy-card">
           <div class="ds-card__media">${brushStroke()}<span class="card-marker" style="top: 12px; right: 12px">1</span></div>
@@ -85,7 +85,7 @@ export default {
 
     <section class="doc-section">
       <h2>Monte o seu</h2>
-      <p>Troque as opções e veja o card e o código mudarem juntos.</p>
+      <p>Escolha e copie.</p>
       <div class="btn-play">
         <div class="btn-play-controls">
           ${Object.keys(PLAYGROUND).map((key) => segmented(key, initialState[key])).join('')}
@@ -102,7 +102,7 @@ export default {
 
     <section class="doc-section">
       <h2>Variantes</h2>
-      <p>Passe o mouse no interativo: ele levanta e a imagem se aproxima.</p>
+      <p>Passe o mouse no interativo.</p>
       <div class="card-grid">
         ${VARIANTS.map(([id, name, use]) => `
           <${id === 'interactive' ? 'a href="#cards"' : 'article'} class="ds-card${id === 'default' ? '' : ` ds-card--${id}`}">
@@ -116,8 +116,8 @@ export default {
     </section>
 
     <section class="doc-section">
-      <h2>Exemplos de uso</h2>
-      <p>Os mesmos blocos, montados para situações comuns em sites de clientes.</p>
+      <h2>Exemplos</h2>
+      <p>As mesmas partes, outros usos.</p>
       <div class="card-examples">
         <a class="ds-card ds-card--interactive" href="#cards">
           <div class="ds-card__media">${inkWash()}<span class="ds-badge ds-badge--accent ds-badge--solid ds-badge--pill">Processo</span></div>
@@ -192,8 +192,8 @@ export default {
       </div>
 
       ${doDont(
-        ['Um assunto por card', 'Cards de uma mesma lista com a mesma estrutura', 'Card interativo inteiro como link (<code>&lt;a&gt;</code>)'],
-        ['Card dentro de card', 'Vários botões principais no mesmo card', 'Texto longo: o card é um resumo, não a página'],
+        ['Um assunto por card', 'Mesma estrutura na lista'],
+        ['Card dentro de card', 'Texto longo'],
       )}
       ${code(`
 <a class="ds-card ds-card--interactive" href="/blog/aguada">

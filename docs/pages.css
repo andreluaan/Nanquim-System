@@ -8,7 +8,7 @@ button[data-copy], div[data-copy] { cursor: pointer; }
   background: var(--ds-color-surface); box-shadow: var(--ds-shadow-sm);
   display: flex; flex-direction: column; gap: var(--ds-space-2);
 }
-.home-layer h3 { margin: 0 !important; font-size: var(--ds-text-lg) !important; font-family: var(--ds-font-display) !important; }
+.home-layer h3 { margin: 0 !important; font-size: var(--ds-text-md) !important; font-family: var(--ds-font-display) !important; }
 .home-layer p { font-size: var(--ds-text-sm); color: var(--ds-color-text-muted); flex: 1; }
 .home-layer code { align-self: flex-start; }
 .home-layer--accent { border-color: var(--ds-color-accent-border); background: var(--ds-color-accent-soft); }

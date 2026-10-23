@@ -47,11 +47,11 @@ export default {
   group: 'Componentes',
   title: 'Formulários',
   keywords: 'formulário input campo texto select checkbox radio switch contato validação erro',
-  lead: 'Campos são uma conversa: a página pergunta, a pessoa responde. Bons campos dizem o que querem, ajudam enquanto ela digita e explicam o erro sem culpá-la.',
+  lead: 'Uma conversa: o campo pergunta, ajuda e explica o erro sem culpar.',
   render: () => `
     <section class="doc-section">
-      <h2>Um campo, por partes</h2>
-      <p>Todo campo tem um <strong>rótulo</strong> visível (nunca só o texto de exemplo), uma <strong>dica</strong> opcional e um espaço para o <strong>erro</strong>. Escolha um estado e veja o código.</p>
+      <h2>Um campo</h2>
+      <p><strong>Rótulo</strong> sempre visível, <strong>dica</strong> opcional e lugar para o <strong>erro</strong>.</p>
       <div class="btn-play">
         <div class="btn-play-controls">
           ${segmented('state', STATES, 'normal', 'Estado')}
@@ -69,7 +69,7 @@ export default {
 
     <section class="doc-section">
       <h2>Tipos de campo</h2>
-      <p>A mesma classe <code>ds-input</code> serve para texto, e-mail, seleção e área de texto. A altura acompanha a dos botões, então campo e botão alinham lado a lado.</p>
+      <p>Uma classe, <code>ds-input</code>, para todos. Mesma altura dos botões.</p>
       <div class="doc-demo form-grid">
         <div class="ds-field">
           <label class="ds-field__label" for="demo-busca">Busca, com ícone</label>
@@ -104,7 +104,7 @@ export default {
 
     <section class="doc-section">
       <h2>Escolhas</h2>
-      <p><strong>Caixa de marcação</strong> para várias opções; <strong>opção única</strong> quando só uma vale; <strong>interruptor</strong> para algo que liga e desliga na hora, como uma preferência.</p>
+      <p><strong>Marcação</strong> para várias, <strong>opção única</strong> para uma, <strong>interruptor</strong> para ligar na hora.</p>
       <div class="doc-demo form-choices">
         <fieldset class="ds-fieldset">
           <legend>Serviços de interesse</legend>
@@ -131,9 +131,8 @@ export default {
     </section>
 
     <section class="doc-section">
-      <h2>Na prática: formulário de contato</h2>
-      <p>Tente enviar vazio ou com um e-mail incompleto. Os erros aparecem ao lado de cada campo, o primeiro com problema recebe o foco
-      e leitores de tela anunciam a mensagem. Depois do primeiro envio, cada campo se corrige enquanto você digita.</p>
+      <h2>Contato</h2>
+      <p>Envie vazio. O erro aparece no campo, o foco vai até ele e some enquanto você corrige.</p>
       <form class="form-contact" data-contact novalidate>
         <div class="form-grid">
           <div class="ds-field">
@@ -182,8 +181,8 @@ export default {
         </div>
       </form>
       ${doDont(
-        ['Rótulo sempre visível, acima do campo', 'Erro que explica como corrigir ("como nome@site.com")', 'Marcar o obrigatório e pedir só o necessário', 'Usar o <code>type</code> certo (email, tel) para o teclado do celular'],
-        ['Usar o placeholder como rótulo', 'Erro genérico ("campo inválido")', 'Mostrar erro antes da pessoa terminar de digitar', 'Marcar o consentimento da LGPD por padrão'],
+        ['Erro que ensina a corrigir', '<code>type</code> certo para o teclado do celular'],
+        ['Placeholder no lugar do rótulo', 'Consentimento já marcado'],
       )}
       ${code(`
 <div class="ds-field">

@@ -1,7 +1,7 @@
 import '../src/index.js';
 import { pages, groups } from './registry.js';
 import { mountLab, restore, onChange } from './lab.js';
-import { copy } from './utils.js';
+import { copy, copyToken } from './utils.js';
 
 restore();
 
@@ -67,6 +67,8 @@ function render() {
 document.addEventListener('click', (e) => {
   const el = e.target.closest('[data-copy]');
   if (el) copy(el.dataset.copy, el.dataset.copyLabel || 'Copiado');
+  const token = e.target.closest('[data-copy-token]');
+  if (token) copyToken(token.dataset.copyToken);
 });
 
 document.getElementById('menu-btn').addEventListener('click', () => sidebar.classList.toggle('is-open'));

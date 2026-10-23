@@ -2,10 +2,10 @@ import { code, doDont } from '../utils.js';
 import { frame, mountSiteDemos, pricing } from '../site-kit.js';
 
 const PARTS = [
-  ['Plano', '<code>.ds-plan</code>: nome, descrição, preço, lista e botão, sempre nessa ordem.'],
-  ['Destaque', '<code>.ds-plan--featured</code> com <code>.ds-plan__badge</code>: o plano que você recomenda.'],
-  ['Itens de fora', '<code>aria-disabled="true"</code> no item: aparece riscado e o leitor de tela sabe que não está incluso.'],
-  ['Mensal / anual', 'Botões com <code>aria-pressed</code> num <code>ds-btn-group</code>; a troca dos valores fica com o site.'],
+  ['Plano', '<code>.ds-plan</code>: nome, descrição, preço, lista e botão.'],
+  ['Destaque', '<code>--featured</code> com <code>__badge</code>: o recomendado.'],
+  ['De fora', '<code>aria-disabled</code> no item: aparece riscado.'],
+  ['Mensal / anual', 'Botões com <code>aria-pressed</code>.'],
 ];
 
 export default {
@@ -13,18 +13,18 @@ export default {
   group: 'Seções de site',
   title: 'Preços',
   keywords: 'preços planos tabela de preços assinatura mensal anual pricing valores',
-  lead: 'Lado a lado, os planos ajudam a pessoa a escolher sem precisar perguntar. O recomendado se destaca, e o que cada um não inclui fica claro.',
+  lead: 'Lado a lado, para escolher sem perguntar.',
   render: () => `
     <section class="doc-section">
       <h2>Na prática</h2>
-      <p>Clique em <strong>Anual</strong> para ver os preços mudarem. Os planos dividem as mesmas linhas da grade (<em>subgrid</em>): preços e listas ficam alinhados mesmo quando uma descrição é maior.</p>
+      <p>Clique em <strong>Anual</strong>. Com <em>subgrid</em>, preços e listas ficam alinhados.</p>
       ${frame({ content: pricing() })}
       <ol class="card-anatomy-list estrutura-parts">
         ${PARTS.map(([name, text]) => `<li><strong>${name}</strong><span>${text}</span></li>`).join('')}
       </ol>
       ${doDont(
-        ['Até 3 ou 4 planos', 'Um plano recomendado, não dois', 'Mesma lista de itens em todos, para comparar'],
-        ['Letras miúdas escondendo o preço real', 'Planos sem diferença clara entre si', 'Destaque no plano mais caro só por ser caro'],
+        ['Até 4 planos', 'Um recomendado, não dois'],
+        ['Preço escondido', 'Planos quase iguais'],
       )}
       ${code(`
 <article class="ds-plan ds-plan--featured">
