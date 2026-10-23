@@ -23,6 +23,7 @@ geradas a partir do próprio histórico com `npm run evolucao`.
 | [v0.8.0](#v080--modal-gaveta-e-tooltip) | 2026-10-23 | Modal, gaveta e tooltip | 15 | 8 | Nanquim + 5 + marca de exemplo |
 | [v0.9.0](#v090--seções-de-site) | 2026-10-23 | Seções de site | 16 | 16 | Nanquim + 5 + marca de exemplo |
 | [v0.10.0](#v0100--seções-separadas-e-visualizador) | 2026-10-23 | Seções separadas e visualizador | 25 | 17 | Nanquim + 5 + marca de exemplo + cor livre |
+| [v0.11.0](#v0110--textos-enxutos-e-cópia-de-valores) | 2026-10-23 | Textos enxutos e cópia de valores | 25 | 17 | Nanquim + 5 + marca de exemplo + cor livre |
 
 ### A mesma tela em cada versão
 
@@ -222,6 +223,18 @@ Todas as paletas no modo claro, depois do ajuste:
 | Visualizador | Mesmo site, Terracota no claro |
 |---|---|
 | ![](evolucao/v0.10.0/03i-site-completo.png) | ![](prints/2026-10-23_secoes-separadas/49-site-terracota-claro.png) |
+
+## v0.11.0 — Textos enxutos e cópia de valores
+
+*2026-10-23 · tag `v0.11.0` · diário: [013](013-textos-enxutos.md)*
+
+- Todas as páginas reescritas com menos palavras: abertura de uma frase, faça/evite com dois itens
+- Documentação menor: títulos, textos, espaços e menu
+- Nas Fundações, "Ao clicar, copiar: Token | Valor": o nome do token ou a declaração pronta para recriá-lo em outro sistema (cor em OKLCH com hex, medidas em px)
+
+| Antes (v0.10.0) | Depois (v0.11.0) |
+|---|---|
+| ![](evolucao/v0.10.0/02-cores.png) | ![](evolucao/v0.11.0/02-cores.png) |
 
 ---
 
