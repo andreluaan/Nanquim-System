@@ -27,3 +27,4 @@ para posts (LinkedIn, portfólio).
 | 005 | 2026-10-22 | [Profundidade e modo claro](005-profundidade-modo-claro.md) | Neutros com mais cor no claro, sidebar como camada, sombras mais presentes |
 | 006 | 2026-10-22 | [Ícones e o primeiro Web Component](006-icones.md) | 53 ícones com traço de pena, `<ds-icon>` com tamanhos e espessuras, busca em português |
 | 007 | 2026-10-22 | [Badges e cards](007-badges-cards.md) | 6 tons × 3 aparências de badge; card com anatomia, 4 variantes e 5 exemplos reais |
+| 008 | 2026-10-23 | [Formulários](008-formularios.md) | Campos nativos estilizados, checkbox/radio/switch, formulário de contato com validação acessível |
