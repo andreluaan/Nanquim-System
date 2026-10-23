@@ -21,6 +21,7 @@ geradas a partir do próprio histórico com `npm run evolucao`.
 | [v0.6.0](#v060--formulários) | 2026-10-23 | Formulários | 13 | 5 | Nanquim + 5 + marca de exemplo |
 | [v0.7.0](#v070--carrossel-e-slides) | 2026-10-23 | Carrossel e slides | 14 | 6 | Nanquim + 5 + marca de exemplo |
 | [v0.8.0](#v080--modal-gaveta-e-tooltip) | 2026-10-23 | Modal, gaveta e tooltip | 15 | 8 | Nanquim + 5 + marca de exemplo |
+| [v0.9.0](#v090--seções-de-site) | 2026-10-23 | Seções de site | 16 | 16 | Nanquim + 5 + marca de exemplo |
 
 ### A mesma tela em cada versão
 
@@ -192,6 +193,20 @@ Todas as paletas no modo claro, depois do ajuste:
 | Modal | Gaveta (papel) |
 |---|---|
 | ![](evolucao/v0.8.0/03g-modal.png) | ![](prints/2026-10-23_sobreposicoes/47-gaveta-papel.png) |
+
+---
+
+## v0.9.0 — Seções de site
+
+*2026-10-23 · tag `v0.9.0` · diário: [011](011-secoes-de-site.md)*
+
+- Blocos de página prontos: barra de navegação, hero, recursos, preços, depoimentos, chamada e rodapé
+- Uma landing page inteira feita só com o sistema, que troca de marca (cor, fonte, cantos e modo) sem mudar o resto da documentação
+- Cada seção se ajusta à largura que tem (container queries): a mesma página funciona no celular, numa coluna ou numa prévia
+
+| Nanquim (tinta) | Terracota (papel) |
+|---|---|
+| ![](evolucao/v0.9.0/03h-secoes.png) | ![](prints/2026-10-23_secoes/49-secoes-terracota-claro.png) |
 
 ---
 
