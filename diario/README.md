@@ -29,3 +29,4 @@ para posts (LinkedIn, portfólio).
 | 007 | 2026-10-22 | [Badges e cards](007-badges-cards.md) | 6 tons × 3 aparências de badge; card com anatomia, 4 variantes e 5 exemplos reais |
 | 008 | 2026-10-23 | [Formulários](008-formularios.md) | Campos nativos estilizados, checkbox/radio/switch, formulário de contato com validação acessível |
 | 009 | 2026-10-23 | [Carrossel e slides](009-carrossel.md) | `<ds-carousel>` com arraste, setas, indicadores, teclado e autoplay que pausa; banner, cards, depoimentos e galeria |
+| 010 | 2026-10-23 | [Modal, gaveta e tooltip](010-modal-gaveta-tooltip.md) | `<dialog>` nativo vestido com os tokens, gaveta em 3 lados, `<ds-tooltip>` que abre pelo teclado e vira de lado |
