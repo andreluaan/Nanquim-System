@@ -32,3 +32,4 @@ para posts (LinkedIn, portfólio).
 | 010 | 2026-10-23 | [Modal, gaveta e tooltip](010-modal-gaveta-tooltip.md) | `<dialog>` nativo vestido com os tokens, gaveta em 3 lados, `<ds-tooltip>` que abre pelo teclado e vira de lado |
 | 011 | 2026-10-23 | [Seções de site](011-secoes-de-site.md) | Navbar, hero, recursos, preços, depoimentos, chamada e rodapé; landing de exemplo que troca de marca; container queries |
 | 012 | 2026-10-23 | [Seções separadas e visualizador](012-secoes-separadas-visualizador.md) | Grupo próprio no menu com uma página por seção, perguntas frequentes e visualizador que gera o tema da marca |
+| 013 | 2026-10-23 | [Textos enxutos e cópia de valores](013-textos-enxutos.md) | Documentação com metade do texto e letra menor; tokens copiados como nome ou como valor pronto |
