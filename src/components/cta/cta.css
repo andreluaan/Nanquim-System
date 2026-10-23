@@ -1,0 +1,38 @@
+.ds-cta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--ds-space-8);
+  padding: var(--ds-space-12);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-surface-raised);
+  box-shadow: var(--ds-shadow-md);
+}
+
+.ds-cta__title {
+  margin: 0 0 var(--ds-space-2);
+  font-family: var(--ds-font-display);
+  font-size: var(--ds-text-3xl);
+  font-weight: var(--ds-weight-medium);
+  line-height: var(--ds-leading-tight);
+  letter-spacing: var(--ds-tracking-tight);
+}
+
+.ds-cta__text {
+  margin: 0;
+  color: var(--ds-color-text-muted);
+}
+
+.ds-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-3);
+}
+
+@container (max-width: 48rem) {
+  .ds-cta {
+    grid-template-columns: 1fr;
+    padding: var(--ds-space-8);
+  }
+}

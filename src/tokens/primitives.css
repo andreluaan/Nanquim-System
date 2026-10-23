@@ -126,11 +126,6 @@
   --ds-space-24: 6rem;
 
   --ds-radius-factor: 1;
-  --ds-radius-xs: calc(2px * var(--ds-radius-factor));
-  --ds-radius-sm: calc(4px * var(--ds-radius-factor));
-  --ds-radius-md: calc(8px * var(--ds-radius-factor));
-  --ds-radius-lg: calc(12px * var(--ds-radius-factor));
-  --ds-radius-xl: calc(20px * var(--ds-radius-factor));
   --ds-radius-full: 9999px;
 
   --ds-font-display: "Fraunces", Georgia, serif;
@@ -173,6 +168,16 @@
   --ds-z-modal: 400;
   --ds-z-toast: 500;
   --ds-z-tooltip: 600;
+}
+
+/* Recalculado em qualquer elemento com data-radius, para uma seção poder ter cantos diferentes do resto da página. */
+:root,
+[data-radius] {
+  --ds-radius-xs: calc(2px * var(--ds-radius-factor));
+  --ds-radius-sm: calc(4px * var(--ds-radius-factor));
+  --ds-radius-md: calc(8px * var(--ds-radius-factor));
+  --ds-radius-lg: calc(12px * var(--ds-radius-factor));
+  --ds-radius-xl: calc(20px * var(--ds-radius-factor));
 }
 
 @media (prefers-reduced-motion: reduce) {

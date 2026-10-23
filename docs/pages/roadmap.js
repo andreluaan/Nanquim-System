@@ -8,7 +8,9 @@ const ITEMS = [
   { name: 'Campos de formulário', status: 'feito' },
   { name: 'Carrossel e slides', status: 'feito' },
   { name: 'Modal, gaveta, tooltip', status: 'feito' },
-  { name: 'Seções de site: hero, navbar, rodapé, preços, depoimentos', status: 'próximo' },
+  { name: 'Seções de site: hero, navbar, rodapé, preços, depoimentos', status: 'feito' },
+  { name: 'Pacote para usar em outros projetos (npm e CDN)', status: 'próximo' },
+  { name: 'Primeiro site de cliente feito só com o Nanquim', status: 'depois' },
 ];
 
 const LABEL = { feito: 'Feito', agora: 'Em andamento', 'próximo': 'Próximo', depois: 'Planejado' };

@@ -12,8 +12,9 @@ import cards from './pages/cards.js';
 import formularios from './pages/formularios.js';
 import carrossel from './pages/carrossel.js';
 import sobreposicoes from './pages/sobreposicoes.js';
+import secoes from './pages/secoes.js';
 import roadmap from './pages/roadmap.js';
 
 export const groups = ['Começo', 'Fundações', 'Componentes', 'Projeto'];
 
-export const pages = [apresentacao, inicio, cores, tipografia, espacamento, elevacao, movimento, botoes, icones, badges, cards, formularios, carrossel, sobreposicoes, roadmap];
+export const pages = [apresentacao, inicio, cores, tipografia, espacamento, elevacao, movimento, botoes, icones, badges, cards, formularios, carrossel, sobreposicoes, secoes, roadmap];

@@ -41,6 +41,10 @@ const SHOTS = [
   ['45-modal-aberto', 'sobreposicoes', { abrir: 'modal-newsletter' }, DESKTOP],
   ['46-gaveta-carrinho', 'sobreposicoes', { abrir: 'gaveta-carrinho' }, DESKTOP],
   ['47-gaveta-papel', 'sobreposicoes', { abrir: 'gaveta-menu', mode: 'light' }, DESKTOP],
+  ['09g-secoes', 'secoes', {}, DESKTOP],
+  ['49-secoes-terracota-claro', 'secoes', { marca: 'terracota', modo: 'light' }, DESKTOP],
+  ['50-secoes-ardosia', 'secoes', { marca: 'ardosia' }, DESKTOP],
+  ['51-secoes-aco-claro', 'secoes', { marca: 'aco', modo: 'light' }, DESKTOP],
   ['10-laboratorio', 'inicio', { lab: '' }, DESKTOP],
   ['11-paleta-grafite', 'cores', { theme: 'grafite' }, DESKTOP],
   ['12-paleta-ardosia', 'cores', { theme: 'ardosia', font: 'moderno' }, DESKTOP],
@@ -62,10 +66,12 @@ const SHOTS = [
   ['35-mobile-formularios', 'formularios', {}, MOBILE],
   ['36-mobile-carrossel', 'carrossel', {}, MOBILE],
   ['37-mobile-gaveta-filtros', 'sobreposicoes', { abrir: 'gaveta-filtros' }, MOBILE],
+  ['38-mobile-secoes', 'secoes', {}, MOBILE],
   ['40-apresentacao-completa', 'apresentacao', {}, FULL_PAGE],
   ['43-carrossel-completo', 'carrossel', {}, FULL_PAGE],
   ['44-carrossel-papel', 'carrossel', { mode: 'light' }, DESKTOP],
   ['48-sobreposicoes-completo', 'sobreposicoes', {}, FULL_PAGE],
+  ['52-landing-completa', 'secoes', {}, [1440, 5600]],
 ];
 
 try {

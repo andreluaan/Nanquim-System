@@ -1,0 +1,82 @@
+.ds-container {
+  --container-width: 72rem;
+
+  width: min(var(--container-width), 100% - 2 * var(--ds-space-6));
+  margin-inline: auto;
+}
+
+.ds-container--narrow {
+  --container-width: 48rem;
+}
+
+/* As seções respondem à própria largura (container queries), não à da janela:
+   funcionam igual numa página inteira, numa coluna ou numa prévia da documentação. */
+.ds-section {
+  container-type: inline-size;
+  padding-block: clamp(var(--ds-space-16), 10vw, var(--ds-space-24));
+  background: var(--ds-color-bg);
+  color: var(--ds-color-text);
+}
+
+.ds-section--alt {
+  background: var(--ds-color-surface);
+}
+
+.ds-section--compact {
+  padding-block: var(--ds-space-16);
+}
+
+.ds-section__header {
+  display: grid;
+  gap: var(--ds-space-3);
+  max-width: 40rem;
+  margin-bottom: var(--ds-space-12);
+}
+
+.ds-section__header--center {
+  margin-inline: auto;
+  text-align: center;
+  justify-items: center;
+}
+
+.ds-section__eyebrow {
+  margin: 0;
+  font-size: var(--ds-text-xs);
+  font-weight: var(--ds-weight-medium);
+  letter-spacing: var(--ds-tracking-wide);
+  text-transform: uppercase;
+  color: var(--ds-color-accent-text);
+}
+
+.ds-section__title {
+  margin: 0;
+  font-family: var(--ds-font-display);
+  font-size: var(--ds-text-4xl);
+  font-weight: var(--ds-weight-medium);
+  line-height: var(--ds-leading-tight);
+  letter-spacing: var(--ds-tracking-tight);
+}
+
+.ds-section__lead {
+  margin: 0;
+  font-size: var(--ds-text-lg);
+  color: var(--ds-color-text-muted);
+}
+
+.ds-grid {
+  --grid-min: 16rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min), 100%), 1fr));
+  gap: var(--ds-space-6);
+}
+
+@container (max-width: 40rem) {
+  .ds-section__header {
+    margin-bottom: var(--ds-space-8);
+  }
+
+  .ds-section__title {
+    font-size: var(--ds-text-3xl);
+  }
+}

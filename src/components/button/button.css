@@ -176,6 +176,15 @@
   display: inline-flex;
 }
 
+/* Botão de alternar (mensal/anual, lista/grade): o estado vem do aria-pressed, que o leitor de tela também anuncia. */
+.ds-btn[aria-pressed="true"] {
+  --btn-bg: var(--ds-color-accent-soft);
+  --btn-bg-hover: var(--ds-color-accent-soft-hover);
+  --btn-color: var(--ds-color-accent-text);
+  --btn-border: var(--ds-color-accent-border);
+  --btn-border-hover: var(--ds-color-accent-border);
+}
+
 .ds-btn-group > .ds-btn:not(:first-child) {
   margin-left: -1px;
   border-top-left-radius: 0;

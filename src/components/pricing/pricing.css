@@ -1,0 +1,94 @@
+/* Os planos dividem as mesmas linhas da grade (subgrid): preços e listas ficam alinhados
+   mesmo quando uma descrição é maior que a outra. */
+.ds-plan {
+  position: relative;
+  display: grid;
+  grid-row: span 5;
+  grid-template-rows: subgrid;
+  gap: var(--ds-space-5);
+  padding: var(--ds-space-8);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-surface);
+  color: var(--ds-color-text);
+  box-shadow: var(--ds-shadow-sm);
+}
+
+.ds-plan--featured {
+  border-color: var(--ds-color-accent-border);
+  background: var(--ds-color-surface-raised);
+  box-shadow: var(--ds-shadow-lg);
+}
+
+.ds-plan__badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.ds-plan__name {
+  margin: 0;
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-semibold);
+  letter-spacing: var(--ds-tracking-wide);
+  text-transform: uppercase;
+  color: var(--ds-color-accent-text);
+}
+
+.ds-plan__desc {
+  margin: 0;
+  font-size: var(--ds-text-sm);
+  color: var(--ds-color-text-muted);
+}
+
+.ds-plan__price {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ds-space-1);
+  margin: 0;
+  font-size: var(--ds-text-sm);
+  color: var(--ds-color-text-muted);
+}
+
+.ds-plan__price strong {
+  font-family: var(--ds-font-display);
+  font-size: var(--ds-text-5xl);
+  font-weight: var(--ds-weight-medium);
+  line-height: 1;
+  letter-spacing: var(--ds-tracking-tight);
+  color: var(--ds-color-text);
+}
+
+.ds-plan__features {
+  display: grid;
+  gap: var(--ds-space-3);
+  margin: 0;
+  padding: var(--ds-space-5) 0 0;
+  border-top: 1px solid var(--ds-color-border-subtle);
+  list-style: none;
+  font-size: var(--ds-text-sm);
+}
+
+.ds-plan__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ds-space-2);
+}
+
+.ds-plan__features ds-icon {
+  color: var(--ds-color-success-text);
+}
+
+.ds-plan__features li[aria-disabled="true"] {
+  color: var(--ds-color-text-subtle);
+  text-decoration: line-through;
+}
+
+.ds-plan__features li[aria-disabled="true"] ds-icon {
+  color: var(--ds-color-text-subtle);
+}
+
+.ds-plan > .ds-btn {
+  align-self: end;
+}

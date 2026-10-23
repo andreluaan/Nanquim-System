@@ -12,3 +12,11 @@
 @import "./components/carousel/carousel.css";
 @import "./components/dialog/dialog.css";
 @import "./components/tooltip/tooltip.css";
+@import "./components/layout/layout.css";
+@import "./components/navbar/navbar.css";
+@import "./components/hero/hero.css";
+@import "./components/feature/feature.css";
+@import "./components/pricing/pricing.css";
+@import "./components/testimonial/testimonial.css";
+@import "./components/cta/cta.css";
+@import "./components/footer/footer.css";
