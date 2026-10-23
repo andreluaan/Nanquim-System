@@ -1,0 +1,54 @@
+/* Faixa de aviso no topo do site: cores invertidas em relação à página, então lê bem nos dois modos. */
+.ds-announcement {
+  container-type: inline-size;
+  background: var(--ds-color-text);
+  color: var(--ds-color-bg);
+  font-size: var(--ds-text-xs);
+  font-weight: var(--ds-weight-medium);
+  letter-spacing: var(--ds-tracking-wide);
+  text-transform: uppercase;
+}
+
+.ds-announcement__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-4);
+  min-height: var(--ds-space-8);
+}
+
+.ds-announcement p {
+  margin: 0;
+}
+
+.ds-announcement__links {
+  display: flex;
+  gap: var(--ds-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-announcement a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ds-announcement a:hover {
+  text-decoration: underline;
+}
+
+.ds-announcement a:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
+}
+
+@container (max-width: 40rem) {
+  .ds-announcement__inner {
+    justify-content: center;
+  }
+
+  .ds-announcement__links {
+    display: none;
+  }
+}

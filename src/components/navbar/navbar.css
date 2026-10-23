@@ -24,6 +24,7 @@
   gap: var(--ds-space-2);
   color: var(--ds-color-text);
   font-family: var(--ds-font-display);
+  text-transform: var(--ds-display-transform);
   font-size: var(--ds-text-xl);
   font-weight: var(--ds-weight-semibold);
   letter-spacing: var(--ds-tracking-tight);
@@ -107,6 +108,64 @@
   text-underline-offset: var(--ds-space-1);
 }
 
+/* Centro: links à esquerda, marca no meio, ações à direita (lojas e moda). */
+.ds-navbar--center .ds-navbar__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.ds-navbar--center .ds-navbar__links {
+  margin-inline: 0;
+}
+
+.ds-navbar--center .ds-navbar__actions {
+  justify-self: end;
+}
+
+/* Células: cada link numa célula separada por fios, com um ponto no fim. */
+.ds-navbar--cells .ds-navbar__inner {
+  gap: 0;
+  border-inline: 1px solid var(--ds-color-border);
+}
+
+.ds-navbar--cells .ds-navbar__brand {
+  padding-inline: var(--ds-space-4);
+}
+
+.ds-navbar--cells .ds-navbar__links {
+  align-self: stretch;
+  gap: 0;
+  margin-inline: auto 0;
+}
+
+.ds-navbar--cells .ds-navbar__links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-8);
+  min-width: 9rem;
+  border-left: 1px solid var(--ds-color-border);
+  border-radius: 0;
+  font-size: var(--ds-text-xs);
+  font-weight: var(--ds-weight-semibold);
+  letter-spacing: var(--ds-tracking-wide);
+  text-transform: uppercase;
+}
+
+.ds-navbar--cells .ds-navbar__links a::after {
+  content: "";
+  width: var(--ds-space-1);
+  height: var(--ds-space-1);
+  border-radius: var(--ds-radius-full);
+  background: currentColor;
+}
+
+.ds-navbar--cells .ds-navbar__actions {
+  align-self: stretch;
+  padding-inline: var(--ds-space-3);
+  border-left: 1px solid var(--ds-color-border);
+}
+
 @container (max-width: 48rem) {
   .ds-navbar__links,
   .ds-navbar__actions {
@@ -116,5 +175,9 @@
   .ds-navbar__toggle {
     display: inline-flex;
     margin-left: auto;
+  }
+
+  .ds-navbar--center .ds-navbar__inner {
+    display: flex;
   }
 }

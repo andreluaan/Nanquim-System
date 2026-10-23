@@ -291,12 +291,219 @@ export const stats = ({ alt = false } = {}) => `
     </div>
   </section>`;
 
-export const TEMPLATES = [['editorial', 'Editorial'], ['classico', 'Clássico']];
+// Vitrine: extraído de lojas de moda. Faixa de aviso, marca no centro, nome gigante atrás da imagem,
+// faixa invertida de categorias, vantagens com ícone e vitrine de produtos.
+const CATEGORIES = [
+  [inkDrop, 'Tintas', 'Nanquim, sépia e índigo.'],
+  [brushStroke, 'Penas', 'Bicos de aço e pincéis.'],
+  [inkWash, 'Papéis', 'Algodão de 300 g.'],
+];
 
-export const fullSite = (menuId, template = 'editorial') => template === 'classico'
-  ? navbar({ menuId }) + hero() + features() + pricing() + testimonials() + faq() + cta() + footer()
-  : navbar({ menuId, editorial: true }) + heroEditorial() + statement() + services() + works() + stats()
-    + testimonials({ alt: true, carousel: true }) + pricing() + faq({ alt: true }) + cta() + footer({ wordmark: true });
+const PRODUCTS = [
+  [inkDrop, 'Nanquim 30 ml', 'R$ 24,90'],
+  [brushStroke, 'Pincel nº 4', 'R$ 38,00'],
+  [inkWash, 'Bloco aguada', 'R$ 42,50'],
+  [() => enso({ id: 'ill-enso-produto' }), 'Kit iniciante', 'R$ 129,00'],
+];
+
+const PERKS = [
+  ['cart', 'Entrega rápida', 'Para todo o Brasil'],
+  ['refresh', 'Troca fácil', 'Em até 15 dias'],
+  ['check-circle', 'Feito à mão', 'Testado lote a lote'],
+  ['lock', 'Pagamento seguro', 'Pix e cartão'],
+];
+
+export const announcement = () => `
+  <div class="ds-announcement">
+    <div class="ds-container ds-announcement__inner">
+      <p>Frete grátis acima de R$ 150</p>
+      <ul class="ds-announcement__links"><li><a href="#">Rastrear pedido</a></li><li><a href="#">Ajuda</a></li></ul>
+    </div>
+  </div>`;
+
+export const navbarCenter = ({ menuId = 'sumi-menu-loja' } = {}) => `
+  <header class="ds-navbar ds-navbar--sticky ds-navbar--editorial ds-navbar--center">
+    <div class="ds-container ds-navbar__inner">
+      <nav class="ds-navbar__links" aria-label="Principal">
+        ${['Tintas', 'Penas', 'Papéis', 'Kits'].map((link) => `<a href="#">${link}</a>`).join('')}
+      </nav>
+      <a class="ds-navbar__brand" href="#">sumi</a>
+      <div class="ds-navbar__actions">
+        ${[['search', 'Buscar'], ['user', 'Entrar'], ['cart', 'Sacola (0)']].map(([icon, label]) => `<a class="ds-btn ds-btn--ghost ds-btn--sm" href="#"><ds-icon name="${icon}"></ds-icon> ${label}</a>`).join('')}
+      </div>
+      <button class="ds-btn ds-btn--ghost ds-btn--icon ds-navbar__toggle" data-dialog-open="${menuId}" aria-haspopup="dialog" aria-label="Abrir menu"><ds-icon name="menu"></ds-icon></button>
+    </div>
+  </header>
+  ${menuDrawer(menuId)}`;
+
+export const heroPoster = ({ id = 'ill-enso-poster' } = {}) => `
+  <section class="ds-section ds-hero ds-hero--poster">
+    <div class="ds-container ds-hero__inner">
+      <p class="ds-hero__tagline">Tinta que<br>acompanha<br>o traço.</p>
+      <h1 class="ds-hero__title" style="--hero-poster-size: 30cqi"><b>sumi</b></h1>
+      <div class="ds-hero__media">${enso({ id, color: 'currentColor', withPaper: false })}</div>
+      <div class="ds-hero__actions">
+        <a class="ds-btn ds-btn--primary" href="#">Comprar agora</a>
+        <a class="ds-btn ds-btn--link" href="#">Ver novidades</a>
+      </div>
+      <p class="ds-hero__aside">Nova<br>coleção<br>2026</p>
+    </div>
+  </section>`;
+
+// data-invert: o visualizador põe o modo oposto ao da página, para a faixa continuar invertida nos dois modos.
+export const categories = () => `
+  <section class="ds-section ds-section--compact" data-invert data-mode="dark">
+    <div class="ds-container">
+      <div class="ds-grid" style="--grid-min: 15rem">
+        ${CATEGORIES.map(([art, title, text]) => `
+          <article class="ds-card ds-card--plain ds-card--horizontal">
+            <div class="ds-card__media">${art()}</div>
+            <div class="ds-card__content">
+              <h3 class="ds-card__title">${title}</h3>
+              <p class="ds-card__body">${text}</p>
+              <a class="ds-btn ds-btn--link ds-btn--sm" href="#">Ver ${title.toLowerCase()} <ds-icon name="arrow-right"></ds-icon></a>
+            </div>
+          </article>`).join('')}
+      </div>
+    </div>
+  </section>`;
+
+export const banner = ({ id = 'ill-landscape-banner' } = {}) => `
+  <section class="ds-section ds-section--alt ds-hero">
+    <div class="ds-container ds-hero__inner">
+      <div class="ds-hero__content">
+        <p class="ds-hero__eyebrow">Nova estação</p>
+        <h2 class="ds-hero__title">Nova aguada</h2>
+        <p class="ds-hero__lead">Doze tons de uma tinta só.</p>
+        <div class="ds-hero__actions"><a class="ds-btn ds-btn--primary" href="#">Ver coleção</a></div>
+      </div>
+      <div class="ds-hero__media">${inkLandscape({ id })}</div>
+    </div>
+  </section>`;
+
+export const perks = () => `
+  <section class="ds-section ds-section--compact">
+    <div class="ds-container">
+      <div class="ds-grid" style="--grid-min: 12rem">
+        ${PERKS.map(([icon, title, text]) => `
+          <article class="ds-feature ds-feature--inline">
+            <span class="ds-feature__icon"><ds-icon name="${icon}"></ds-icon></span>
+            <h3 class="ds-feature__title">${title}</h3>
+            <p class="ds-feature__text">${text}</p>
+          </article>`).join('')}
+      </div>
+    </div>
+  </section>`;
+
+export const products = () => `
+  <section class="ds-section">
+    <div class="ds-container">
+      <header class="ds-section__header ds-section__header--split">
+        <h2 class="ds-section__title">O melhor do ateliê</h2>
+        <div class="ds-section__aside"><a class="ds-btn ds-btn--link" href="#">Ver tudo <ds-icon name="arrow-right"></ds-icon></a></div>
+      </header>
+      <div class="ds-grid" style="--grid-min: 11rem">
+        ${PRODUCTS.map(([art, title, price]) => `
+          <article class="ds-card ds-card--plain">
+            <div class="ds-card__media">
+              ${art()}
+              <button class="ds-btn ds-btn--secondary ds-btn--icon ds-btn--sm ds-card__corner" aria-label="Favoritar ${title}"><ds-icon name="heart"></ds-icon></button>
+            </div>
+            <div class="ds-card__content">
+              <h3 class="ds-card__title">${title}</h3>
+              <p class="ds-card__price">${price}</p>
+            </div>
+          </article>`).join('')}
+      </div>
+    </div>
+  </section>`;
+
+// Grade: extraído de um site de consultório. Fundo quadriculado, hero num cartão claro com menu em células,
+// título dividido ao redor da imagem, cabeçalhos com título à esquerda e texto à direita, cards espalhados.
+const SCATTER = [
+  [() => enso({ id: 'ill-enso-grade' }), 'Conversa sem pressa'],
+  [inkDrop, 'Raiz antes do traço'],
+  [inkWash, 'Rascunho à mão'],
+  [brushStroke, 'Marca que cresce'],
+  [() => enso({ id: 'ill-enso-grade-2' }), 'Você no comando'],
+];
+
+export const heroFramed = ({ menuId = 'sumi-menu-grade', id = 'ill-landscape-grade' } = {}) => `
+  <section class="ds-section ds-section--grid ds-hero ds-hero--poster ds-hero--framed">
+    <div class="ds-container">
+      <div class="ds-hero__frame" data-invert data-mode="light">
+        <header class="ds-navbar ds-navbar--cells">
+          <div class="ds-navbar__inner">
+            <a class="ds-navbar__brand" href="#">sumi</a>
+            <nav class="ds-navbar__links" aria-label="Principal">
+              ${['Missão', 'Sobre', 'Serviços', 'Contato'].map((link) => `<a href="#">${link}</a>`).join('')}
+            </nav>
+            <button class="ds-btn ds-btn--ghost ds-btn--icon ds-navbar__toggle" data-dialog-open="${menuId}" aria-haspopup="dialog" aria-label="Abrir menu"><ds-icon name="menu"></ds-icon></button>
+          </div>
+        </header>
+        <div class="ds-hero__inner">
+          <p class="ds-hero__tagline">Ateliê de nanquim</p>
+          <h1 class="ds-hero__title" style="--hero-poster-size: 14cqi"><b>Tinta</b> <span>viva</span></h1>
+          <div class="ds-hero__media">${inkLandscape({ id })}</div>
+          <div class="ds-hero__actions"><a class="ds-btn ds-btn--primary" href="#">[ Contato ]</a></div>
+          <p class="ds-hero__aside">Aqui o traço<br>pode errar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  ${menuDrawer(menuId)}`;
+
+const splitHeader = (eyebrow, title, text, action) => `
+  <header class="ds-section__header ds-section__header--split">
+    <p class="ds-section__eyebrow">[ ${eyebrow} ]</p>
+    <h2 class="ds-section__title">${title}</h2>
+    <div class="ds-section__aside">
+      <p>${text}</p>
+      <a class="ds-btn ds-btn--primary ds-btn--sm" href="#">[ ${action} ]</a>
+    </div>
+  </header>`;
+
+export const philosophy = () => `
+  <section class="ds-section ds-section--grid">
+    <div class="ds-container">
+      ${splitHeader('filosofia', 'Você não precisa acertar de primeira. Precisa começar o traço.', 'Nosso trabalho não é corrigir, é acompanhar: do primeiro rascunho à marca no ar.', 'Etapas')}
+      <div class="ds-works ds-works--scatter">
+        ${SCATTER.map(([art, title]) => `
+          <a class="ds-work" href="#">
+            <div class="ds-work__media">${art()}</div>
+            <div class="ds-work__meta"><h3 class="ds-work__title">${title}</h3></div>
+          </a>`).join('')}
+      </div>
+    </div>
+  </section>`;
+
+export const resources = () => `
+  <section class="ds-section ds-section--grid">
+    <div class="ds-container">
+      ${splitHeader('recursos', 'Investir na marca é investir no que dura.', 'Guias curtos para cuidar da sua identidade depois da entrega.', 'Materiais')}
+    </div>
+  </section>`;
+
+export const TEMPLATES = [['editorial', 'Editorial'], ['vitrine', 'Vitrine'], ['grade', 'Grade'], ['classico', 'Clássico']];
+
+// A identidade que cada modelo pede: escolher o modelo no visualizador aplica isto, e tudo continua editável.
+export const TEMPLATE_BRANDS = {
+  editorial: { theme: 'nanquim', font: 'editorial', mode: 'dark', radius: 1 },
+  vitrine: { theme: 'vitrine', font: 'geometrico', mode: 'light', radius: 0 },
+  grade: { theme: 'grade', font: 'condensado', mode: 'dark', radius: 2 },
+  classico: { theme: 'nanquim', font: 'editorial', mode: 'dark', radius: 1 },
+};
+
+const SITES = {
+  classico: (menuId) => navbar({ menuId }) + hero() + features() + pricing() + testimonials() + faq() + cta() + footer(),
+  editorial: (menuId) => navbar({ menuId, editorial: true }) + heroEditorial() + statement() + services() + works() + stats()
+    + testimonials({ alt: true, carousel: true }) + pricing() + faq({ alt: true }) + cta() + footer({ wordmark: true }),
+  vitrine: (menuId) => announcement() + navbarCenter({ menuId }) + heroPoster() + categories() + banner() + perks() + products()
+    + testimonials({ alt: true, carousel: true }) + faq() + footer({ wordmark: true }),
+  grade: (menuId) => heroFramed({ menuId }) + philosophy() + resources() + testimonials({ alt: false, carousel: true }) + faq({ alt: true }) + cta() + footer(),
+};
+
+export const fullSite = (menuId, template = 'editorial') => (SITES[template] ?? SITES.editorial)(menuId);
 
 export const WIDTHS = [['full', 'Computador'], ['768', 'Tablet'], ['390', 'Celular']];
 

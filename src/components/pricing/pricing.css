@@ -53,6 +53,7 @@
 
 .ds-plan__price strong {
   font-family: var(--ds-font-display);
+  text-transform: var(--ds-display-transform);
   font-size: var(--ds-text-5xl);
   font-weight: var(--ds-weight-medium);
   line-height: 1;

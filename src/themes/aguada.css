@@ -1,0 +1,26 @@
+/* Aguada: toda paleta é o nanquim com um pigmento e água, como na arte-final.
+   O tema define só três números e o resto sai daqui:
+   --ds-pigment-hue  o tom do pigmento (0 a 360)
+   --ds-pigment      quanto pigmento entra na tinta (0 = carvão puro, 1 = cor intensa)
+   --ds-water        quanto o destaque é diluído (mais água, mais claro)
+   No papel (modo claro), a tinta aparece com menos água. Recalculado em cada [data-mode], então trechos
+   invertidos continuam certos. O tema Nanquim, a tinta-mãe, define os valores à mão e tem prioridade. */
+
+:root,
+[data-mode],
+[data-theme] {
+  --ds-neutral-hue: var(--ds-pigment-hue, 265);
+  --ds-neutral-chroma: calc(0.003 + var(--ds-pigment, 0) * 0.012);
+  --ds-accent-hue: var(--ds-pigment-hue, 265);
+  --ds-accent-chroma: calc(var(--ds-pigment, 0) * 0.16);
+  --ds-accent-lightness: var(--ds-water, 0.9);
+  --ds-on-accent: oklch(
+    clamp(0.16, calc((0.62 - var(--ds-accent-lightness)) * 100), 0.98)
+    calc(var(--ds-pigment, 0) * 0.03)
+    var(--ds-pigment-hue, 265)
+  );
+}
+
+[data-mode="light"] {
+  --ds-accent-lightness: min(var(--ds-water, 0.9), calc(1.12 - var(--ds-water, 0.9)));
+}

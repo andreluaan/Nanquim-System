@@ -22,6 +22,7 @@
 .ds-hero__title {
   margin: 0;
   font-family: var(--ds-font-display);
+  text-transform: var(--ds-display-transform);
   font-size: clamp(var(--ds-text-4xl), 6cqi, var(--ds-text-6xl));
   font-weight: var(--ds-weight-medium);
   line-height: var(--ds-leading-tight);
@@ -228,4 +229,145 @@
   .ds-hero__vertical {
     display: none;
   }
+}
+
+/* Pôster: o nome gigante atravessa a seção e a imagem fica por cima, no centro. Notas miúdas nos cantos. */
+.ds-hero--poster .ds-hero__inner {
+  --hero-poster-size: 21cqi;
+
+  position: relative;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "tagline ."
+    "title title"
+    "actions aside";
+  align-items: end;
+  gap: var(--ds-space-8) var(--ds-space-6);
+}
+
+.ds-hero--poster .ds-hero__title {
+  grid-area: title;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--ds-space-4);
+  font-size: var(--hero-poster-size);
+  font-weight: var(--ds-weight-semibold);
+  line-height: var(--ds-leading-none);
+  letter-spacing: var(--ds-tracking-tighter);
+}
+
+.ds-hero--poster .ds-hero__title > :only-child {
+  margin-inline: auto;
+}
+
+.ds-hero--poster .ds-hero__title span {
+  font-weight: var(--ds-weight-light);
+}
+
+.ds-hero--poster .ds-hero__media {
+  position: relative;
+  z-index: 1;
+  grid-area: 1 / 1 / -1 / -1;
+  justify-self: center;
+  align-self: stretch;
+  width: min(42%, 28rem);
+  aspect-ratio: auto;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--ds-color-text);
+  pointer-events: none;
+}
+
+.ds-hero--poster .ds-hero__media > svg {
+  object-fit: contain;
+  object-position: bottom;
+}
+
+.ds-hero--poster .ds-hero__actions {
+  position: relative;
+  z-index: 2;
+  grid-area: actions;
+}
+
+.ds-hero__tagline,
+.ds-hero__aside {
+  margin: 0;
+  font-size: var(--ds-text-xs);
+  font-weight: var(--ds-weight-medium);
+  line-height: 1.9;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.ds-hero__tagline {
+  grid-area: tagline;
+  align-self: start;
+}
+
+.ds-hero__aside {
+  position: relative;
+  z-index: 2;
+  grid-area: aside;
+  justify-self: end;
+}
+
+.ds-hero__tagline::after,
+.ds-hero__aside::after {
+  content: "";
+  display: block;
+  width: var(--ds-space-8);
+  height: 1px;
+  margin-top: var(--ds-space-2);
+  background: currentColor;
+}
+
+/* Moldura: o hero vira um cartão arredondado, solto do fundo. Combine com data-mode para inverter as cores. */
+.ds-hero--framed {
+  padding-block: var(--ds-space-4) var(--ds-space-8);
+  background: transparent;
+}
+
+.ds-hero__frame {
+  overflow: hidden;
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-bg);
+  color: var(--ds-color-text);
+}
+
+.ds-hero__frame > .ds-navbar {
+  margin: var(--ds-space-3) var(--ds-space-3) 0;
+}
+
+.ds-hero__frame > .ds-hero__inner {
+  padding: var(--ds-space-10) var(--ds-space-6) 0;
+}
+
+@container (max-width: 40rem) {
+  .ds-hero--poster .ds-hero__inner {
+    --hero-poster-size: 19cqi;
+
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "tagline"
+      "title"
+      "actions"
+      "aside";
+  }
+
+  .ds-hero--poster .ds-hero__media {
+    grid-area: 1 / 1 / 3 / -1;
+    width: 70%;
+  }
+
+  .ds-hero__aside {
+    justify-self: start;
+  }
+}
+
+.ds-hero--framed .ds-hero__actions,
+.ds-hero--framed .ds-hero__aside {
+  margin-bottom: var(--ds-space-8);
 }

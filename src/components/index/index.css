@@ -25,6 +25,7 @@
 .ds-index__title {
   margin: 0;
   font-family: var(--ds-font-display);
+  text-transform: var(--ds-display-transform);
   font-size: clamp(var(--ds-text-2xl), 4cqi, var(--ds-text-4xl));
   font-weight: var(--ds-weight-medium);
   line-height: var(--ds-leading-tight);

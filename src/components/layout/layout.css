@@ -51,6 +51,7 @@
 .ds-section__title {
   margin: 0;
   font-family: var(--ds-font-display);
+  text-transform: var(--ds-display-transform);
   font-size: var(--ds-text-4xl);
   font-weight: var(--ds-weight-medium);
   line-height: var(--ds-leading-tight);
@@ -78,5 +79,45 @@
 
   .ds-section__title {
     font-size: var(--ds-text-3xl);
+  }
+}
+
+/* Fundo quadriculado: linhas finas a cada --grid-cell, como papel milimetrado. */
+.ds-section--grid {
+  --grid-cell: var(--ds-space-24);
+
+  background-image:
+    linear-gradient(var(--ds-color-border-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ds-color-border-subtle) 1px, transparent 1px);
+  background-size: var(--grid-cell) var(--grid-cell);
+}
+
+/* Cabeçalho dividido: título à esquerda, texto e ação à direita. */
+.ds-section__header--split {
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  align-items: start;
+  gap: var(--ds-space-4) var(--ds-space-12);
+  max-width: none;
+}
+
+.ds-section__header--split .ds-section__eyebrow {
+  grid-column: 1 / -1;
+}
+
+.ds-section__aside {
+  display: grid;
+  justify-items: start;
+  gap: var(--ds-space-5);
+  font-size: var(--ds-text-sm);
+  color: var(--ds-color-text-muted);
+}
+
+.ds-section__aside p {
+  margin: 0;
+}
+
+@container (max-width: 48rem) {
+  .ds-section__header--split {
+    grid-template-columns: 1fr;
   }
 }

@@ -54,6 +54,7 @@
 .ds-card__title {
   margin: 0;
   font-family: var(--ds-font-display);
+  text-transform: var(--ds-display-transform);
   font-size: var(--ds-text-xl);
   font-weight: var(--ds-weight-medium);
   line-height: var(--ds-leading-snug);
@@ -147,4 +148,48 @@
   .ds-card--horizontal .ds-card__media {
     aspect-ratio: 16 / 9;
   }
+}
+
+/* Simples: sem caixa nem sombra, a imagem e o texto bastam (vitrines e faixas de categoria). */
+.ds-card--plain {
+  --card-padding: 0;
+
+  gap: var(--ds-space-3);
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.ds-card--plain .ds-card__media {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--ds-radius-sm);
+}
+
+.ds-card--plain.ds-card--horizontal {
+  align-items: center;
+  gap: var(--ds-space-5);
+}
+
+.ds-card--plain.ds-card--horizontal .ds-card__media {
+  flex-basis: 35%;
+  aspect-ratio: 3 / 4;
+}
+
+.ds-card__price {
+  margin: 0;
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-semibold);
+}
+
+/* Botão no canto da imagem, como "favoritar". */
+.ds-card__corner {
+  position: absolute;
+  top: var(--ds-space-2);
+  right: var(--ds-space-2);
+}
+
+.ds-card__content > .ds-btn {
+  align-self: flex-start;
 }

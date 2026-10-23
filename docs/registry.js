@@ -1,6 +1,7 @@
 import apresentacao from './pages/apresentacao.js';
 import inicio from './pages/inicio.js';
 import cores from './pages/cores.js';
+import paletas from './pages/paletas.js';
 import tipografia from './pages/tipografia.js';
 import espacamento from './pages/espacamento.js';
 import elevacao from './pages/elevacao.js';
@@ -32,7 +33,7 @@ export const groups = ['Começo', 'Fundações', 'Componentes', 'Seções de sit
 
 export const pages = [
   apresentacao, inicio,
-  cores, tipografia, espacamento, elevacao, movimento,
+  cores, paletas, tipografia, espacamento, elevacao, movimento,
   botoes, icones, badges, cards, formularios, carrossel, sobreposicoes,
   estrutura, navbar, hero, manifesto, recursos, listaNumerada, projetos, numeros,
   precos, depoimentos, perguntas, chamada, rodape, siteCompleto,

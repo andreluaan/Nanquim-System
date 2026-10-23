@@ -1,17 +1,21 @@
 import { copy } from './utils.js';
 
+// A amostra de uma paleta da aguada sai da mesma conta do CSS (src/themes/aguada.css): fundo, superfície e destaque.
+export const aguadaSwatch = ([hue, pigment, water]) => {
+  const chroma = 0.003 + pigment * 0.012;
+  return [`oklch(0.175 ${chroma} ${hue})`, `oklch(0.3 ${chroma} ${hue})`, `oklch(${water} ${pigment * 0.16} ${hue})`];
+};
+
 export const OPTIONS = {
   theme: {
     label: 'Paleta',
     hint: 'O humor das cores.',
     items: [
-      { id: 'nanquim', name: 'Nanquim', desc: 'Tinta e papel · padrão', swatch: ['oklch(0.175 0.014 265)', 'oklch(0.3 0.014 265)', 'oklch(0.9 0.035 85)'] },
-      { id: 'grafite', name: 'Grafite & Âmbar', desc: 'Quente, editorial', swatch: ['oklch(0.175 0.006 70)', 'oklch(0.3 0.006 70)', 'oklch(0.78 0.12 75)'] },
-      { id: 'ardosia', name: 'Ardósia & Sálvia', desc: 'Frio, calmo, natural', swatch: ['oklch(0.175 0.007 165)', 'oklch(0.3 0.007 165)', 'oklch(0.75 0.07 155)'] },
-      { id: 'terracota', name: 'Carvão & Terracota', desc: 'Terroso, sofisticado', swatch: ['oklch(0.175 0.008 40)', 'oklch(0.3 0.008 40)', 'oklch(0.54 0.12 40)'] },
-      { id: 'aco', name: 'Noite & Aço', desc: 'Técnico, confiável', swatch: ['oklch(0.175 0.012 255)', 'oklch(0.3 0.012 255)', 'oklch(0.75 0.09 250)'] },
-      { id: 'neutro', name: 'Neutro', desc: 'Preto, branco e cinzas', swatch: ['oklch(0.175 0 0)', 'oklch(0.3 0 0)', 'oklch(0.92 0 0)'] },
-      { id: 'marca-exemplo', name: 'Marca de cliente', desc: 'Exemplo de rebrand', swatch: ['oklch(0.175 0.01 300)', 'oklch(0.3 0.01 300)', 'oklch(0.56 0.14 300)'] },
+      { id: 'nanquim', name: 'Nanquim', desc: 'A tinta-mãe · padrão', swatch: ['oklch(0.175 0.014 265)', 'oklch(0.3 0.014 265)', 'oklch(0.9 0.035 85)'] },
+      { id: 'neutro', name: 'Carvão', desc: 'Tinta pura, sem pigmento', aguada: [0, 0, 0.92] },
+      { id: 'vitrine', name: 'Vitrine', desc: 'Carvão em papel quente', aguada: [80, 0.15, 0.93] },
+      { id: 'grade', name: 'Verde-água', desc: 'Pouco verde, muita água', aguada: [150, 0.45, 0.93] },
+      { id: 'marca-exemplo', name: 'Marca de cliente', desc: 'Modelo para copiar', aguada: [300, 0.85, 0.56] },
     ],
   },
   font: {
@@ -22,6 +26,8 @@ export const OPTIONS = {
       { id: 'moderno', name: 'Moderno', desc: 'Geist', family: '"Geist", sans-serif' },
       { id: 'classico', name: 'Clássico', desc: 'Instrument Serif + DM Sans', family: '"Instrument Serif", serif' },
       { id: 'tecnico', name: 'Técnico', desc: 'Space Grotesk + Plex', family: '"Space Grotesk", sans-serif' },
+      { id: 'geometrico', name: 'Geométrico', desc: 'Jost, títulos em caixa alta', family: '"Jost", sans-serif' },
+      { id: 'condensado', name: 'Condensado', desc: 'Oswald + Inter, caixa alta', family: '"Oswald", sans-serif' },
     ],
   },
   radius: {
@@ -42,6 +48,8 @@ export const OPTIONS = {
     ],
   },
 };
+
+OPTIONS.theme.items.forEach((item) => { item.swatch ??= aguadaSwatch(item.aguada); });
 
 const STORAGE_KEY = 'nanquim-lab-v2';
 const root = document.documentElement;

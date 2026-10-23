@@ -13,6 +13,7 @@
 .ds-cta__title {
   margin: 0 0 var(--ds-space-2);
   font-family: var(--ds-font-display);
+  text-transform: var(--ds-display-transform);
   font-size: var(--ds-text-3xl);
   font-weight: var(--ds-weight-medium);
   line-height: var(--ds-leading-tight);

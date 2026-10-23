@@ -8,6 +8,13 @@ const VARIANTS = [
   ['interactive', 'Interativo', 'O card todo é um link.'],
 ];
 
+const PRODUCTS = [
+  [inkDrop, 'Nanquim 30 ml', 'R$ 24,90'],
+  [brushStroke, 'Pincel nº 4', 'R$ 38,00'],
+  [inkWash, 'Bloco aguada', 'R$ 42,50'],
+  [() => enso({ id: 'ill-enso-card-produto' }), 'Kit de iniciação', 'R$ 129,00'],
+];
+
 const PLAYGROUND = {
   variant: VARIANTS.map(([id, name]) => [id, name]),
   media: [['yes', 'Com imagem'], ['no', 'Sem imagem']],
@@ -58,7 +65,7 @@ export default {
   id: 'cards',
   group: 'Componentes',
   title: 'Cards',
-  keywords: 'card cartão bloco caixa post produto plano perfil',
+  keywords: 'card cartão bloco caixa post produto plano perfil loja vitrine preço favoritar favorito plain simples sem caixa',
   lead: 'Um assunto num bloco que se lê de uma vez.',
   render: () => `
     <section class="doc-section">
@@ -205,6 +212,36 @@ export default {
   </div>
   <div class="ds-card__footer">André Luan · 22 out</div>
 </a>`, 'html')}
+    </section>
+
+    <section class="doc-section">
+      <h2>Produto</h2>
+      <p><code>ds-card--plain</code>: sem caixa, só a imagem, o nome e o <code>__price</code>; o <code>__corner</code> põe um botão no canto da foto.</p>
+      <div class="ds-grid" style="--grid-min: 11rem">
+        ${PRODUCTS.map(([art, title, price]) => `
+          <article class="ds-card ds-card--plain">
+            <div class="ds-card__media">
+              ${art()}
+              <button class="ds-btn ds-btn--secondary ds-btn--icon ds-btn--sm ds-card__corner" aria-label="Favoritar ${title}"><ds-icon name="heart"></ds-icon></button>
+            </div>
+            <div class="ds-card__content">
+              <h3 class="ds-card__title">${title}</h3>
+              <p class="ds-card__price">${price}</p>
+            </div>
+          </article>`).join('')}
+      </div>
+      ${code(`
+<article class="ds-card ds-card--plain">
+  <div class="ds-card__media">
+    <img src="nanquim.jpg" alt="Frasco de nanquim de 30 ml">
+    <button class="ds-btn ds-btn--secondary ds-btn--icon ds-btn--sm ds-card__corner"
+      aria-label="Favoritar Nanquim 30 ml"><ds-icon name="heart"></ds-icon></button>
+  </div>
+  <div class="ds-card__content">
+    <h3 class="ds-card__title">Nanquim 30 ml</h3>
+    <p class="ds-card__price">R$ 24,90</p>
+  </div>
+</article>`, 'html')}
     </section>`,
 
   mount(el) {

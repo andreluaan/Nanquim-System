@@ -1887,3 +1887,144 @@ html:has(.viz[data-fullscreen]) {
     grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   }
 }
+
+/* --- Laboratório de paletas ------------------------------------------------ */
+.pal {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  align-items: start;
+  gap: var(--ds-space-5);
+}
+
+.pal-controls {
+  display: grid;
+  gap: var(--ds-space-4);
+  padding: var(--ds-space-4);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-surface);
+  font-size: var(--ds-text-xs);
+}
+
+.pal-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2);
+}
+
+/* A trilha do pigmento mostra o círculo de cores; a da água vai da tinta ao papel. */
+.pal-range--hue input {
+  accent-color: var(--ds-color-text);
+}
+
+.pal-range--hue input::-webkit-slider-runnable-track {
+  height: var(--ds-space-2);
+  border-radius: var(--ds-radius-full);
+  background: linear-gradient(90deg in oklch longer hue, oklch(0.7 0.14 0), oklch(0.7 0.14 359));
+}
+
+.pal-range--water input::-webkit-slider-runnable-track {
+  height: var(--ds-space-2);
+  border-radius: var(--ds-radius-full);
+  background: linear-gradient(90deg, oklch(0.25 0 0), oklch(0.95 0 0));
+}
+
+.pal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2);
+}
+
+.pal-preview {
+  display: grid;
+  gap: var(--ds-space-6);
+  padding: var(--ds-space-6);
+  border: 1px solid var(--ds-color-border);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-bg);
+  color: var(--ds-color-text);
+  transition: background var(--ds-duration-base);
+}
+
+.pal-scales {
+  display: grid;
+  gap: var(--ds-space-2);
+}
+
+.pal-scales p {
+  font-size: var(--ds-text-xs);
+  color: var(--ds-color-text-muted);
+}
+
+.pal-strip {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2px;
+}
+
+.pal-strip span {
+  height: var(--ds-space-10);
+}
+
+.pal-strip span:first-child {
+  border-radius: var(--ds-radius-sm) 0 0 var(--ds-radius-sm);
+}
+
+.pal-strip span:last-child {
+  border-radius: 0 var(--ds-radius-sm) var(--ds-radius-sm) 0;
+}
+
+.pal-sample {
+  display: grid;
+  gap: var(--ds-space-3);
+  padding: var(--ds-space-6);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-surface);
+}
+
+.doc-section .pal-sample h3 {
+  margin: 0;
+  font-family: var(--ds-font-display);
+  font-size: var(--ds-text-2xl);
+}
+
+.pal-sample p {
+  color: var(--ds-color-text-muted);
+}
+
+.pal-sample a {
+  color: var(--ds-color-accent-text);
+}
+
+.pal-sample-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-space-3);
+}
+
+.pal-contrast {
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: var(--ds-space-2) var(--ds-space-6);
+  font-size: var(--ds-text-xs);
+}
+
+.pal-contrast .is-great,
+.pal-contrast .is-ok {
+  color: var(--ds-color-success-text);
+}
+
+.pal-contrast .is-warn {
+  color: var(--ds-color-warning-text);
+}
+
+.pal-contrast .is-bad {
+  color: var(--ds-color-danger-text);
+}
+
+@media (max-width: 900px) {
+  .pal {
+    grid-template-columns: 1fr;
+  }
+}

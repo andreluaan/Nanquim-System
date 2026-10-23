@@ -1,5 +1,6 @@
 @import "./tokens/primitives.css";
 @import "./tokens/semantic.css";
+@import "./themes/aguada.css";
 @import "./themes/nanquim.css";
 @import "./themes/house.css";
 @import "./themes/_marca-exemplo.css";
@@ -13,6 +14,7 @@
 @import "./components/dialog/dialog.css";
 @import "./components/tooltip/tooltip.css";
 @import "./components/layout/layout.css";
+@import "./components/announcement/announcement.css";
 @import "./components/navbar/navbar.css";
 @import "./components/hero/hero.css";
 @import "./components/feature/feature.css";

@@ -1,5 +1,5 @@
 import { code, doDont } from '../utils.js';
-import { frame, hero, heroEditorial, mountSiteDemos } from '../site-kit.js';
+import { frame, hero, heroEditorial, heroFramed, heroPoster, mountSiteDemos } from '../site-kit.js';
 
 const PARTS = [
   ['Sobretítulo', '<code>.ds-hero__eyebrow</code>: o que é.'],
@@ -9,13 +9,15 @@ const PARTS = [
   ['Nota', '<code>.ds-hero__note</code>: uma prova rápida.'],
   ['Mídia', '<code>.ds-hero__media</code>: desce no celular.'],
   ['Editorial', '<code>__meta</code>, <code>__corner</code> e <code>__vertical</code>: só no <code>--editorial</code>.'],
+  ['Pôster', '<code>__tagline</code> e <code>__aside</code>: frases nos cantos, só no <code>--poster</code>.'],
+  ['Moldura', '<code>__frame</code>: o cartão do <code>--framed</code>.'],
 ];
 
 export default {
   id: 'hero',
   group: 'Seções de site',
   title: 'Hero',
-  keywords: 'hero banner destaque primeira dobra topo chamada principal título capa',
+  keywords: 'hero banner destaque primeira dobra topo chamada principal título capa pôster poster gigante moldura cartão framed loja',
   lead: 'Em segundos: o que você faz, para quem e qual o próximo passo.',
   render: () => `
     <section class="doc-section">
@@ -48,6 +50,42 @@ export default {
       <a class="ds-hero__corner" href="/projetos" aria-label="Ver projetos"><ds-icon name="arrow-right"></ds-icon></a>
     </div>
     <p class="ds-hero__vertical">Coleção 2026</p>
+  </div>
+</section>`, 'html')}
+    </section>
+
+    <section class="doc-section">
+      <h2>Pôster</h2>
+      <p><code>ds-hero--poster</code>: o nome atravessa a seção e a imagem fica por cima, no centro.</p>
+      ${frame({ content: heroPoster({ id: 'ill-enso-poster-hero-page' }) })}
+      ${code(`
+<section class="ds-section ds-hero ds-hero--poster">
+  <div class="ds-container ds-hero__inner">
+    <p class="ds-hero__tagline">Tinta que acompanha o traço.</p>
+    <h1 class="ds-hero__title" style="--hero-poster-size: 30cqi"><b>sumi</b></h1>
+    <div class="ds-hero__media"><img src="frasco.png" alt=""></div>
+    <div class="ds-hero__actions">…</div>
+    <p class="ds-hero__aside">Nova coleção 2026</p>
+  </div>
+</section>`, 'html')}
+    </section>
+
+    <section class="doc-section">
+      <h2>Em moldura</h2>
+      <p><code>ds-hero--framed</code>: o hero vira um cartão; com <code>data-mode</code>, inverte as cores.</p>
+      ${frame({ content: heroFramed({ menuId: 'hero-menu-moldura', id: 'ill-landscape-framed-hero-page' }) })}
+      ${code(`
+<section class="ds-section ds-hero ds-hero--poster ds-hero--framed">
+  <div class="ds-container">
+    <div class="ds-hero__frame" data-mode="light">
+      <header class="ds-navbar ds-navbar--cells">…</header>
+      <div class="ds-hero__inner">
+        <p class="ds-hero__tagline">Ateliê de nanquim</p>
+        <h1 class="ds-hero__title"><b>Tinta</b> <span>viva</span></h1>
+        <div class="ds-hero__media"><img src="paisagem.jpg" alt=""></div>
+        <p class="ds-hero__aside">Aqui o traço pode errar.</p>
+      </div>
+    </div>
   </div>
 </section>`, 'html')}
     </section>

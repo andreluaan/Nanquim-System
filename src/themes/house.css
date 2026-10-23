@@ -1,81 +1,68 @@
-/* Camada 3: propostas de identidade da casa, ainda em avaliação. */
+/* Camada 3: paletas da casa, todas derivadas do nanquim pela aguada (src/themes/aguada.css).
+   Cada uma é só um pigmento, uma concentração e uma quantidade de água. */
 
-[data-theme="grafite"] {
-  --ds-neutral-hue: 70;
-  --ds-neutral-chroma: 0.006;
-  --ds-accent-hue: 75;
-  --ds-accent-chroma: 0.12;
-  --ds-accent-lightness: 0.78;
-  --ds-on-accent: oklch(0.2 0.03 75);
-}
-
-[data-theme="ardosia"] {
-  --ds-neutral-hue: 165;
-  --ds-neutral-chroma: 0.007;
-  --ds-neutral-tint-light: 1.2;
-  --ds-accent-hue: 155;
-  --ds-accent-chroma: 0.07;
-  --ds-accent-lightness: 0.75;
-  --ds-on-accent: oklch(0.2 0.03 155);
-}
-
-[data-theme="terracota"] {
-  --ds-neutral-hue: 40;
-  --ds-neutral-chroma: 0.008;
-  --ds-neutral-tint-light: 0.9;
-  --ds-accent-hue: 40;
-  --ds-accent-chroma: 0.12;
-  --ds-accent-lightness: 0.54;
-  --ds-on-accent: oklch(0.98 0.01 40);
-}
-
-[data-theme="aco"] {
-  --ds-neutral-hue: 255;
-  --ds-neutral-chroma: 0.012;
-  --ds-neutral-tint-light: 0.7;
-  --ds-accent-hue: 250;
-  --ds-accent-chroma: 0.09;
-  --ds-accent-lightness: 0.75;
-  --ds-on-accent: oklch(0.18 0.03 250);
-}
-
+/* Carvão: a tinta pura, sem pigmento. O destaque é branco no escuro e preto no papel. */
 [data-theme="neutro"] {
-  --ds-neutral-hue: 0;
-  --ds-neutral-chroma: 0;
-  --ds-accent-hue: 0;
-  --ds-accent-chroma: 0;
-  --ds-accent-lightness: 0.92;
-  --ds-on-accent: oklch(0.18 0 0);
+  --ds-pigment-hue: 0;
+  --ds-pigment: 0;
+  --ds-water: 0.92;
 }
 
-/* Sem cor, o destaque precisa inverter com o modo: branco no escuro, preto no claro. */
-[data-theme="neutro"][data-mode="light"] {
-  --ds-accent-lightness: 0.38;
-  --ds-on-accent: oklch(0.98 0 0);
+/* Vitrine (extraída de lojas de moda): carvão sobre papel quente. */
+[data-theme="vitrine"] {
+  --ds-pigment-hue: 80;
+  --ds-pigment: 0.15;
+  --ds-water: 0.93;
+}
+
+/* Verde-água (extraída de um site de grade escura): pouco pigmento verde, muita água. */
+[data-theme="grade"] {
+  --ds-pigment-hue: 150;
+  --ds-pigment: 0.45;
+  --ds-water: 0.93;
 }
 
 [data-font="editorial"] {
   --ds-font-display: "Fraunces", Georgia, serif;
   --ds-font-body: "Inter", system-ui, sans-serif;
   --ds-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --ds-display-transform: none;
 }
 
 [data-font="moderno"] {
   --ds-font-display: "Geist", system-ui, sans-serif;
   --ds-font-body: "Geist", system-ui, sans-serif;
   --ds-font-mono: "Geist Mono", ui-monospace, monospace;
+  --ds-display-transform: none;
 }
 
 [data-font="classico"] {
   --ds-font-display: "Instrument Serif", Georgia, serif;
   --ds-font-body: "DM Sans", system-ui, sans-serif;
   --ds-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --ds-display-transform: none;
 }
 
 [data-font="tecnico"] {
   --ds-font-display: "Space Grotesk", system-ui, sans-serif;
   --ds-font-body: "IBM Plex Sans", system-ui, sans-serif;
   --ds-font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --ds-display-transform: none;
+}
+
+/* Geométrica e condensada pedem títulos em caixa alta: --ds-display-transform leva isso a todos os títulos. */
+[data-font="geometrico"] {
+  --ds-font-display: "Jost", system-ui, sans-serif;
+  --ds-font-body: "Jost", system-ui, sans-serif;
+  --ds-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --ds-display-transform: uppercase;
+}
+
+[data-font="condensado"] {
+  --ds-font-display: "Oswald", "Arial Narrow", sans-serif;
+  --ds-font-body: "Inter", system-ui, sans-serif;
+  --ds-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --ds-display-transform: uppercase;
 }
 
 [data-radius="reto"] {

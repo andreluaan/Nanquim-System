@@ -92,6 +92,7 @@
   overflow: hidden;
   height: 0.74em;
   font-family: var(--ds-font-display);
+  text-transform: var(--ds-display-transform);
   font-size: 45cqi;
   font-weight: var(--ds-weight-bold);
   line-height: var(--ds-leading-none);

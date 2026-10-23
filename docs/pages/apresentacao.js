@@ -42,7 +42,7 @@ export default {
     <div class="pres-hero">
       <div class="pres-hero-art">${enso({ id: 'ill-enso-hero', color: 'currentColor', withPaper: false, animated: true })}</div>
       <div class="pres-hero-text">
-        <p class="doc-eyebrow">Nanquim System · v0.12</p>
+        <p class="doc-eyebrow">Nanquim System · v0.13</p>
         <p class="pres-quote">"Desenhar uma vez, usar em tudo."</p>
       </div>
     </div>

@@ -23,6 +23,7 @@
 .ds-feature__title {
   margin: 0;
   font-family: var(--ds-font-display);
+  text-transform: var(--ds-display-transform);
   font-size: var(--ds-text-xl);
   font-weight: var(--ds-weight-medium);
   line-height: var(--ds-leading-snug);
@@ -32,4 +33,31 @@
   margin: 0;
   font-size: var(--ds-text-sm);
   color: var(--ds-color-text-muted);
+}
+
+/* Em linha: ícone ao lado do texto, sem caixa (faixa de vantagens). */
+.ds-feature--inline {
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: var(--ds-space-4);
+  row-gap: var(--ds-space-1);
+}
+
+.ds-feature--inline .ds-feature__icon {
+  grid-row: span 2;
+  width: auto;
+  height: auto;
+  margin: 0;
+  border: 0;
+  background: none;
+  color: var(--ds-color-text);
+}
+
+.ds-feature--inline .ds-feature__icon ds-icon {
+  --icon-size: var(--ds-space-8);
+}
+
+.ds-feature--inline .ds-feature__title {
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-semibold);
+  letter-spacing: var(--ds-tracking-wide);
 }

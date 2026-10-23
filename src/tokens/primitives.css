@@ -119,7 +119,9 @@
   --ds-font-display: "Fraunces", Georgia, serif;
   --ds-font-body: "Inter", system-ui, sans-serif;
   --ds-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --ds-display-transform: none;
 
+  --ds-weight-light: 300;
   --ds-weight-regular: 400;
   --ds-weight-medium: 500;
   --ds-weight-semibold: 600;

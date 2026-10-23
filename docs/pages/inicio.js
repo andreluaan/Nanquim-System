@@ -89,7 +89,7 @@ export default {
 </style>
 
 <!-- só num trecho -->
-<section class="ds-section" data-theme="terracota" data-mode="light">…</section>`, 'html')}
+<section class="ds-section" data-theme="vitrine" data-mode="light">…</section>`, 'html')}
     </section>`,
   mount(el) {
     const handler = (e) => {

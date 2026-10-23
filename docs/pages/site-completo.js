@@ -1,17 +1,15 @@
 import { OPTIONS } from '../lab.js';
 import { contrast, contrastLabel, resolveVarColor, toast, copy } from '../utils.js';
-import { frame, fullSite, mountSiteDemos, setFrameWidth, TEMPLATES } from '../site-kit.js';
+import { frame, fullSite, mountSiteDemos, setFrameWidth, TEMPLATES, TEMPLATE_BRANDS } from '../site-kit.js';
 
 const MENU_ID = 'sumi-menu-completo';
 const DEFAULTS = { template: 'editorial', theme: 'nanquim', font: 'editorial', mode: 'dark', radius: 1, text: 1, space: 1 };
 
 // Cada controle deslizante escreve uma variável no site de exemplo; os tokens recalculam o resto.
 const SLIDERS = {
-  accentHue: { label: 'Matiz', variable: '--ds-accent-hue', min: 0, max: 360, step: 1, custom: true },
-  accentChroma: { label: 'Intensidade', variable: '--ds-accent-chroma', min: 0, max: 0.2, step: 0.005, custom: true },
-  accentLightness: { label: 'Luminosidade', variable: '--ds-accent-lightness', min: 0.3, max: 0.92, step: 0.01, custom: true },
-  neutralHue: { label: 'Tom dos cinzas', variable: '--ds-neutral-hue', min: 0, max: 360, step: 1, custom: true },
-  neutralChroma: { label: 'Cor nos cinzas', variable: '--ds-neutral-chroma', min: 0, max: 0.04, step: 0.001, custom: true },
+  pigmentHue: { label: 'Pigmento', variable: '--ds-pigment-hue', min: 0, max: 360, step: 1, custom: true, fallback: 265 },
+  pigment: { label: 'Concentração', variable: '--ds-pigment', min: 0, max: 1, step: 0.05, custom: true, fallback: 0.1 },
+  water: { label: 'Água', variable: '--ds-water', min: 0.3, max: 0.95, step: 0.01, custom: true, fallback: 0.9 },
   radius: { label: 'Cantos', variable: '--ds-radius-factor', min: 0, max: 2.5, step: 0.05, format: (v) => `${Math.round(v * 8)}px` },
   text: { label: 'Texto', variable: '--ds-text-scale', min: 0.85, max: 1.25, step: 0.05, format: (v) => `${Math.round(v * 100)}%` },
   space: { label: 'Espaço', variable: '--ds-space-scale', min: 0.75, max: 1.3, step: 0.05, format: (v) => `${Math.round(v * 100)}%` },
@@ -78,7 +76,7 @@ export default {
           ${swatches()}
           <details class="viz-more" data-custom>
             <summary>Cor própria</summary>
-            ${slider('accentHue')}${slider('accentChroma')}${slider('accentLightness')}${slider('neutralHue')}${slider('neutralChroma')}
+            ${slider('pigmentHue')}${slider('pigment')}${slider('water')}
           </details>
         </section>
         <section class="viz-group">
@@ -119,7 +117,10 @@ export default {
     const state = { ...DEFAULTS };
     let renderedTemplate = state.template;
 
-    const readVar = (name) => Number.parseFloat(getComputedStyle(page).getPropertyValue(name));
+    const readVar = (name, fallback) => {
+      const value = Number.parseFloat(getComputedStyle(page).getPropertyValue(name));
+      return Number.isNaN(value) ? fallback : value;
+    };
     const nameOf = (key) => OPTIONS[key].items.find((item) => item.id === state[key])?.name ?? '';
 
     function syncControls() {
@@ -128,7 +129,7 @@ export default {
         button.setAttribute(button.getAttribute('role') === 'radio' ? 'aria-checked' : 'aria-pressed', String(selected));
       });
       Object.entries(SLIDERS).forEach(([key, s]) => {
-        const value = state[key] ?? readVar(s.variable);
+        const value = state[key] ?? readVar(s.variable, s.fallback);
         viz.querySelector(`[data-slider="${key}"]`).value = value;
         viz.querySelector(`[data-output="${key}"]`).textContent = s.format ? s.format(value) : Number(value.toFixed(3));
       });
@@ -158,48 +159,43 @@ export default {
 
     function apply() {
       renderTemplate();
-      Object.assign(page.dataset, { theme: state.theme, font: state.font, mode: state.mode });
+      Object.assign(page.dataset, { theme: state.custom ? 'aguada' : state.theme, font: state.font, mode: state.mode });
+      page.querySelectorAll('[data-invert]').forEach((el) => { el.dataset.mode = state.mode === 'dark' ? 'light' : 'dark'; });
       ['radius', 'text', 'space'].forEach((key) => page.style.setProperty(SLIDERS[key].variable, state[key]));
       syncControls();
       measureContrast();
     }
 
-    // Mexer em uma cor cria uma paleta própria: todas as cores passam a vir do painel, não do tema.
+    // Mexer na cor cria uma paleta própria da aguada: o site passa a usar só pigmento, concentração e água,
+    // e os trechos invertidos herdam os três números.
+    const CUSTOM = Object.keys(SLIDERS).filter((key) => SLIDERS[key].custom);
+
     function setCustomColor(key, value) {
       if (!state.custom) {
-        Object.entries(SLIDERS).filter(([, s]) => s.custom).forEach(([k, s]) => { state[k] = readVar(s.variable); });
+        CUSTOM.forEach((k) => { state[k] = readVar(SLIDERS[k].variable, SLIDERS[k].fallback); });
         state.custom = true;
       }
       state[key] = value;
-      Object.entries(SLIDERS).filter(([, s]) => s.custom).forEach(([k, s]) => page.style.setProperty(s.variable, state[k]));
-      const onAccent = state.accentLightness > 0.62 ? `oklch(0.2 0.02 ${state.accentHue})` : `oklch(0.98 0.01 ${state.accentHue})`;
-      page.style.setProperty('--ds-on-accent', onAccent);
-      state.onAccent = onAccent;
+      CUSTOM.forEach((k) => page.style.setProperty(SLIDERS[k].variable, state[k]));
     }
 
     function clearCustomColor() {
-      Object.entries(SLIDERS).filter(([, s]) => s.custom).forEach(([k, s]) => {
-        page.style.removeProperty(s.variable);
+      CUSTOM.forEach((k) => {
+        page.style.removeProperty(SLIDERS[k].variable);
         delete state[k];
       });
-      page.style.removeProperty('--ds-on-accent');
-      delete state.onAccent;
       state.custom = false;
     }
 
     function themeCss() {
-      const value = (key) => Number((state[key] ?? readVar(SLIDERS[key].variable)).toFixed(3));
-      const onAccent = state.onAccent ?? getComputedStyle(page).getPropertyValue('--ds-on-accent').trim();
-      return `/* Marca gerada no visualizador do Nanquim System.
+      const value = (key) => Number(readVar(SLIDERS[key].variable, SLIDERS[key].fallback).toFixed(3));
+      return `/* Marca gerada no visualizador do Nanquim System: o nanquim com um pigmento e água.
    Salve como src/themes/minha-marca.css, importe em src/index.css e use:
    <html data-theme="minha-marca" data-font="${state.font}" data-mode="${state.mode}"> */
 [data-theme="minha-marca"] {
-  --ds-neutral-hue: ${value('neutralHue')};
-  --ds-neutral-chroma: ${value('neutralChroma')};
-  --ds-accent-hue: ${value('accentHue')};
-  --ds-accent-chroma: ${value('accentChroma')};
-  --ds-accent-lightness: ${value('accentLightness')};
-  --ds-on-accent: ${onAccent};
+  --ds-pigment-hue: ${value('pigmentHue')};
+  --ds-pigment: ${value('pigment')};
+  --ds-water: ${value('water')};
   --ds-radius-factor: ${state.radius};
   --ds-text-scale: ${state.text};
   --ds-space-scale: ${state.space};
@@ -228,6 +224,10 @@ export default {
       if (choice) {
         if (choice.dataset.choice === 'theme') clearCustomColor();
         state[choice.dataset.choice] = choice.dataset.value;
+        if (choice.dataset.choice === 'template') {
+          clearCustomColor();
+          Object.assign(state, TEMPLATE_BRANDS[state.template]);
+        }
         apply();
       }
 
@@ -261,13 +261,17 @@ export default {
     };
     document.addEventListener('keydown', onKeydown);
 
-    // ?marca=terracota&modo=light&modelo=classico já abre o exemplo assim: serve para links diretos e para os prints do diário.
+    // ?modelo=vitrine&marca=neutro&modo=light (ou ?pigmento=&concentracao=&agua=, vindo do Laboratório de paletas)
+    // já abre o exemplo assim: serve para links diretos e para os prints do diário.
     const params = new URLSearchParams(location.search);
+    if (TEMPLATES.some(([id]) => id === params.get('modelo'))) Object.assign(state, { template: params.get('modelo') }, TEMPLATE_BRANDS[params.get('modelo')]);
     if (OPTIONS.theme.items.some((item) => item.id === params.get('marca'))) state.theme = params.get('marca');
     if (OPTIONS.mode.items.some((item) => item.id === params.get('modo'))) state.mode = params.get('modo');
-    if (TEMPLATES.some(([id]) => id === params.get('modelo'))) state.template = params.get('modelo');
-    const presets = { terracota: { font: 'classico', radius: 1.75 }, ardosia: { font: 'moderno' }, aco: { font: 'tecnico', radius: 0.25 } };
-    Object.assign(state, presets[state.theme] ?? {});
+    if (params.has('pigmento')) {
+      setCustomColor('pigmentHue', Number(params.get('pigmento')));
+      setCustomColor('pigment', Number(params.get('concentracao') ?? 0.5));
+      setCustomColor('water', Number(params.get('agua') ?? 0.8));
+    }
     apply();
     if (params.has('tela-cheia')) setFullscreen(true);
 

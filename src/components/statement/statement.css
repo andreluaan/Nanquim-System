@@ -3,6 +3,7 @@
   max-width: 28ch;
   margin: 0;
   font-family: var(--ds-font-display);
+  text-transform: var(--ds-display-transform);
   font-size: clamp(var(--ds-text-3xl), 5cqi, var(--ds-text-6xl));
   font-weight: var(--ds-weight-medium);
   line-height: var(--ds-leading-tight);

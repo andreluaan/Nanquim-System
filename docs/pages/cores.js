@@ -56,7 +56,7 @@ export default {
 
     <section class="doc-section">
       <h2>As escalas</h2>
-      <p>12 tons por cor. Passe o mouse para ver a função de cada um.</p>
+      <p>12 tons por cor, como a tinta com cada vez mais água. Crie a sua no <a href="#paletas">Laboratório de paletas</a>.</p>
       ${scale('neutral', 'Neutros')}
       ${scale('accent', 'Destaque')}
       <div class="color-legend">

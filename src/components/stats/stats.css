@@ -17,6 +17,7 @@
 .ds-stats__value {
   margin: 0;
   font-family: var(--ds-font-display);
+  text-transform: var(--ds-display-transform);
   font-size: var(--ds-text-6xl);
   font-weight: var(--ds-weight-medium);
   line-height: var(--ds-leading-none);
