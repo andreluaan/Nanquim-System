@@ -30,3 +30,4 @@ para posts (LinkedIn, portfólio).
 | 008 | 2026-10-23 | [Formulários](008-formularios.md) | Campos nativos estilizados, checkbox/radio/switch, formulário de contato com validação acessível |
 | 009 | 2026-10-23 | [Carrossel e slides](009-carrossel.md) | `<ds-carousel>` com arraste, setas, indicadores, teclado e autoplay que pausa; banner, cards, depoimentos e galeria |
 | 010 | 2026-10-23 | [Modal, gaveta e tooltip](010-modal-gaveta-tooltip.md) | `<dialog>` nativo vestido com os tokens, gaveta em 3 lados, `<ds-tooltip>` que abre pelo teclado e vira de lado |
+| 011 | 2026-10-23 | [Seções de site](011-secoes-de-site.md) | Navbar, hero, recursos, preços, depoimentos, chamada e rodapé; landing de exemplo que troca de marca; container queries |
