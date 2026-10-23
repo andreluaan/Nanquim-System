@@ -32,6 +32,7 @@ const SHOTS = [
   ['03c-badges', 'badges', {}, DESKTOP],
   ['03d-cards', 'cards', {}, DESKTOP],
   ['03e-formularios', 'formularios', {}, DESKTOP],
+  ['03f-carrossel', 'carrossel', {}, DESKTOP],
   ['04-modo-claro', '', { mode: 'light' }, DESKTOP],
   ['05-laboratorio', '', { lab: '' }, DESKTOP],
   ['06-mobile', '', {}, MOBILE],

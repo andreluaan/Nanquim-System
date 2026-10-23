@@ -6,8 +6,8 @@ const ITEMS = [
   { name: 'Botões e botões de ícone', status: 'feito' },
   { name: 'Badges e cards', status: 'feito' },
   { name: 'Campos de formulário', status: 'feito' },
-  { name: 'Carrossel e slides', status: 'próximo' },
-  { name: 'Modal, gaveta, tooltip', status: 'depois' },
+  { name: 'Carrossel e slides', status: 'feito' },
+  { name: 'Modal, gaveta, tooltip', status: 'próximo' },
   { name: 'Seções de site: hero, navbar, rodapé, preços, depoimentos', status: 'depois' },
 ];
 

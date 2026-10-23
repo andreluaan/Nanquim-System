@@ -36,6 +36,7 @@ const SHOTS = [
   ['09b-badges', 'badges', {}, DESKTOP],
   ['09c-cards', 'cards', {}, DESKTOP],
   ['09d-formularios', 'formularios', {}, DESKTOP],
+  ['09e-carrossel', 'carrossel', {}, DESKTOP],
   ['10-laboratorio', 'inicio', { lab: '' }, DESKTOP],
   ['11-paleta-grafite', 'cores', { theme: 'grafite' }, DESKTOP],
   ['12-paleta-ardosia', 'cores', { theme: 'ardosia', font: 'moderno' }, DESKTOP],
@@ -55,7 +56,10 @@ const SHOTS = [
   ['33-mobile-icones', 'icones', {}, MOBILE],
   ['34-mobile-cards', 'cards', {}, MOBILE],
   ['35-mobile-formularios', 'formularios', {}, MOBILE],
+  ['36-mobile-carrossel', 'carrossel', {}, MOBILE],
   ['40-apresentacao-completa', 'apresentacao', {}, FULL_PAGE],
+  ['43-carrossel-completo', 'carrossel', {}, FULL_PAGE],
+  ['44-carrossel-papel', 'carrossel', { mode: 'light' }, DESKTOP],
 ];
 
 try {

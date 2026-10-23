@@ -10,8 +10,9 @@ import icones from './pages/icones.js';
 import badges from './pages/badges.js';
 import cards from './pages/cards.js';
 import formularios from './pages/formularios.js';
+import carrossel from './pages/carrossel.js';
 import roadmap from './pages/roadmap.js';
 
 export const groups = ['Começo', 'Fundações', 'Componentes', 'Projeto'];
 
-export const pages = [apresentacao, inicio, cores, tipografia, espacamento, elevacao, movimento, botoes, icones, badges, cards, formularios, roadmap];
+export const pages = [apresentacao, inicio, cores, tipografia, espacamento, elevacao, movimento, botoes, icones, badges, cards, formularios, carrossel, roadmap];

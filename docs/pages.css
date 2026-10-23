@@ -1219,3 +1219,153 @@ kbd {
     padding: var(--ds-space-5);
   }
 }
+
+/* --- Carrossel --------------------------------------------------------- */
+.carousel-play-preview {
+  display: block;
+}
+
+.carousel-demo-slide {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--ds-radius-lg);
+  aspect-ratio: 4 / 3;
+}
+
+.carousel-demo-slide svg,
+.carousel-gallery figure svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-demo-slide figcaption {
+  position: absolute;
+  bottom: var(--ds-space-3);
+  left: var(--ds-space-3);
+  padding: var(--ds-space-1) var(--ds-space-3);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-surface-raised);
+  font-size: var(--ds-text-xs);
+  font-weight: var(--ds-weight-medium);
+  color: var(--ds-color-text);
+}
+
+ds-carousel[variant="overlay"] .carousel-demo-slide figcaption {
+  top: var(--ds-space-3);
+  bottom: auto;
+}
+
+.carousel-play-preview ds-carousel:not([per-view]) .carousel-demo-slide {
+  aspect-ratio: 16 / 7;
+}
+
+.carousel-hero-slide {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-surface);
+}
+
+.carousel-hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--ds-space-3);
+  padding: var(--ds-space-10);
+}
+
+.doc-section .carousel-hero .carousel-hero-title {
+  margin: 0;
+  font-family: var(--ds-font-display);
+  font-size: var(--ds-text-3xl);
+  font-weight: var(--ds-weight-medium);
+  line-height: var(--ds-leading-tight);
+  letter-spacing: var(--ds-tracking-tight);
+}
+
+.carousel-hero-text > p:not(.ds-card__eyebrow) {
+  margin: 0 0 var(--ds-space-3);
+  color: var(--ds-color-text-muted);
+}
+
+.carousel-hero-art {
+  min-height: 320px;
+}
+
+.carousel-hero-art svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* O card levanta no hover; sem esse respiro, a rolagem do trilho cortaria a sombra. */
+.carousel-cards .ds-carousel__track {
+  margin-block: calc(-1 * var(--ds-space-2));
+  padding-block: var(--ds-space-2);
+}
+
+.carousel-quote blockquote {
+  flex: 1;
+  margin: 0;
+  font-family: var(--ds-font-display);
+  font-size: var(--ds-text-lg);
+  line-height: var(--ds-leading-snug);
+}
+
+.carousel-quote figcaption {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-3);
+  margin-top: var(--ds-space-4);
+}
+
+.carousel-quote strong {
+  color: var(--ds-color-text);
+}
+
+.carousel-gallery figure {
+  margin: 0;
+  aspect-ratio: 21 / 9;
+}
+
+.carousel-a11y {
+  display: grid;
+  gap: var(--ds-space-3);
+  margin: 0 0 var(--ds-space-6);
+  padding: 0;
+  list-style: none;
+}
+
+.carousel-a11y li {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-3);
+  color: var(--ds-color-text-muted);
+}
+
+.carousel-a11y ds-icon {
+  color: var(--ds-color-accent-text);
+}
+
+@media (max-width: 860px) {
+  .carousel-hero-slide {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-hero-text {
+    padding: var(--ds-space-6);
+  }
+
+  .carousel-hero-art {
+    min-height: 180px;
+    order: -1;
+  }
+
+  .carousel-gallery figure {
+    aspect-ratio: 4 / 3;
+  }
+}

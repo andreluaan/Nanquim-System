@@ -1,0 +1,169 @@
+ds-carousel {
+  --carousel-per-view: 1;
+  --carousel-gap: var(--ds-space-4);
+  --carousel-interval: 6000ms;
+
+  position: relative;
+  display: block;
+}
+
+.ds-carousel__track {
+  display: flex;
+  gap: var(--carousel-gap);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  border-radius: var(--ds-radius-lg);
+}
+
+.ds-carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.ds-carousel__track:focus-visible {
+  outline: none;
+  box-shadow: var(--ds-focus-ring);
+}
+
+.ds-carousel__track > * {
+  flex: 0 0 calc((100% - (var(--carousel-per-view) - 1) * var(--carousel-gap)) / var(--carousel-per-view));
+  min-width: 0;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.ds-carousel__track[data-dragging] {
+  scroll-snap-type: none;
+  cursor: grabbing;
+  user-select: none;
+}
+
+@media (pointer: fine) {
+  .ds-carousel__track {
+    cursor: grab;
+  }
+}
+
+.ds-carousel__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  margin-top: var(--ds-space-4);
+}
+
+.ds-carousel__controls[hidden] {
+  display: none;
+}
+
+.ds-carousel__dots {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.ds-carousel__dot {
+  display: grid;
+  place-items: center;
+  height: var(--ds-space-6);
+  padding-inline: var(--ds-space-1);
+  border: 0;
+  border-radius: var(--ds-radius-full);
+  background: transparent;
+  cursor: pointer;
+}
+
+.ds-carousel__dot::before {
+  content: "";
+  width: var(--ds-space-2);
+  height: var(--ds-space-2);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-text-subtle);
+  transition:
+    width var(--ds-duration-base) var(--ds-ease-out),
+    background-color var(--ds-duration-fast) var(--ds-ease-out);
+}
+
+.ds-carousel__dot:hover::before {
+  background-color: var(--ds-color-text-muted);
+}
+
+.ds-carousel__dot:focus-visible {
+  outline: none;
+  box-shadow: var(--ds-focus-ring);
+}
+
+.ds-carousel__dot[aria-current]::before {
+  width: var(--ds-space-6);
+  background-color: var(--ds-color-accent);
+}
+
+/* No autoplay, o indicador ativo vira uma barra que enche no ritmo da troca. */
+ds-carousel[autoplay] .ds-carousel__dot[aria-current]::before {
+  background:
+    linear-gradient(var(--ds-color-accent), var(--ds-color-accent)) left / 0% 100% no-repeat,
+    var(--ds-color-border-strong);
+  animation: ds-carousel-progress var(--carousel-interval) linear forwards;
+}
+
+ds-carousel[data-paused] .ds-carousel__dot[aria-current]::before {
+  animation-play-state: paused;
+}
+
+@keyframes ds-carousel-progress {
+  to {
+    background-size: 100% 100%, auto;
+  }
+}
+
+ds-carousel[variant="overlay"] .ds-carousel__controls {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+ds-carousel[variant="overlay"] .ds-carousel__controls > * {
+  position: absolute;
+  pointer-events: auto;
+}
+
+ds-carousel[variant="overlay"] .ds-carousel__controls > :not(:focus-visible) {
+  box-shadow: var(--ds-shadow-md);
+}
+
+ds-carousel[variant="overlay"] .ds-carousel__prev,
+ds-carousel[variant="overlay"] .ds-carousel__next {
+  top: 50%;
+  translate: 0 -50%;
+}
+
+ds-carousel[variant="overlay"] .ds-carousel__prev {
+  left: var(--ds-space-3);
+}
+
+ds-carousel[variant="overlay"] .ds-carousel__next {
+  right: var(--ds-space-3);
+}
+
+ds-carousel[variant="overlay"] .ds-carousel__play {
+  bottom: var(--ds-space-3);
+  left: var(--ds-space-3);
+}
+
+ds-carousel[variant="overlay"] .ds-carousel__dots {
+  bottom: var(--ds-space-3);
+  left: 50%;
+  flex: none;
+  padding-inline: var(--ds-space-2);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-surface-raised);
+  translate: -50% 0;
+}
+
+@media (max-width: 600px) {
+  ds-carousel[per-view] .ds-carousel__track > * {
+    flex-basis: 85%;
+  }
+}
