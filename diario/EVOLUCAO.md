@@ -20,6 +20,7 @@ geradas a partir do próprio histórico com `npm run evolucao`.
 | [v0.5.0](#v050--badges-e-cards) | 2026-10-22 | Badges e cards | 12 | 4 | Nanquim + 5 + marca de exemplo |
 | [v0.6.0](#v060--formulários) | 2026-10-23 | Formulários | 13 | 5 | Nanquim + 5 + marca de exemplo |
 | [v0.7.0](#v070--carrossel-e-slides) | 2026-10-23 | Carrossel e slides | 14 | 6 | Nanquim + 5 + marca de exemplo |
+| [v0.8.0](#v080--modal-gaveta-e-tooltip) | 2026-10-23 | Modal, gaveta e tooltip | 15 | 8 | Nanquim + 5 + marca de exemplo |
 
 ### A mesma tela em cada versão
 
@@ -177,6 +178,20 @@ Todas as paletas no modo claro, depois do ajuste:
 | Carrossel | Carrossel (papel) |
 |---|---|
 | ![](evolucao/v0.7.0/03f-carrossel.png) | ![](prints/2026-10-23_carrossel/44-carrossel-papel.png) |
+
+---
+
+## v0.8.0 — Modal, gaveta e tooltip
+
+*2026-10-23 · tag `v0.8.0` · diário: [010](010-modal-gaveta-tooltip.md)*
+
+- Modal sobre o `<dialog>` nativo: foco preso, Esc e página travada por trás, aberto só com um atributo no botão
+- Gaveta pela direita, pela esquerda ou de baixo, para menu, carrinho e filtros
+- `<ds-tooltip>`: balão que abre pelo mouse e pelo teclado, fecha com Esc e muda de lado quando não cabe
+
+| Modal | Gaveta (papel) |
+|---|---|
+| ![](evolucao/v0.8.0/03g-modal.png) | ![](prints/2026-10-23_sobreposicoes/47-gaveta-papel.png) |
 
 ---
 
