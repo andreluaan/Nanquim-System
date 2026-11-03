@@ -4,7 +4,7 @@ Como o projeto mudou, versão a versão, em fotos. Cada versão tem uma **tag no
 exatamente àquele estado), e todas as capturas abaixo foram feitas do mesmo jeito: mesmas telas, mesmo tamanho,
 geradas a partir do próprio histórico com `npm run evolucao`.
 
-**Documentação ao vivo:** https://andreluaan.github.io/Nanquim-System/ · **Versão em PDF:** [Sumi-System-Evolucao.pdf](Sumi-System-Evolucao.pdf)
+**Documentação ao vivo:** https://andreluaan.github.io/Sumi-System/ · **Versão em PDF:** [Sumi-System-Evolucao.pdf](Sumi-System-Evolucao.pdf)
 
 ## Linha do tempo
 

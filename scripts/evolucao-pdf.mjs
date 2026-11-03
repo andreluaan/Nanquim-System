@@ -191,7 +191,7 @@ const html = `<!doctype html>
       <h1>Sumi System</h1>
       <p class="cover-subtitle">Evolução do projeto, versão a versão</p>
     </div>
-    <div class="cover-meta">Versão atual ${version} · gerado em ${today} · andreluaan.github.io/Nanquim-System</div>
+    <div class="cover-meta">Versão atual ${version} · gerado em ${today} · andreluaan.github.io/Sumi-System</div>
   </section>
   ${body}
 </body>
