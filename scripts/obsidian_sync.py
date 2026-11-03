@@ -1,6 +1,6 @@
 # Uso: npm run obsidian
 # Copia o diário para o cofre do Obsidian: uma nota por etapa, imagens em Anexos e as capturas da evolução.
-# A nota principal (Nanquim System.md) é escrita à mão e não é tocada por este script.
+# A nota principal (Sumi System.md) é escrita à mão e não é tocada por este script.
 import os
 import re
 import shutil
@@ -10,10 +10,10 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding='utf-8')
 
 VAULT = Path(os.environ.get('OBSIDIAN_VAULT', r'C:\PROJETOS DE PROGRAMAÇÃO\Segundo Cérebro'))
-NOTES_DIR = VAULT / '3-Recursos' / 'Meus Projetos' / 'Nanquim System'
-ATTACHMENTS_DIR = VAULT / '3-Recursos' / 'Anexos' / 'Nanquim System'
+NOTES_DIR = VAULT / '03 Projetos' / 'Sumi System'
+ATTACHMENTS_DIR = VAULT / '99 Sistema' / 'Anexos' / 'Sumi System'
 DIARY = Path('diario')
-MAIN_NOTE = 'Nanquim System'
+MAIN_NOTE = 'Sumi System'
 
 IMAGE = re.compile(r'!\[[^\]]*\]\((prints/[^)]+\.png)\)')
 FILE_LINK = re.compile(r'\[[^\]]*\]\((prints/[^)]+\.png)\)')
@@ -23,7 +23,7 @@ ENTRY_LINK = re.compile(r'\[([^\]]+)\]\((\d{3}-[^)]+\.md)\)')
 
 def attachment_name(relative_path):
     folder, file = Path(relative_path).parts[-2:]
-    return f'nanquim-{folder}-{file}'
+    return f'sumi-{folder}-{file}'
 
 
 def copy_attachment(relative_path):
@@ -40,7 +40,7 @@ def entry_title(path):
 
 def note_name(path):
     number, title = entry_title(path)
-    return f'Nanquim {number} - {title}'
+    return f'Sumi {number} - {title}'
 
 
 def convert(path, names, previous, following):
@@ -73,7 +73,7 @@ def convert(path, names, previous, following):
         'tags: [projeto]',
         '---',
         '',
-        f'# Nanquim {number} — {title}',
+        f'# Sumi {number} — {title}',
         '',
         ' · '.join(nav),
         '',
@@ -85,12 +85,12 @@ def convert(path, names, previous, following):
 def copy_evolution():
     evolution = DIARY / 'evolucao'
     for strip in evolution.glob('linha-do-tempo-*.png'):
-        shutil.copy2(strip, ATTACHMENTS_DIR / f'nanquim-{strip.name}')
+        shutil.copy2(strip, ATTACHMENTS_DIR / f'sumi-{strip.name}')
     for version in (p for p in evolution.glob('v*') if p.is_dir()):
         for shot, label in [('01-abertura', 'abertura'), ('04-modo-claro', 'modo-claro')]:
             source = version / f'{shot}.png'
             if source.exists():
-                shutil.copy2(source, ATTACHMENTS_DIR / f'nanquim-{version.name}-{label}.png')
+                shutil.copy2(source, ATTACHMENTS_DIR / f'sumi-{version.name}-{label}.png')
     pdf = DIARY / 'Sumi-System-Evolucao.pdf'
     if pdf.exists():
         shutil.copy2(pdf, ATTACHMENTS_DIR / pdf.name)
